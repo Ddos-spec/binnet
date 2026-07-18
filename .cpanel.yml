@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/binnetbi/public_html
+    - /bin/cp -r $CPANEL_SOURCE_DIR/. $DEPLOYPATH/
