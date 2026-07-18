@@ -1,4 +1,4 @@
-name: Deploy to Hoster.co.id via SFTP
+name: Deploy to Hoster.co.id via FTPS
 
 on:
   push:
@@ -24,24 +24,22 @@ jobs:
       - name: Build Astro site
         run: npm run build
 
-      - name: Install sshpass
-        run: sudo apt-get install -y sshpass
+      - name: Install lftp
+        run: sudo apt-get install -y lftp
 
-      - name: Setup SSH key
+      - name: Deploy via FTPS
         env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          FTP_HOST: ${{ secrets.SSH_HOST }}
+          FTP_USER: vercel@binnet.biz.id
+          FTP_PASS: ${{ secrets.FTP_PASS }}
         run: |
-          mkdir -p ~/.ssh
-          printf '%s\n' "$SSH_PRIVATE_KEY" > ~/.ssh/github_deploy
-          chmod 600 ~/.ssh/github_deploy
-
-      - name: Deploy via rsync over SSH
-        env:
-          SSH_PASSPHRASE: ${{ secrets.SSH_PASSPHRASE }}
-          SSH_HOST: ${{ secrets.SSH_HOST }}
-          SSH_USER: ${{ secrets.SSH_USER }}
-        run: |
-          sshpass -P passphrase -p "$SSH_PASSPHRASE" rsync -avz --delete \
-            -e "ssh -i ~/.ssh/github_deploy -p 22 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" \
-            dist/ \
-            "$SSH_USER@$SSH_HOST:/home/binnetbi/public_html/"
+          lftp -c "
+            set ftp:ssl-allow yes;
+            set ftp:ssl-force no;
+            set ssl:verify-certificate no;
+            set net:timeout 30;
+            set net:max-retries 3;
+            open -u \"$FTP_USER\",\"$FTP_PASS\" ftp://$FTP_HOST;
+            mirror --reverse --delete --verbose dist/ /public_html/;
+            bye
+          "
