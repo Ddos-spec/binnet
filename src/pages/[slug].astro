@@ -161,8 +161,9 @@ if (!page) return Astro.redirect('/404');
   )}
 
   {slug === 'testomonials' && (
-    <section class="section all-reviews"><div class="container review-stack">
+    <section class="section all-reviews"><div class="container review-stack" tabindex="0" aria-label="Testimoni pelanggan BINNET">
       {testimonials.map((item, index) => <blockquote class="full-review reveal"><span>{String(index + 1).padStart(2, '0')}</span><p>“{item.quote}”</p><footer><strong>{item.name}</strong><small>{item.profession}</small></footer></blockquote>)}
+      <p class="review-swipe-hint">Geser untuk melihat testimoni lainnya <span>→</span></p>
     </div></section>
   )}
 </Layout>
@@ -280,6 +281,7 @@ if (!page) return Astro.redirect('/404');
   .full-review > p { max-width: 850px; font-family: 'Space Grotesk'; font-size: clamp(1.5rem, 3.3vw, 3rem); letter-spacing: -.045em; line-height: 1.2; }
   .full-review footer { display: grid; font-size: .72rem; }
   .full-review footer small { color: var(--muted); }
+  .review-swipe-hint { display: none; }
 
   @media (max-width: 850px) {
     .split-story, .service-detail, .coverage-grid, .contact-grid, .faq-grid, .help-grid, .pricing-feature { grid-template-columns: 1fr; }
@@ -294,6 +296,12 @@ if (!page) return Astro.redirect('/404');
     .price-row { grid-template-columns: 35px .6fr 1fr 70px; gap: 1rem; }
     .price-use { display: none; }
     .contact-primary > a { font-size: clamp(4rem, 18vw, 8rem); }
+    .review-stack { display: flex; gap: 1rem; overflow-x: auto; margin-right: -24px; padding: 0 24px .8rem 0; border: 0; scroll-snap-type: x mandatory; scrollbar-width: none; overscroll-behavior-inline: contain; }
+    .review-stack::-webkit-scrollbar { display: none; }
+    .full-review { min-width: min(76vw, 580px); min-height: 380px; display: flex; flex-direction: column; gap: 0; padding: 2rem; border: 1px solid var(--line); border-radius: 24px; background: var(--paper); scroll-snap-align: start; scroll-snap-stop: always; }
+    .full-review > span { font-size: .76rem; font-weight: 800; }
+    .full-review > p { margin: 2.2rem 0; line-height: 1.35; }
+    .full-review footer { margin-top: auto; font-size: .82rem; }
   }
   @media (max-width: 600px) {
     .team-mosaic { min-height: 70svh; }
@@ -306,8 +314,10 @@ if (!page) return Astro.redirect('/404');
     .gallery-grid { grid-template-columns: 1fr; }
     .gallery-item.wide { grid-column: auto; }
     .gallery-item.wide img { aspect-ratio: 4 / 3; }
-    .full-review { grid-template-columns: 30px 1fr; gap: 1rem; }
-    .full-review footer { grid-column: 2; }
+    .review-stack { gap: .9rem; margin-right: -16px; padding-right: 16px; }
+    .full-review { min-width: min(86vw, 370px); min-height: 360px; padding: 1.5rem; }
+    .full-review > p { margin: 2.2rem 0; font-size: clamp(1.35rem, 7vw, 2rem); line-height: 1.35; }
+    .review-swipe-hint { position: absolute; display: none; }
   }
 </style>
 
