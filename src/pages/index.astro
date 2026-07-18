@@ -76,9 +76,18 @@ import { blogPosts, plans, promoBenefits, services, testimonials, whatsappLink }
     </div>
   </section>
 
-  <dialog class="promo-modal" id="promo-modal">
-    <button type="button" id="promo-close" aria-label="Tutup flyer">×</button>
-    <img src="/media/generated/promo-binnet-special.webp" alt="Flyer lengkap special promo BINNET" width="1024" height="1536" />
+  <dialog class="promo-modal" id="promo-modal" aria-labelledby="promo-modal-title">
+    <div class="promo-modal-card">
+      <div class="promo-modal-top">
+        <div><span>Promo Juli 2026</span><strong id="promo-modal-title">Koneksi cepat, harga hemat.</strong></div>
+        <button type="button" id="promo-close" aria-label="Tutup promo">×</button>
+      </div>
+      <img src="/media/generated/promo-binnet-special.webp" alt="Flyer lengkap special promo BINNET" width="1024" height="1536" />
+      <div class="promo-modal-cta">
+        <p>Mulai <strong>Rp149.000/bulan</strong><span>Harga dan ketersediaan mengikuti pengecekan area.</span></p>
+        <a href={whatsappLink('Halo BINNET, saya ingin cek promo Juli 2026 dan ketersediaan jaringan di alamat saya.')} target="_blank" rel="noopener">Cek area ↗</a>
+      </div>
+    </div>
   </dialog>
 
   <section class="section manifesto">
@@ -251,10 +260,22 @@ import { blogPosts, plans, promoBenefits, services, testimonials, whatsappLink }
   .promo-cta > div span { color: var(--red); font-size: .57rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
   .promo-cta > div strong { font-family: 'Space Grotesk'; font-size: 1rem; }
   .promo-terms { margin-top: .8rem; color: rgba(255,255,255,.38); font-size: .58rem; }
-  .promo-modal { width: min(92vw, 650px); max-height: 92svh; padding: 0; overflow: visible; border: 0; border-radius: 24px; background: transparent; box-shadow: 0 36px 100px rgba(0,0,0,.5); }
+  .promo-modal { width: min(calc(100vw - 28px), 560px); max-height: 92svh; padding: 0; overflow: hidden; border: 1px solid rgba(167,237,82,.45); border-radius: 28px; background: var(--ink); color: var(--white); box-shadow: 0 36px 100px rgba(0,0,0,.58), 0 0 0 1px rgba(37,212,245,.18); }
   .promo-modal::backdrop { background: rgba(2,12,25,.84); backdrop-filter: blur(15px); }
-  .promo-modal img { width: 100%; max-height: 90svh; object-fit: contain; border-radius: 20px; }
-  .promo-modal button { position: absolute; z-index: 2; top: -18px; right: -18px; width: 44px; height: 44px; border: 0; border-radius: 50%; background: var(--lime); color: var(--ink); font-size: 1.5rem; cursor: pointer; }
+  .promo-modal-card { max-height: 92svh; overflow-y: auto; }
+  .promo-modal-top { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 68px; padding: .85rem 1rem .85rem 1.25rem; background: linear-gradient(110deg, rgba(37,212,245,.16), rgba(167,237,82,.08)); }
+  .promo-modal-top div { display: grid; gap: .25rem; }
+  .promo-modal-top span { color: var(--lime); font-size: .57rem; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; }
+  .promo-modal-top strong { font-family: 'Space Grotesk'; font-size: clamp(.95rem, 2vw, 1.15rem); letter-spacing: -.03em; }
+  .promo-modal img { width: 100%; max-height: min(67svh, 780px); object-fit: contain; }
+  .promo-modal button { display: grid; width: 38px; height: 38px; flex: 0 0 38px; place-items: center; border: 1px solid rgba(255,255,255,.22); border-radius: 50%; background: rgba(255,255,255,.07); color: var(--white); font-size: 1.45rem; cursor: pointer; transition: background .2s, color .2s, transform .2s; }
+  .promo-modal button:hover { transform: rotate(90deg); background: var(--lime); color: var(--ink); }
+  .promo-modal button:focus-visible, .promo-modal-cta a:focus-visible { outline: 3px solid var(--lime); outline-offset: 3px; }
+  .promo-modal-cta { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .9rem 1rem .9rem 1.25rem; background: #071621; }
+  .promo-modal-cta p { display: grid; gap: .2rem; color: rgba(255,255,255,.68); font-size: .62rem; }
+  .promo-modal-cta p strong { color: var(--white); font-size: .78rem; }
+  .promo-modal-cta p span { color: rgba(255,255,255,.4); font-size: .53rem; }
+  .promo-modal-cta a { flex: 0 0 auto; padding: .75rem .9rem; border-radius: 999px; background: var(--lime); color: var(--ink); font-size: .65rem; font-weight: 800; }
 
   .manifesto { background: var(--paper); }
   .manifesto-grid { display: grid; grid-template-columns: .45fr 1.55fr; gap: clamp(2rem, 8vw, 9rem); align-items: start; }
@@ -388,7 +409,9 @@ import { blogPosts, plans, promoBenefits, services, testimonials, whatsappLink }
     .promo-cta { align-items: stretch; flex-direction: column; padding: 1.2rem; }
     .promo-cta .button { width: 100%; }
     .promo-modal { width: calc(100vw - 28px); }
-    .promo-modal button { top: 8px; right: 8px; }
+    .promo-modal img { max-height: 62svh; }
+    .promo-modal-cta { align-items: flex-start; flex-direction: column; }
+    .promo-modal-cta a { width: 100%; text-align: center; }
     .plan { min-height: 465px; border-left: 1px solid var(--line); }
     .plan:hover, .plan.recommended { transform: none; }
     .review-grid, .journal-grid { grid-template-columns: 1fr; }
@@ -412,7 +435,15 @@ import { blogPosts, plans, promoBenefits, services, testimonials, whatsappLink }
   }
 
   const promoModal = document.querySelector<HTMLDialogElement>('#promo-modal');
-  document.querySelector('#promo-open')?.addEventListener('click', () => promoModal?.showModal());
+  const promoSeenKey = 'binnet-promo-july-2026-seen';
+  const openPromo = () => {
+    if (!promoModal?.open) {
+      promoModal?.showModal();
+      sessionStorage.setItem(promoSeenKey, '1');
+    }
+  };
+  document.querySelector('#promo-open')?.addEventListener('click', openPromo);
   document.querySelector('#promo-close')?.addEventListener('click', () => promoModal?.close());
   promoModal?.addEventListener('click', event => { if (event.target === promoModal) promoModal.close(); });
+  if (!sessionStorage.getItem(promoSeenKey)) window.setTimeout(openPromo, 1200);
 </script>
