@@ -1,0 +1,295 @@
+---
+import Layout from '../layouts/Layout.astro';
+import fs from 'node:fs';
+import path from 'node:path';
+
+// Load homepage content from WP scrape
+const summaryPath = path.resolve('../../scraped/summary.json');
+const summary = JSON.parse(fs.readFileSync(summaryPath, 'utf-8'));
+
+// Find the main "home" page
+const homePage = summary.pages.find((p: any) => p.slug === 'home') 
+  || summary.pages.find((p: any) => p.slug === 'home-07')
+  || summary.pages[0];
+
+// Load its content
+const pagesDir = path.resolve('../../scraped/pages');
+const files = fs.readdirSync(pagesDir);
+const matchFile = files.find((f: string) => f.includes(`-${homePage?.slug}.md`));
+
+let htmlContent = '';
+if (matchFile) {
+  const raw = fs.readFileSync(path.join(pagesDir, matchFile), 'utf-8');
+  const fmEnd = raw.indexOf('\n---\n', 4);
+  const body = fmEnd > -1 ? raw.slice(fmEnd + 5).trim() : raw;
+  htmlContent = body.replace(
+    /https:\/\/binnet\.biz\.id\/wp-content\/uploads\/[^"'\s]*/g,
+    (match: string) => `/media/${match.split('/').pop() || ''}`
+  );
+}
+
+const pages = summary.pages;
+const posts = summary.posts;
+---
+
+<Layout title="Home">
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <span class="badge">ISP Terpercaya</span>
+        <h1>Smart Solutions<br/>Unleash the Power of<br/><span class="accent">High-Speed Internet</span></h1>
+        <p>PT Citra Bintang Net (BINNET) — menyediakan layanan internet berkecepatan tinggi yang andal untuk rumah dan bisnis Anda.</p>
+        <div class="hero-btns">
+          <a href="/our-services" class="btn btn-primary">Lihat Layanan</a>
+          <a href="/contact-us" class="btn btn-outline">Hubungi Kami</a>
+        </div>
+      </div>
+      <div class="hero-img">
+        <img src="/media/4680-hero1-home7.jpg" alt="BINNET Internet" />
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats">
+    <div class="stats-inner">
+      <div class="stat">
+        <img src="/media/5054-svg1-counter.svg" alt="" />
+        <div>
+          <strong>4800+</strong>
+          <span>Pelanggan Puas</span>
+        </div>
+      </div>
+      <div class="stat">
+        <img src="/media/5055-svg2-counter.svg" alt="" />
+        <div>
+          <strong>10+</strong>
+          <span>Tahun Pengalaman</span>
+        </div>
+      </div>
+      <div class="stat">
+        <img src="/media/5056-svg3-counter.svg" alt="" />
+        <div>
+          <strong>99.9%</strong>
+          <span>Uptime</span>
+        </div>
+      </div>
+      <div class="stat">
+        <img src="/media/5060-svg4-counter.svg" alt="" />
+        <div>
+          <strong>24/7</strong>
+          <span>Support</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES PREVIEW -->
+  <section class="services-preview">
+    <div class="section-inner">
+      <h2 class="section-title">Layanan Kami</h2>
+      <p class="section-sub">Solusi internet terbaik untuk kebutuhan Anda</p>
+      <div class="services-grid">
+        <div class="service-card">
+          <img src="/media/2845-service-img01.png" alt="Internet Rumah" />
+          <h3>Internet Rumah</h3>
+          <p>Nikmati internet super cepat untuk streaming, gaming, dan bekerja dari rumah.</p>
+          <a href="/our-services" class="card-link">Selengkapnya →</a>
+        </div>
+        <div class="service-card">
+          <img src="/media/2846-service-img02.png" alt="Internet Bisnis" />
+          <h3>Internet Bisnis</h3>
+          <p>Koneksi dedicated untuk bisnis Anda dengan SLA dan prioritas bandwidth.</p>
+          <a href="/our-services" class="card-link">Selengkapnya →</a>
+        </div>
+        <div class="service-card">
+          <img src="/media/2856-service-img03.jpg" alt="Enterprise" />
+          <h3>Enterprise</h3>
+          <p>Solusi jaringan skala besar untuk perusahaan dan instansi pemerintah.</p>
+          <a href="/our-services" class="card-link">Selengkapnya →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ALL PAGES NAVIGATION (dev helper) -->
+  <section class="dev-pages">
+    <div class="section-inner">
+      <h2 class="section-title" style="color:#374151;">📄 Semua Halaman ({pages.length})</h2>
+      <p class="section-sub" style="color:#6B7280;">Preview navigator — semua halaman dari scrape WordPress</p>
+      <div class="pages-grid">
+        {pages.map((p: any) => (
+          <a href={`/${p.slug}`} class="page-card">
+            <span class="page-icon">📄</span>
+            <strong>{p.title}</strong>
+            <small>/{p.slug}/</small>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- POSTS PREVIEW -->
+  {posts.length > 0 && (
+    <section class="posts-preview">
+      <div class="section-inner">
+        <h2 class="section-title">Blog Terbaru</h2>
+        <div class="posts-grid">
+          {posts.slice(0, 3).map((p: any) => (
+            <a href={`/blog/${p.slug}`} class="post-card">
+              <strong>{p.title}</strong>
+              <small>{p.date}</small>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+</Layout>
+
+<style>
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #003D7A 0%, #0057A8 60%, #00AEEF 100%);
+    color: #fff;
+    padding: 5rem 2rem;
+  }
+  .hero-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+  .badge {
+    display: inline-block;
+    background: rgba(0,174,239,.3);
+    border: 1px solid rgba(0,174,239,.5);
+    color: #7dd3fc;
+    padding: .35rem 1rem;
+    border-radius: 999px;
+    font-size: .8rem;
+    font-weight: 600;
+    letter-spacing: .05em;
+    margin-bottom: 1.25rem;
+  }
+  .hero-text h1 {
+    font-size: clamp(2rem, 4vw, 3.25rem);
+    font-weight: 900;
+    line-height: 1.15;
+    margin-bottom: 1.25rem;
+  }
+  .accent { color: #00AEEF; }
+  .hero-text p { font-size: 1.1rem; opacity: .85; margin-bottom: 2rem; max-width: 480px; }
+  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    padding: .85rem 2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all .2s;
+    font-size: .95rem;
+  }
+  .btn-primary { background: #00AEEF; color: #fff; }
+  .btn-primary:hover { background: #0096d6; transform: translateY(-2px); }
+  .btn-outline { border: 2px solid rgba(255,255,255,.4); color: #fff; }
+  .btn-outline:hover { background: rgba(255,255,255,.1); }
+  .hero-img img {
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: 0 24px 64px rgba(0,0,0,.3);
+  }
+
+  /* STATS */
+  .stats { background: #F4F8FC; padding: 3rem 2rem; }
+  .stats-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+  .stat {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,.06);
+  }
+  .stat img { width: 40px; height: 40px; }
+  .stat strong { display: block; font-size: 1.75rem; font-weight: 800; color: #0057A8; }
+  .stat span { font-size: .85rem; color: #6B7280; }
+
+  /* SECTIONS */
+  .section-inner { max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; }
+  .section-title { font-size: 2rem; font-weight: 800; color: #003D7A; text-align: center; margin-bottom: .5rem; }
+  .section-sub { text-align: center; color: #6B7280; margin-bottom: 2.5rem; }
+
+  /* SERVICES */
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .service-card {
+    background: #fff;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: transform .2s, box-shadow .2s;
+  }
+  .service-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,.1); }
+  .service-card img { width: 100%; height: 160px; object-fit: cover; border-radius: 8px; margin-bottom: 1rem; }
+  .service-card h3 { font-size: 1.15rem; font-weight: 700; color: #003D7A; margin-bottom: .5rem; }
+  .service-card p { font-size: .9rem; color: #6B7280; margin-bottom: 1rem; }
+  .card-link { color: #0057A8; font-weight: 600; text-decoration: none; font-size: .9rem; }
+  .card-link:hover { color: #00AEEF; }
+
+  /* DEV PAGES NAV */
+  .dev-pages { background: #F9FAFB; border-top: 1px solid #E5E7EB; }
+  .pages-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; }
+  .page-card {
+    display: flex;
+    flex-direction: column;
+    gap: .25rem;
+    background: #fff;
+    border: 1px solid #E5E7EB;
+    border-radius: 10px;
+    padding: 1rem 1.25rem;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color .2s, box-shadow .2s;
+  }
+  .page-card:hover { border-color: #0057A8; box-shadow: 0 4px 16px rgba(0,87,168,.1); }
+  .page-icon { font-size: 1.25rem; }
+  .page-card strong { font-size: .9rem; color: #111827; }
+  .page-card small { font-size: .75rem; color: #9CA3AF; }
+
+  /* POSTS */
+  .posts-preview { background: #fff; }
+  .posts-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
+  .post-card {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    padding: 1.5rem;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    transition: all .2s;
+  }
+  .post-card:hover { border-color: #0057A8; transform: translateY(-2px); }
+  .post-card strong { color: #003D7A; font-size: .95rem; }
+  .post-card small { color: #9CA3AF; font-size: .8rem; }
+
+  @media (max-width: 768px) {
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-img { display: none; }
+    .stats-inner { grid-template-columns: repeat(2,1fr); }
+    .services-grid { grid-template-columns: 1fr; }
+    .posts-grid { grid-template-columns: 1fr; }
+  }
+</style>

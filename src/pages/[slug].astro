@@ -1,0 +1,81 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import fs from 'node:fs';
+import path from 'node:path';
+
+export async function getStaticPaths() {
+  const summaryPath = path.resolve('../../scraped/summary.json');
+  const summary = JSON.parse(fs.readFileSync(summaryPath, 'utf-8'));
+  
+  return summary.pages.map((page: any) => ({
+    params: { slug: page.slug },
+    props: { pageInfo: page },
+  }));
+}
+
+interface Props {
+  pageInfo: {
+    id: number;
+    title: string;
+    slug: string;
+    status: string;
+    link: string;
+  };
+}
+
+const { pageInfo } = Astro.props;
+const { slug } = Astro.params;
+
+// Read the .md file content
+const pagesDir = path.resolve('../../scraped/pages');
+const files = fs.readdirSync(pagesDir);
+const matchFile = files.find(f => f.includes(`-${slug}.md`));
+
+let rawContent = '';
+let htmlContent = '';
+
+if (matchFile) {
+  const raw = fs.readFileSync(path.join(pagesDir, matchFile), 'utf-8');
+  // Strip frontmatter
+  const fmEnd = raw.indexOf('\n---\n', 4);
+  rawContent = fmEnd > -1 ? raw.slice(fmEnd + 5).trim() : raw;
+  
+  // Fix internal WordPress image URLs → local /media/
+  htmlContent = rawContent.replace(
+    /https:\/\/binnet\.biz\.id\/wp-content\/uploads\/[^"'\s]*/g,
+    (match) => {
+      const filename = match.split('/').pop() || '';
+      // Try to find matching local file (by original filename part)
+      return `/media/${filename}`;
+    }
+  );
+}
+---
+
+<Layout title={pageInfo.title}>
+  <div class="page-hero">
+    <h1>{pageInfo.title}</h1>
+    <p><a href={pageInfo.link} target="_blank" rel="noopener" style="color:rgba(255,255,255,.6);font-size:.85rem;">
+      Sumber: binnet.biz.id/{pageInfo.slug}/
+    </a></p>
+  </div>
+
+  <div class="wp-content">
+    {htmlContent 
+      ? <Fragment set:html={htmlContent} />
+      : <p style="color:#6B7280;text-align:center;padding:4rem 0;">Konten halaman ini kosong atau belum dirender oleh Elementor.</p>
+    }
+  </div>
+</Layout>
+
+<style>
+  .wp-content {
+    /* Override for Elementor shortcode fallback */
+  }
+
+  /* Elementor shortcode visual notice */
+  .wp-content :global(.elementor-shortcode),
+  .wp-content :global([data-elementor-type]) {
+    display: none;
+  }
+</style>

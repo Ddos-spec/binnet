@@ -1,0 +1,9 @@
+node_modules/
+.astro/
+dist/
+*.log
+__pycache__/
+*.pyc
+scrape.py
+list_pages.py
+*.json.bak
