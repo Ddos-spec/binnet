@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/binnetbi/public_html
+    - /bin/rsync -av --delete $CPANEL_SOURCE_DIR/ $DEPLOYPATH/

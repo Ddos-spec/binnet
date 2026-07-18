@@ -1,4 +1,4 @@
-name: Deploy to Hoster.co.id via FTPS
+name: Build and Trigger cPanel Deploy
 
 on:
   push:
@@ -24,22 +24,40 @@ jobs:
       - name: Build Astro site
         run: npm run build
 
-      - name: Install lftp
-        run: sudo apt-get install -y lftp
-
-      - name: Deploy via FTPS
-        env:
-          FTP_HOST: ${{ secrets.SSH_HOST }}
-          FTP_USER: vercel@binnet.biz.id
-          FTP_PASS: ${{ secrets.FTP_PASS }}
+      - name: Push dist to deploy branch
         run: |
-          lftp -c "
-            set ftp:ssl-allow yes;
-            set ftp:ssl-force no;
-            set ssl:verify-certificate no;
-            set net:timeout 30;
-            set net:max-retries 3;
-            open -u \"$FTP_USER\",\"$FTP_PASS\" ftp://$FTP_HOST;
-            mirror --reverse --delete --verbose dist/ /public_html/;
-            bye
-          "
+          git config user.email "setgraph69@gmail.com"
+          git config user.name "Ddos-spec"
+          
+          # Create orphan branch with only dist contents
+          git checkout --orphan cpanel-deploy
+          git rm -rf --cached . || true
+          
+          # Copy dist contents to root
+          cp -r dist/. .
+          rm -rf dist node_modules src public .github astro.config.* package*.json tsconfig.json .cpanel.yml
+          
+          # Copy .cpanel.yml for deployment tasks
+          cat > .cpanel.yml << 'EOF'
+          ---
+          deployment:
+            tasks:
+              - export DEPLOYPATH=/home/binnetbi/public_html
+              - /bin/rsync -av --delete $CPANEL_SOURCE_DIR/ $DEPLOYPATH/
+          EOF
+          
+          git add -A
+          git commit -m "deploy: build from $(date -u '+%Y-%m-%d %H:%M UTC')"
+          git push -f origin cpanel-deploy
+
+      - name: Trigger cPanel Git Deploy via API
+        env:
+          CPANEL_HOST: crazybolt.hosterserver.com
+          CPANEL_PORT: 2083
+          CPANEL_USER: binnetbi
+          CPANEL_TOKEN: ${{ secrets.CPANEL_API_TOKEN }}
+        run: |
+          curl -sk "https://$CPANEL_HOST:$CPANEL_PORT/execute/VersionControlDeployment/create" \
+            -H "Authorization: cpanel $CPANEL_USER:$CPANEL_TOKEN" \
+            -d "repository=/home/binnetbi/repos/binnet" \
+            | python3 -m json.tool || echo "Deploy trigger sent"
