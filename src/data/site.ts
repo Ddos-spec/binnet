@@ -50,22 +50,22 @@ export const promoBenefits = [
 export const testimonials = [
   {
     name: 'Meisha',
-    area: 'BSI 2',
+    profession: 'Karyawan swasta',
     quote: 'Jaringannya selalu stabil sekalipun semua perangkat di rumah sedang dipakai. Saat hujan pun tetap aman.',
   },
   {
     name: 'Rudi',
-    area: 'Duren Mekar',
+    profession: 'Pemilik usaha',
     quote: 'Kalau ada kendala selalu direspons dengan baik. Saya sudah memakai BINNET di dua rumah dan sejauh ini aman.',
   },
   {
     name: 'Aula',
-    area: 'BSI 2',
+    profession: 'Ibu rumah tangga',
     quote: 'Komplain direspons dan diperbaiki dengan cepat. Owner dan timnya ramah, pelayanannya terasa dekat.',
   },
   {
     name: 'Naimah',
-    area: 'Pelanggan BINNET',
+    profession: 'Profesional mandiri',
     quote: 'Harga tetap, jaringan bagus, dan komplain cukup lewat WhatsApp sehingga cepat ditangani.',
   },
 ];

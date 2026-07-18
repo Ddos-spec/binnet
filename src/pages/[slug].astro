@@ -3,8 +3,8 @@ import Layout from '../layouts/Layout.astro';
 import { faqs, plans, services, testimonials, whatsappLink } from '../data/site';
 
 const pageMeta = {
-  'about-us': { title: 'Tentang BINNET', eyebrow: 'Dibangun dari kedekatan', headline: 'Jaringan lokal. Standar yang tidak lokal.', description: 'Mengenal PT Citra Bintang Net, penyedia internet fiber optic unlimited dan tim teknisi lokal sejak 2013.' },
-  'our-services': { title: 'Layanan', eyebrow: 'Lebih dari internet', headline: 'Satu tim untuk rumah yang terkoneksi.', description: 'Internet fiber optic, pemasangan CCTV, serta perbaikan elektronik dan jaringan dari tim BINNET.' },
+  'about-us': { title: 'Tentang BINNET', eyebrow: 'Tentang kami', headline: 'Koneksi yang dirancang lebih sederhana.', description: 'Mengenal PT Citra Bintang Net, penyedia layanan internet fiber optic untuk rumah dan usaha.' },
+  'our-services': { title: 'Layanan', eyebrow: 'Koneksi Cepat, Harga Hemat', headline: 'Layanan untuk rumah yang terkoneksi.', description: 'Internet fiber optic, pemasangan CCTV, serta perbaikan elektronik dan jaringan dari BINNET.' },
   pricing: { title: 'Paket Internet', eyebrow: 'Special promo', headline: 'Lebih kencang. Lebih hemat.', description: 'Paket promo internet BINNET 25 hingga 100 Mbps, mulai Rp149 ribu, unlimited tanpa FUP dan gratis pemasangan.' },
   'coverage-area': { title: 'Cek Area', eyebrow: 'Satu langkah sebelum online', headline: 'Mari lihat apakah jaringan kami sudah dekat.', description: 'Cek ketersediaan jaringan internet fiber BINNET untuk alamat rumah atau usaha Anda.' },
   'contact-us': { title: 'Kontak', eyebrow: 'Bicara dengan manusia', headline: 'Pertanyaan Anda tidak masuk ke ruang hampa.', description: 'Hubungi BINNET melalui WhatsApp untuk pengecekan jaringan, pemilihan paket, dan dukungan pelanggan.' },
@@ -46,7 +46,7 @@ if (!page) return Astro.redirect('/404');
     <>
       <section class="section story-section">
         <div class="container split-story">
-          <div class="story-sticky reveal"><p class="eyebrow">Sejak 2013</p><h2 class="section-title" data-split>Dekat adalah keunggulan operasional.</h2></div>
+          <div class="story-sticky reveal"><p class="eyebrow">Tentang BINNET</p><h2 class="section-title" data-split>Koneksi yang siap membantu kebutuhan Anda.</h2></div>
           <div class="story-copy reveal">
             <p class="large-copy">BINNET hadir untuk membuat internet rumah terasa lebih sederhana: koneksi yang stabil, biaya yang jelas, dan tim yang bisa benar-benar dihubungi.</p>
             <p>PT Citra Bintang Net menyediakan internet fiber optic unlimited untuk pelanggan rumah dan usaha. Kami juga menangani pemasangan CCTV serta perbaikan elektronik dan jaringan.</p>
@@ -58,7 +58,7 @@ if (!page) return Astro.redirect('/404');
         <div class="mosaic-wide reveal-media"><img src="/media/6058-img_5315.jpg" alt="Tim teknisi BINNET" loading="lazy" /></div>
         <div class="mosaic-tall reveal-media"><img src="/media/6060-img_5323.jpg" alt="Pekerjaan instalasi jaringan BINNET" loading="lazy" /></div>
         <div class="mosaic-small reveal-media"><img src="/media/6059-img_5407.jpg" alt="Tim layanan pelanggan BINNET" loading="lazy" /></div>
-        <div class="mosaic-note"><span>13+</span><p>tahun bertumbuh bersama pelanggan dan lingkungan sekitar.</p></div>
+        <div class="mosaic-note"><span>01</span><p>Layanan internet untuk rumah dan usaha.</p></div>
       </section>
       <section class="section values-section">
         <div class="container"><p class="eyebrow">Cara kami bekerja</p><div class="value-grid">
@@ -89,10 +89,7 @@ if (!page) return Astro.redirect('/404');
   {slug === 'pricing' && (
     <>
       <section class="section pricing-page"><div class="container">
-        <div class="pricing-feature reveal">
-          <div><p class="eyebrow">Koneksi cepat · harga hemat</p><h2 data-split>Promo yang tidak perlu dibaca pakai kaca pembesar.</h2><p>Harga sudah termasuk, instalasi gratis, sewa perangkat termasuk, CS 24 jam, dan teknisi standby per area.</p></div>
-          <a href="/media/generated/promo-binnet-special.webp" target="_blank" rel="noopener" class="pricing-feature-image reveal-media"><img src="/media/generated/promo-binnet-special.webp" alt="Flyer special promo BINNET" loading="eager" /></a>
-        </div>
+        <div class="pricing-feature reveal"><div><p class="eyebrow">Koneksi Cepat, Harga Hemat</p><h2 data-split>Informasi paket yang jelas sejak awal.</h2><p>Harga, fasilitas, instalasi, dan kebutuhan perangkat dijelaskan sebelum Anda memilih paket.</p></div></div>
         <div class="pricing-note reveal"><span>Semua paket</span><p>Unlimited tanpa FUP · PPN termasuk · Perangkat termasuk · Gratis pemasangan · Stabil 24/7</p></div>
         <div class="price-table">
           {plans.map((plan, index) => (
@@ -105,7 +102,7 @@ if (!page) return Astro.redirect('/404');
             </article>
           ))}
         </div>
-        <p class="fine-print">Harga dan fasilitas mengacu pada flyer special promo BINNET per Juli 2026. Ketersediaan layanan mengikuti hasil pengecekan jaringan dan syarat promo di alamat pemasangan.</p>
+        <p class="fine-print">Ketersediaan layanan, harga, dan fasilitas mengikuti hasil pengecekan jaringan serta ketentuan yang berlaku di alamat pemasangan.</p>
       </div></section>
       <section class="section package-help"><div class="container help-grid"><div><p class="eyebrow">Masih ragu?</p><h2 class="section-title" data-split>Jangan bayar bandwidth yang tidak terpakai.</h2></div><div><p class="lead">Ceritakan jumlah perangkat dan aktivitas harian di rumah. Tim kami akan membantu memilih paket yang masuk akal.</p><a class="button button-dark" href={whatsappLink('Halo BINNET, saya ingin dibantu memilih paket yang sesuai untuk rumah saya.')} target="_blank" rel="noopener">Bantu pilih paket</a></div></div></section>
     </>
@@ -128,7 +125,7 @@ if (!page) return Astro.redirect('/404');
   {slug === 'contact-us' && (
     <section class="section contact-section"><div class="container contact-grid">
       <div class="contact-primary reveal"><span class="contact-label">Customer service</span><a href={whatsappLink()} target="_blank" rel="noopener">0857<br />7385<br />4210 <i>↗</i></a></div>
-      <div class="contact-secondary reveal"><div><span>Email</span><a href="mailto:info@binnet.biz.id">info@binnet.biz.id ↗</a></div><div><span>Kebutuhan</span><p>Cek area · Pendaftaran · Dukungan pelanggan · CCTV · Perbaikan jaringan</p></div><div><span>Sebelum menghubungi</span><p>Siapkan alamat lengkap, nomor pelanggan bila sudah berlangganan, serta foto indikator router jika ada kendala.</p></div></div>
+      <div class="contact-secondary reveal"><div><span>Email</span><a href="mailto:customerservice@binnet.biz.id">customerservice@binnet.biz.id ↗</a></div><div><span>Kebutuhan</span><p>Cek area · Pendaftaran · Dukungan pelanggan · CCTV · Perbaikan jaringan</p></div><div><span>Sebelum menghubungi</span><p>Siapkan alamat lengkap, nomor pelanggan bila sudah berlangganan, serta foto indikator router jika ada kendala.</p></div></div>
     </div></section>
   )}
 
@@ -149,7 +146,7 @@ if (!page) return Astro.redirect('/404');
 
   {slug === 'testomonials' && (
     <section class="section all-reviews"><div class="container review-stack">
-      {testimonials.map((item, index) => <blockquote class="full-review reveal"><span>{String(index + 1).padStart(2, '0')}</span><p>“{item.quote}”</p><footer><strong>{item.name}</strong><small>{item.area}</small></footer></blockquote>)}
+      {testimonials.map((item, index) => <blockquote class="full-review reveal"><span>{String(index + 1).padStart(2, '0')}</span><p>“{item.quote}”</p><footer><strong>{item.name}</strong><small>{item.profession}</small></footer></blockquote>)}
     </div></section>
   )}
 </Layout>
@@ -189,7 +186,7 @@ if (!page) return Astro.redirect('/404');
   .service-detail-copy li::before { margin-right: .7rem; color: var(--lime); content: '●'; }
   .service-detail-copy a { display: inline-block; padding-bottom: .3rem; border-bottom: 1px solid; font-size: .75rem; font-weight: 800; }
 
-  .pricing-feature { display: grid; grid-template-columns: 1.15fr .85fr; gap: clamp(2rem, 7vw, 7rem); align-items: center; margin-bottom: clamp(5rem, 10vw, 9rem); padding: clamp(1.5rem, 4vw, 3.5rem); border-radius: 30px; background: #061d49; color: var(--white); }
+  .pricing-feature { display: grid; grid-template-columns: 1fr; align-items: center; margin-bottom: clamp(5rem, 10vw, 9rem); padding: clamp(1.5rem, 4vw, 3.5rem); border-radius: 30px; background: #0b4fa8; color: var(--white); }
   .pricing-feature .eyebrow { color: var(--lime); }
   .pricing-feature h2 { max-width: 720px; font-family: 'Space Grotesk'; font-size: clamp(2.5rem, 5vw, 5.5rem); font-weight: 600; letter-spacing: -.065em; line-height: .95; }
   .pricing-feature > div > p:last-child { max-width: 600px; margin-top: 1.5rem; color: rgba(255,255,255,.6); font-size: .85rem; }

@@ -10,7 +10,7 @@ interface Props {
 
 const {
   title,
-  description = 'Internet fiber optic unlimited tanpa FUP dari PT Citra Bintang Net. Stabil, transparan, dan didukung teknisi lokal.',
+  description = 'Internet fiber optic unlimited untuk rumah dan usaha dari PT Citra Bintang Net.',
   image = '/media/generated/blog-router-position.webp',
   article = false,
 } = Astro.props;
@@ -36,7 +36,6 @@ const organizationSchema = {
   name: 'BINNET — PT Citra Bintang Net',
   url: 'https://binnet.biz.id',
   telephone: '+62-857-7385-4210',
-  foundingDate: '2013',
   description,
 };
 ---
@@ -46,7 +45,7 @@ const organizationSchema = {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#071621" />
+    <meta name="theme-color" content="#0b4fa8" />
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
@@ -65,16 +64,16 @@ const organizationSchema = {
 
     <style is:global>
       :root {
-        --ink: #071621;
-        --ink-2: #102a3a;
-        --paper: #f4f1e9;
-        --white: #fffef9;
-        --cyan: #35c6f4;
-        --cyan-deep: #0795c5;
-        --lime: #a7ed52;
+        --ink: #0b3f91;
+        --ink-2: #0d5cbb;
+        --paper: #f4f8ff;
+        --white: #ffffff;
+        --cyan: #2186dc;
+        --cyan-deep: #0b4fa8;
+        --lime: #a6d94b;
         --red: #ed3c34;
-        --line: rgba(7, 22, 33, .14);
-        --muted: #5e6d74;
+        --line: rgba(11, 63, 145, .16);
+        --muted: #46617f;
         --max: 1320px;
         --radius: 28px;
         --ease: cubic-bezier(.22, 1, .36, 1);
@@ -444,12 +443,12 @@ const organizationSchema = {
           <a class="button button-ghost" href="/pricing">Lihat semua paket</a>
         </div>
         <div class="footer-meta">
-          <div class="footer-brand"><strong>BINNET.NET</strong>Internet fiber optic unlimited sejak 2013, dengan tim lokal yang memahami area dan pelanggan secara langsung.</div>
+          <div class="footer-brand"><strong>BINNET.NET</strong>Internet fiber optic unlimited untuk kebutuhan rumah dan usaha, dengan layanan yang jelas dan responsif.</div>
           <div class="footer-col"><b>Jelajahi</b><a href="/pricing">Paket internet</a><a href="/our-services">Layanan</a><a href="/coverage-area">Cek area</a><a href="/blog">Jurnal</a></div>
           <div class="footer-col"><b>Perusahaan</b><a href="/about-us">Tentang kami</a><a href="/faq">Pertanyaan umum</a><a href="/contact-us">Kontak</a></div>
-          <div class="footer-col"><b>Terhubung</b><a href={whatsappLink()} target="_blank" rel="noopener">0857 7385 4210</a><a href="https://www.instagram.com/binnetwifi/" target="_blank" rel="noopener">Instagram</a><a href="mailto:info@binnet.biz.id">info@binnet.biz.id</a><span>Pandawa Regency, Tajur Halang, Bogor 16320</span></div>
+          <div class="footer-col"><b>Terhubung</b><a href={whatsappLink()} target="_blank" rel="noopener">0857 7385 4210</a><a href="https://www.instagram.com/binnetwifi/" target="_blank" rel="noopener">Instagram</a><a href="mailto:customerservice@binnet.biz.id">customerservice@binnet.biz.id</a><span>Pandawa Regency, Tajur Halang, Bogor 16320</span></div>
         </div>
-        <div class="footer-bottom"><span>© {new Date().getFullYear()} PT Citra Bintang Net</span><span>Fiber lokal · layanan manusia</span></div>
+        <div class="footer-bottom"><span>© {new Date().getFullYear()} PT Citra Bintang Net</span></div>
       </div>
     </footer>
 

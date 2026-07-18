@@ -3,13 +3,13 @@ import Layout from '../layouts/Layout.astro';
 import { blogPosts, plans, promoBenefits, services, testimonials, whatsappLink } from '../data/site';
 ---
 
-<Layout title="Beranda" description="Internet fiber optic unlimited tanpa FUP, gratis pemasangan, dan layanan teknisi lokal dari BINNET. Paket promo mulai Rp149 ribu per bulan.">
+<Layout title="Beranda" description="Internet fiber optic unlimited untuk rumah dan usaha dari BINNET. Paket mulai Rp149 ribu per bulan.">
   <section class="home-hero">
     <div class="hero-orbit orbit-one"></div>
     <div class="hero-orbit orbit-two"></div>
     <div class="container hero-grid">
       <div class="hero-copy">
-        <p class="eyebrow">Fiber lokal · sejak 2013</p>
+        <p class="eyebrow">Koneksi Cepat, Harga Hemat</p>
         <h1 class="display" data-split>Internet cepat itu harus <em>terasa.</em></h1>
         <div class="hero-bottom">
           <p>Fiber optic unlimited tanpa FUP. Jernih untuk meeting, mulus untuk streaming, dan siap saat seluruh rumah online bersamaan.</p>
@@ -46,11 +46,6 @@ import { blogPosts, plans, promoBenefits, services, testimonials, whatsappLink }
       </div>
 
       <div class="promo-layout">
-        <button class="promo-flyer reveal-media" id="promo-open" type="button" data-cursor data-parallax-scroll data-speed=".045" aria-label="Buka flyer promo BINNET">
-          <img src="/media/generated/promo-binnet-special.webp" alt="Flyer special promo BINNET" width="1024" height="1536" />
-          <span>Lihat flyer penuh <i>↗</i></span>
-        </button>
-
         <div class="promo-content">
           <div class="promo-plans">
             {plans.map((plan, index) => (
@@ -76,27 +71,13 @@ import { blogPosts, plans, promoBenefits, services, testimonials, whatsappLink }
     </div>
   </section>
 
-  <dialog class="promo-modal" id="promo-modal" aria-labelledby="promo-modal-title">
-    <div class="promo-modal-card">
-      <div class="promo-modal-top">
-        <div><span>Promo Juli 2026</span><strong id="promo-modal-title">Koneksi cepat, harga hemat.</strong></div>
-        <button type="button" id="promo-close" aria-label="Tutup promo">×</button>
-      </div>
-      <img src="/media/generated/promo-binnet-special.webp" alt="Flyer lengkap special promo BINNET" width="1024" height="1536" />
-      <div class="promo-modal-cta">
-        <p>Mulai <strong>Rp149.000/bulan</strong><span>Harga dan ketersediaan mengikuti pengecekan area.</span></p>
-        <a href={whatsappLink('Halo BINNET, saya ingin cek promo Juli 2026 dan ketersediaan jaringan di alamat saya.')} target="_blank" rel="noopener">Cek area ↗</a>
-      </div>
-    </div>
-  </dialog>
-
   <section class="section manifesto">
     <div class="container manifesto-grid">
-      <div class="manifesto-number reveal">13<span>+</span></div>
+      <div class="manifesto-number reveal">∞</div>
       <div class="reveal">
         <p class="eyebrow">Lebih dari koneksi</p>
         <h2 class="section-title" data-split>Internet rumah bukan soal angka paling besar.</h2>
-        <p class="lead manifesto-lead">Yang penting adalah stabil saat dibutuhkan, jelas tagihannya, dan ada manusia yang merespons ketika sesuatu tidak berjalan semestinya. Itulah cara BINNET bekerja sejak 2013.</p>
+        <p class="lead manifesto-lead">Yang penting adalah stabil saat dibutuhkan, jelas tagihannya, dan ada layanan yang merespons ketika sesuatu tidak berjalan semestinya.</p>
       </div>
     </div>
   </section>
@@ -131,7 +112,7 @@ import { blogPosts, plans, promoBenefits, services, testimonials, whatsappLink }
   <section class="section service-section">
     <div class="container">
       <div class="service-intro reveal">
-        <p class="eyebrow">Satu tim, tiga solusi</p>
+        <p class="eyebrow">Koneksi Cepat, Harga Hemat</p>
         <h2 class="section-title" data-split>Rumah terhubung.<br />Rumah terlindungi.</h2>
       </div>
       <div class="service-list">
@@ -153,7 +134,7 @@ import { blogPosts, plans, promoBenefits, services, testimonials, whatsappLink }
     <div class="field-copy reveal">
       <p class="eyebrow">Bukan call center anonim</p>
       <h2 data-split>Tim yang tahu jalan menuju rumah Anda.</h2>
-      <p>BINNET dibangun sebagai jaringan lokal. Artinya, komunikasi lebih dekat, konteks area lebih dipahami, dan penanganan tidak berhenti di nomor tiket.</p>
+      <p>BINNET hadir dengan proses layanan yang jelas, komunikasi yang mudah dihubungi, dan penanganan yang terukur untuk setiap kebutuhan koneksi.</p>
       <a class="button" href="/about-us">Kenal BINNET</a>
     </div>
     <div class="field-caption"><span>Tim operasional BINNET</span><span>Depok dan sekitarnya</span></div>
@@ -170,7 +151,7 @@ import { blogPosts, plans, promoBenefits, services, testimonials, whatsappLink }
           <blockquote class="review-card reveal">
             <span class="review-index">{String(index + 1).padStart(2, '0')}</span>
             <p>“{item.quote}”</p>
-            <footer><strong>{item.name}</strong><span>{item.area}</span></footer>
+            <footer><strong>{item.name}</strong><span>{item.profession}</span></footer>
           </blockquote>
         ))}
       </div>
@@ -232,12 +213,7 @@ import { blogPosts, plans, promoBenefits, services, testimonials, whatsappLink }
   .promo-heading { display: grid; grid-template-columns: 1.15fr .85fr; gap: 2rem 5rem; align-items: end; margin-bottom: 4.5rem; }
   .promo-heading .eyebrow { grid-column: 1 / -1; color: var(--lime); }
   .promo-heading .lead { justify-self: end; color: rgba(255,255,255,.63); }
-  .promo-layout { display: grid; grid-template-columns: minmax(300px, .7fr) minmax(0, 1.3fr); gap: clamp(2rem, 5vw, 5rem); align-items: start; }
-  .promo-flyer { position: relative; top: 0; width: 100%; aspect-ratio: 4 / 5; padding: 0; overflow: hidden; border: 1px solid rgba(255,255,255,.2); border-radius: 28px; background: none; box-shadow: 0 36px 90px rgba(0,0,0,.34); cursor: pointer; transform: rotate(-2deg); transition: transform .6s var(--ease), box-shadow .6s; }
-  .promo-flyer:hover { transform: rotate(0) translateY(-8px); box-shadow: 0 48px 110px rgba(0,0,0,.45); }
-  .promo-flyer img { width: 100%; height: 100%; border-radius: inherit; object-fit: cover; object-position: center top; }
-  .promo-flyer > span { position: absolute; right: 1rem; bottom: 1rem; left: 1rem; display: flex; justify-content: space-between; padding: .85rem 1rem; border: 1px solid rgba(255,255,255,.25); border-radius: 999px; background: rgba(7,22,33,.82); backdrop-filter: blur(14px); color: var(--white); font-size: .7rem; font-weight: 800; }
-  .promo-flyer > span i { color: var(--lime); font-style: normal; }
+  .promo-layout { display: block; }
   .promo-content { min-width: 0; }
   .promo-plans { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
   .promo-plan { min-height: 300px; display: flex; flex-direction: column; padding: 1.35rem; border: 1px solid rgba(255,255,255,.16); border-radius: 22px; background: rgba(255,255,255,.06); backdrop-filter: blur(12px); transition: background .4s, color .4s, border-color .4s; }
@@ -260,22 +236,6 @@ import { blogPosts, plans, promoBenefits, services, testimonials, whatsappLink }
   .promo-cta > div span { color: var(--red); font-size: .57rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
   .promo-cta > div strong { font-family: 'Space Grotesk'; font-size: 1rem; }
   .promo-terms { margin-top: .8rem; color: rgba(255,255,255,.38); font-size: .58rem; }
-  .promo-modal { width: min(calc(100vw - 28px), 350px); max-height: 92svh; margin: auto; padding: 0; overflow: hidden; border: 1px solid rgba(167,237,82,.45); border-radius: 28px; background: var(--ink); color: var(--white); box-shadow: 0 36px 100px rgba(0,0,0,.58), 0 0 0 1px rgba(37,212,245,.18); }
-  .promo-modal::backdrop { background: rgba(2,12,25,.84); backdrop-filter: blur(15px); }
-  .promo-modal-card { overflow: hidden; }
-  .promo-modal-top { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 68px; padding: .85rem 1rem .85rem 1.25rem; background: var(--white); color: var(--ink); }
-  .promo-modal-top div { display: grid; gap: .25rem; }
-  .promo-modal-top span { color: var(--cyan-deep); font-size: .57rem; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; }
-  .promo-modal-top strong { font-family: 'Space Grotesk'; font-size: clamp(.95rem, 2vw, 1.15rem); letter-spacing: -.03em; }
-  .promo-modal img { display: block; width: auto; max-width: 100%; height: auto; max-height: min(64svh, 500px); margin: 0 auto; object-fit: contain; }
-  .promo-modal button { display: grid; width: 38px; height: 38px; flex: 0 0 38px; place-items: center; border: 1px solid var(--line); border-radius: 50%; background: var(--ink); color: var(--white); font-size: 1.45rem; cursor: pointer; transition: background .2s, color .2s, transform .2s; }
-  .promo-modal button:hover { transform: rotate(90deg); background: var(--lime); color: var(--ink); }
-  .promo-modal button:focus-visible, .promo-modal-cta a:focus-visible { outline: 3px solid var(--lime); outline-offset: 3px; }
-  .promo-modal-cta { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .9rem 1rem .9rem 1.25rem; background: var(--white); color: var(--ink); }
-  .promo-modal-cta p { display: grid; gap: .2rem; color: #52636b; font-size: .62rem; }
-  .promo-modal-cta p strong { color: var(--ink); font-size: .78rem; }
-  .promo-modal-cta p span { color: #71828a; font-size: .53rem; }
-  .promo-modal-cta a { flex: 0 0 auto; padding: .75rem .9rem; border-radius: 999px; background: var(--lime); color: var(--ink); font-size: .65rem; font-weight: 800; }
 
   .manifesto { background: var(--paper); }
   .manifesto-grid { display: grid; grid-template-columns: .45fr 1.55fr; gap: clamp(2rem, 8vw, 9rem); align-items: start; }
@@ -364,19 +324,12 @@ import { blogPosts, plans, promoBenefits, services, testimonials, whatsappLink }
     .featured .journal-image { aspect-ratio: 16 / 8; }
   }
 
-  @media (min-width: 781px) {
-    /* Keep the flyer’s lower edge level with the promo CTA, not below it. */
-    .promo-layout { align-items: stretch; }
-    .promo-flyer { align-self: stretch; height: calc(100% - 1.75rem); aspect-ratio: auto; }
-  }
-
   @media (max-width: 960px) {
     .hero-grid { min-height: auto; grid-template-columns: 1fr; }
     .hero-copy { padding-bottom: 0; }
     .hero-media { width: min(100%, 620px); min-height: 62vh; justify-self: end; border-radius: 160px 160px 26px 26px; transform: none; }
     .promo-heading { grid-template-columns: 1fr; }
     .promo-heading .lead { justify-self: start; }
-    .promo-layout { grid-template-columns: minmax(260px, .65fr) minmax(0, 1.35fr); gap: 2rem; }
     .promo-plan { min-height: 270px; }
     .promo-cta { border-radius: 24px; }
   }
@@ -387,9 +340,6 @@ import { blogPosts, plans, promoBenefits, services, testimonials, whatsappLink }
     .hero-media { min-height: 64vh; border-radius: 140px 140px 24px 24px; transform: none; }
     .hero-index { margin-top: 2rem; }
     .manifesto-grid, .package-head { grid-template-columns: 1fr; }
-    .promo-layout { grid-template-columns: 1fr; }
-    .promo-flyer { width: min(100%, 460px); justify-self: center; transform: none; }
-    .promo-flyer:hover { transform: translateY(-4px); }
     .promo-content { width: 100%; }
     .package-head .lead { justify-self: start; }
     .plans { grid-template-columns: repeat(2, 1fr); }
@@ -414,9 +364,6 @@ import { blogPosts, plans, promoBenefits, services, testimonials, whatsappLink }
     .promo-benefits span { border-radius: 14px; }
     .promo-cta { align-items: stretch; flex-direction: column; padding: 1.2rem; }
     .promo-cta .button { width: 100%; }
-    .promo-modal { width: calc(100vw - 28px); }
-    .promo-modal-cta { align-items: flex-start; flex-direction: column; }
-    .promo-modal-cta a { width: 100%; text-align: center; }
     .plan { min-height: 465px; border-left: 1px solid var(--line); }
     .plan:hover, .plan.recommended { transform: none; }
     .review-grid, .journal-grid { grid-template-columns: 1fr; }
@@ -439,16 +386,4 @@ import { blogPosts, plans, promoBenefits, services, testimonials, whatsappLink }
     }, { passive: true });
   }
 
-  const promoModal = document.querySelector<HTMLDialogElement>('#promo-modal');
-  const promoSeenKey = 'binnet-promo-july-2026-seen';
-  const openPromo = () => {
-    if (!promoModal?.open) {
-      promoModal?.showModal();
-      sessionStorage.setItem(promoSeenKey, '1');
-    }
-  };
-  document.querySelector('#promo-open')?.addEventListener('click', openPromo);
-  document.querySelector('#promo-close')?.addEventListener('click', () => promoModal?.close());
-  promoModal?.addEventListener('click', event => { if (event.target === promoModal) promoModal.close(); });
-  if (!sessionStorage.getItem(promoSeenKey)) window.setTimeout(openPromo, 1200);
 </script>
