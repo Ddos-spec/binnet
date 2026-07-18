@@ -44,6 +44,62 @@ const services = [
 
 <Layout title="Home" description="Koneksi Cepat Harga Hemat — PT Citra Bintang Net, ISP terpercaya untuk rumah dan bisnis Anda.">
 
+  <!-- ── PROMO POPUP ─────────────────────────────── -->
+  <div class="promo-overlay" id="promo-overlay" role="dialog" aria-modal="true" aria-label="Promo Terbatas">
+    <div class="promo-modal">
+      <div class="promo-header">
+        <button class="promo-close" id="promo-close" aria-label="Tutup">✕</button>
+        <div class="promo-tag">🔥 Promo Terbatas</div>
+        <h2>Daftar Sekarang,<br/>Hemat <span>Hingga 30%!</span></h2>
+        <p>Penawaran spesial untuk pelanggan baru bulan ini</p>
+      </div>
+
+      <div class="promo-body">
+        <div class="promo-plans">
+          <div class="promo-plan">
+            <div class="promo-plan-speed">10 Mbps</div>
+            <div class="promo-plan-price">
+              <s>Rp 130.000</s><br/>
+              <strong>Rp 100.000/bln</strong>
+            </div>
+          </div>
+          <div class="promo-plan hot">
+            <div class="promo-plan-speed">⭐ 30 Mbps</div>
+            <div class="promo-plan-price">
+              <s>Rp 280.000</s><br/>
+              <strong>Rp 200.000/bln</strong>
+            </div>
+          </div>
+          <div class="promo-plan">
+            <div class="promo-plan-speed">50 Mbps</div>
+            <div class="promo-plan-price">
+              <s>Rp 330.000</s><br/>
+              <strong>Rp 250.000/bln</strong>
+            </div>
+          </div>
+          <div class="promo-plan">
+            <div class="promo-plan-speed">100 Mbps</div>
+            <div class="promo-plan-price">
+              <s>Rp 450.000</s><br/>
+              <strong>Rp 350.000/bln</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="promo-countdown">
+          <span>⏱️ Promo berakhir dalam:</span>
+          <span class="countdown-timer" id="promo-timer">10:00</span>
+        </div>
+
+        <div class="promo-cta">
+          <a href="/contact-us" class="cta-main">Daftar Sekarang — Gratis Instalasi!</a>
+          <a href="#" class="cta-skip" id="promo-skip">Lewati, lihat nanti</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
   <!-- ── HERO ─────────────────────────────────────── -->
   <section class="hero">
     <div class="hero-bg"></div>
@@ -409,4 +465,191 @@ const services = [
   @media (max-width: 480px) {
     .pricing-grid { grid-template-columns: 1fr; }
   }
+
+  /* ── PROMO POPUP ────── */
+  .promo-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.55);
+    backdrop-filter: blur(4px);
+    z-index: 9998;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .35s, visibility .35s;
+  }
+  .promo-overlay.show {
+    opacity: 1;
+    visibility: visible;
+  }
+  .promo-modal {
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    max-width: 480px;
+    width: 100%;
+    box-shadow: 0 32px 80px rgba(0,0,0,.3);
+    transform: scale(.9) translateY(20px);
+    transition: transform .35s cubic-bezier(.34,1.56,.64,1);
+    position: relative;
+  }
+  .promo-overlay.show .promo-modal {
+    transform: scale(1) translateY(0);
+  }
+  .promo-header {
+    background: linear-gradient(135deg, #1a3c6e 0%, #1e5bb4 60%, #00b4d8 100%);
+    padding: 2rem 2rem 1.5rem;
+    text-align: center;
+    position: relative;
+  }
+  .promo-tag {
+    display: inline-block;
+    background: #ffd60a;
+    color: #1a3c6e;
+    font-size: .72rem;
+    font-weight: 800;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    padding: .3rem .9rem;
+    border-radius: 999px;
+    margin-bottom: 1rem;
+    animation: pulse-badge 1.5s ease-in-out infinite;
+  }
+  @keyframes pulse-badge {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.06); }
+  }
+  .promo-header h2 {
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 900;
+    line-height: 1.2;
+    margin-bottom: .5rem;
+  }
+  .promo-header h2 span { color: #ffd60a; }
+  .promo-header p {
+    color: rgba(255,255,255,.8);
+    font-size: .9rem;
+  }
+  .promo-close {
+    position: absolute;
+    top: .75rem;
+    right: .75rem;
+    width: 32px;
+    height: 32px;
+    background: rgba(255,255,255,.15);
+    border: none;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background .2s;
+    line-height: 1;
+  }
+  .promo-close:hover { background: rgba(255,255,255,.3); }
+  .promo-body {
+    padding: 1.75rem 2rem 2rem;
+  }
+  .promo-plans {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: .75rem;
+    margin-bottom: 1.5rem;
+  }
+  .promo-plan {
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 1rem;
+    text-align: center;
+    transition: border-color .2s;
+  }
+  .promo-plan:hover { border-color: #00b4d8; }
+  .promo-plan.hot { border-color: #ffd60a; background: #fffbeb; }
+  .promo-plan-speed { font-size: 1.1rem; font-weight: 800; color: #1a3c6e; }
+  .promo-plan-price { font-size: .85rem; color: #64748b; margin-top: .2rem; }
+  .promo-plan-price s { color: #ef4444; }
+  .promo-plan-price strong { color: #16a34a; font-weight: 700; }
+  .promo-countdown {
+    background: #f0f4f8;
+    border-radius: 10px;
+    padding: .85rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    margin-bottom: 1.25rem;
+    font-size: .85rem;
+    color: #374151;
+  }
+  .countdown-timer {
+    font-weight: 800;
+    color: #ef4444;
+    font-size: 1rem;
+    letter-spacing: .05em;
+    min-width: 60px;
+  }
+  .promo-cta {
+    display: flex;
+    flex-direction: column;
+    gap: .75rem;
+  }
+  .promo-cta a {
+    display: block;
+    text-align: center;
+    padding: .9rem;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: .95rem;
+    transition: all .2s;
+    text-decoration: none;
+  }
+  .promo-cta .cta-main {
+    background: linear-gradient(135deg, #1e5bb4, #00b4d8);
+    color: #fff;
+  }
+  .promo-cta .cta-main:hover { opacity: .9; transform: translateY(-2px); }
+  .promo-cta .cta-skip {
+    color: #94a3b8;
+    font-size: .8rem;
+    font-weight: 500;
+  }
+  .promo-cta .cta-skip:hover { color: #64748b; }
 </style>
+
+<script>
+  // Promo popup logic
+  (function() {
+    if (sessionStorage.getItem('binnet-promo-closed')) return;
+    
+    const overlay = document.getElementById('promo-overlay');
+    if (!overlay) return;
+
+    // Show after 1.5s
+    setTimeout(() => overlay.classList.add('show'), 1500);
+
+    function close() {
+      overlay.classList.remove('show');
+      sessionStorage.setItem('binnet-promo-closed', '1');
+    }
+
+    document.getElementById('promo-close').addEventListener('click', close);
+    document.getElementById('promo-skip').addEventListener('click', (e) => { e.preventDefault(); close(); });
+    overlay.addEventListener('click', (e) => { if (e.target === overlay) close(); });
+
+    // Countdown timer — 10 menit dari saat buka
+    let total = 10 * 60;
+    const timerEl = document.getElementById('promo-timer');
+    const iv = setInterval(() => {
+      if (total <= 0) { clearInterval(iv); return; }
+      total--;
+      const m = String(Math.floor(total / 60)).padStart(2, '0');
+      const s = String(total % 60).padStart(2, '0');
+      if (timerEl) timerEl.textContent = m + ':' + s;
+    }, 1000);
+  })();
+</script>
