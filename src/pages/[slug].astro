@@ -1,17 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import fs from 'node:fs';
-import { fileURLToPath } from 'node:url';
-import path from 'node:path';
+import summary from '../data/summary.json';
 
-// Resolve relative to THIS file (works locally & on Vercel)
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const DATA_DIR  = path.resolve(__dirname, '../data');
+// Astro-native: glob semua .md files at build time
+const rawFiles = import.meta.glob('../data/pages/*.md', { query: '?raw', import: 'default', eager: true });
 
 export async function getStaticPaths() {
-  const summary = JSON.parse(
-    fs.readFileSync(path.join(DATA_DIR, 'summary.json'), 'utf-8')
-  );
   return summary.pages.map((page: any) => ({
     params: { slug: page.slug },
     props: { pageInfo: page },
@@ -31,35 +25,27 @@ interface Props {
 const { pageInfo } = Astro.props;
 const { slug } = Astro.params;
 
-// Read .md file content
-const pagesDir = path.join(DATA_DIR, 'pages');
-const files = fs.readdirSync(pagesDir);
-const matchFile = files.find(f => f.includes(`-${slug}.md`));
+// Find matching file from glob results
+const matchKey = Object.keys(rawFiles).find(k => k.includes(`-${slug}.md`));
+const rawContent = matchKey ? (rawFiles[matchKey] as string) : '';
 
-let htmlContent = '';
+// Strip YAML frontmatter
+const fmEnd = rawContent.indexOf('\n---\n', 4);
+const body  = fmEnd > -1 ? rawContent.slice(fmEnd + 5).trim() : rawContent;
 
-if (matchFile) {
-  const raw = fs.readFileSync(path.join(pagesDir, matchFile), 'utf-8');
-  // Strip YAML frontmatter
-  const fmEnd = raw.indexOf('\n---\n', 4);
-  const body  = fmEnd > -1 ? raw.slice(fmEnd + 5).trim() : raw;
-  // Rewrite WP image URLs → local /media/
-  htmlContent = body.replace(
-    /https?:\/\/binnet\.biz\.id\/wp-content\/uploads\/[^\s"'<>]*/g,
-    (match) => `/media/${match.split('/').pop() || ''}`
-  );
-}
+// Rewrite WP image URLs → local /media/
+const htmlContent = body.replace(
+  /https?:\/\/binnet\.biz\.id\/wp-content\/uploads\/[^\s"'<>]*/g,
+  (match) => `/media/${match.split('/').pop() || ''}`
+);
 ---
 
 <Layout title={pageInfo.title}>
   <div class="page-hero">
     <h1>{pageInfo.title}</h1>
-    <p>
-      <a href={pageInfo.link} target="_blank" rel="noopener"
-        style="color:rgba(255,255,255,.55);font-size:.8rem;">
-        ↗ binnet.biz.id/{pageInfo.slug}/
-      </a>
-    </p>
+    <a href={pageInfo.link} target="_blank" rel="noopener" class="page-src-link">
+      ↗ binnet.biz.id/{pageInfo.slug}/
+    </a>
   </div>
 
   <div class="wp-content">
@@ -80,30 +66,36 @@ if (matchFile) {
   .page-hero h1 {
     font-size: clamp(1.75rem, 4vw, 2.75rem);
     font-weight: 900;
-    margin-bottom: .5rem;
+    margin-bottom: .6rem;
   }
+  .page-src-link {
+    color: rgba(255,255,255,.5);
+    font-size: .8rem;
+    text-decoration: none;
+    transition: color .2s;
+  }
+  .page-src-link:hover { color: rgba(255,255,255,.8); }
 
   .wp-content {
     max-width: 1100px;
     margin: 0 auto;
     padding: 3rem 1.5rem;
   }
-  .wp-content :global(img) { max-width: 100%; border-radius: 8px; }
+  .wp-content :global(img)  { max-width: 100%; border-radius: 8px; }
   .wp-content :global(h1),
   .wp-content :global(h2),
-  .wp-content :global(h3) { color: #1a3c6e; margin: 1.5rem 0 .75rem; }
-  .wp-content :global(p)  { color: #374151; margin-bottom: 1rem; }
-  .wp-content :global(a)  { color: #1e5bb4; }
+  .wp-content :global(h3)   { color: #1a3c6e; margin: 1.5rem 0 .75rem; }
+  .wp-content :global(p)    { color: #374151; margin-bottom: 1rem; }
+  .wp-content :global(a)    { color: #1e5bb4; }
 
-  /* Hide Elementor junk */
+  /* Hide Elementor/WooCommerce junk */
   .wp-content :global(.elementor-shortcode),
   .wp-content :global([data-elementor-type]),
-  .wp-content :global(.elementor-widget-container:empty) { display: none; }
+  .wp-content :global(.woocommerce) { display: none; }
 
   .empty-notice {
     text-align: center;
     color: #94a3b8;
     padding: 5rem 0;
-    font-size: 1rem;
   }
 </style>
