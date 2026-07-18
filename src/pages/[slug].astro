@@ -5,7 +5,7 @@ import { faqs, plans, services, testimonials, whatsappLink } from '../data/site'
 const pageMeta = {
   'about-us': { title: 'Tentang BINNET', eyebrow: 'Dibangun dari kedekatan', headline: 'Jaringan lokal. Standar yang tidak lokal.', description: 'Mengenal PT Citra Bintang Net, penyedia internet fiber optic unlimited dan tim teknisi lokal sejak 2013.' },
   'our-services': { title: 'Layanan', eyebrow: 'Lebih dari internet', headline: 'Satu tim untuk rumah yang terkoneksi.', description: 'Internet fiber optic, pemasangan CCTV, serta perbaikan elektronik dan jaringan dari tim BINNET.' },
-  pricing: { title: 'Paket Internet', eyebrow: 'Harga yang transparan', headline: 'Pilih sesuai cara rumah Anda online.', description: 'Daftar paket internet BINNET mulai 10 hingga 100 Mbps, unlimited tanpa FUP dan gratis pemasangan.' },
+  pricing: { title: 'Paket Internet', eyebrow: 'Special promo', headline: 'Lebih kencang. Lebih hemat.', description: 'Paket promo internet BINNET 25 hingga 100 Mbps, mulai Rp149 ribu, unlimited tanpa FUP dan gratis pemasangan.' },
   'coverage-area': { title: 'Cek Area', eyebrow: 'Satu langkah sebelum online', headline: 'Mari lihat apakah jaringan kami sudah dekat.', description: 'Cek ketersediaan jaringan internet fiber BINNET untuk alamat rumah atau usaha Anda.' },
   'contact-us': { title: 'Kontak', eyebrow: 'Bicara dengan manusia', headline: 'Pertanyaan Anda tidak masuk ke ruang hampa.', description: 'Hubungi BINNET melalui WhatsApp untuk pengecekan jaringan, pemilihan paket, dan dukungan pelanggan.' },
   faq: { title: 'FAQ', eyebrow: 'Jawaban tanpa berputar', headline: 'Hal yang paling sering ingin diketahui.', description: 'Jawaban atas pertanyaan umum seputar paket, pemasangan, perangkat, dan layanan internet BINNET.' },
@@ -37,7 +37,7 @@ if (!page) return Astro.redirect('/404');
   <section class="page-hero">
     <div class="container">
       <p class="eyebrow">{page.eyebrow}</p>
-      <h1 class="display">{page.headline}</h1>
+      <h1 class="display" data-split>{page.headline}</h1>
       <p class="lead">{page.description}</p>
     </div>
   </section>
@@ -46,7 +46,7 @@ if (!page) return Astro.redirect('/404');
     <>
       <section class="section story-section">
         <div class="container split-story">
-          <div class="story-sticky reveal"><p class="eyebrow">Sejak 2013</p><h2 class="section-title">Dekat adalah keunggulan operasional.</h2></div>
+          <div class="story-sticky reveal"><p class="eyebrow">Sejak 2013</p><h2 class="section-title" data-split>Dekat adalah keunggulan operasional.</h2></div>
           <div class="story-copy reveal">
             <p class="large-copy">BINNET hadir untuk membuat internet rumah terasa lebih sederhana: koneksi yang stabil, biaya yang jelas, dan tim yang bisa benar-benar dihubungi.</p>
             <p>PT Citra Bintang Net menyediakan internet fiber optic unlimited untuk pelanggan rumah dan usaha. Kami juga menangani pemasangan CCTV serta perbaikan elektronik dan jaringan.</p>
@@ -55,9 +55,9 @@ if (!page) return Astro.redirect('/404');
         </div>
       </section>
       <section class="team-mosaic">
-        <div class="mosaic-wide"><img src="/media/6058-img_5315.jpg" alt="Tim teknisi BINNET" loading="lazy" /></div>
-        <div class="mosaic-tall"><img src="/media/6060-img_5323.jpg" alt="Pekerjaan instalasi jaringan BINNET" loading="lazy" /></div>
-        <div class="mosaic-small"><img src="/media/6059-img_5407.jpg" alt="Tim layanan pelanggan BINNET" loading="lazy" /></div>
+        <div class="mosaic-wide reveal-media"><img src="/media/6058-img_5315.jpg" alt="Tim teknisi BINNET" loading="lazy" /></div>
+        <div class="mosaic-tall reveal-media"><img src="/media/6060-img_5323.jpg" alt="Pekerjaan instalasi jaringan BINNET" loading="lazy" /></div>
+        <div class="mosaic-small reveal-media"><img src="/media/6059-img_5407.jpg" alt="Tim layanan pelanggan BINNET" loading="lazy" /></div>
         <div class="mosaic-note"><span>13+</span><p>tahun bertumbuh bersama pelanggan dan lingkungan sekitar.</p></div>
       </section>
       <section class="section values-section">
@@ -75,9 +75,9 @@ if (!page) return Astro.redirect('/404');
       <section class="section service-detail-section"><div class="container service-detail-grid">
         {services.map(service => (
           <article class="service-detail reveal">
-            <div class="service-detail-media"><img src={service.image} alt={service.title} loading="lazy" /></div>
-            <div class="service-detail-copy"><span>{service.number}</span><h2>{service.title}</h2><p>{service.description}</p>
-              <ul>{service.number === '01' ? <><li>Unlimited tanpa FUP</li><li>Gratis pemasangan</li><li>Paket 10–100 Mbps</li></> : service.number === '02' ? <><li>Pantau dari smartphone</li><li>Penempatan kamera terukur</li><li>Instalasi rapi</li></> : <><li>Pemeriksaan langsung</li><li>Diagnosis perangkat</li><li>Penanganan praktis</li></>}</ul>
+            <div class="service-detail-media reveal-media"><img src={service.image} alt={service.title} loading="lazy" /></div>
+            <div class="service-detail-copy"><span>{service.number}</span><h2 data-split>{service.title}</h2><p>{service.description}</p>
+              <ul>{service.number === '01' ? <><li>Unlimited tanpa FUP</li><li>Gratis pemasangan</li><li>Paket promo 25–100 Mbps</li></> : service.number === '02' ? <><li>Pantau dari smartphone</li><li>Penempatan kamera terukur</li><li>Instalasi rapi</li></> : <><li>Pemeriksaan langsung</li><li>Diagnosis perangkat</li><li>Penanganan praktis</li></>}</ul>
               <a href={whatsappLink(`Halo BINNET, saya ingin konsultasi mengenai layanan ${service.title}.`)} target="_blank" rel="noopener">Konsultasikan kebutuhan ↗</a>
             </div>
           </article>
@@ -89,27 +89,31 @@ if (!page) return Astro.redirect('/404');
   {slug === 'pricing' && (
     <>
       <section class="section pricing-page"><div class="container">
+        <div class="pricing-feature reveal">
+          <div><p class="eyebrow">Koneksi cepat · harga hemat</p><h2 data-split>Promo yang tidak perlu dibaca pakai kaca pembesar.</h2><p>Harga sudah termasuk, instalasi gratis, sewa perangkat termasuk, CS 24 jam, dan teknisi standby per area.</p></div>
+          <a href="/media/generated/promo-binnet-special.webp" target="_blank" rel="noopener" class="pricing-feature-image reveal-media"><img src="/media/generated/promo-binnet-special.webp" alt="Flyer special promo BINNET" loading="eager" /></a>
+        </div>
         <div class="pricing-note reveal"><span>Semua paket</span><p>Unlimited tanpa FUP · PPN termasuk · Perangkat termasuk · Gratis pemasangan · Stabil 24/7</p></div>
         <div class="price-table">
           {plans.map((plan, index) => (
-            <article class:list={['price-row reveal', { picked: plan.recommended }]}>
+          <article class:list={['price-row reveal', { picked: plan.recommended }]}>
               <span class="price-index">{String(index + 1).padStart(2, '0')}</span>
               <div class="price-speed"><strong>{plan.speed}</strong><span>Mbps</span></div>
-              <div class="price-use"><b>{plan.fit}</b><span>{plan.devices}</span></div>
+              <div class="price-use"><b>{plan.name}</b><span>{plan.fit} · {plan.devices}</span></div>
               <div class="price-value"><s>Rp{plan.oldPrice}k</s><strong>Rp{plan.price}k</strong><span>/bulan</span></div>
               <a href={whatsappLink(`Halo BINNET, saya tertarik paket ${plan.speed} Mbps. Mohon cek jaringan di alamat saya.`)} target="_blank" rel="noopener">Pilih ↗</a>
             </article>
           ))}
         </div>
-        <p class="fine-print">Harga dan fasilitas mengacu pada informasi resmi BINNET per Juli 2026. Ketersediaan layanan mengikuti hasil pengecekan jaringan di alamat pemasangan.</p>
+        <p class="fine-print">Harga dan fasilitas mengacu pada flyer special promo BINNET per Juli 2026. Ketersediaan layanan mengikuti hasil pengecekan jaringan dan syarat promo di alamat pemasangan.</p>
       </div></section>
-      <section class="section package-help"><div class="container help-grid"><div><p class="eyebrow">Masih ragu?</p><h2 class="section-title">Jangan bayar bandwidth yang tidak terpakai.</h2></div><div><p class="lead">Ceritakan jumlah perangkat dan aktivitas harian di rumah. Tim kami akan membantu memilih paket yang masuk akal.</p><a class="button button-dark" href={whatsappLink('Halo BINNET, saya ingin dibantu memilih paket yang sesuai untuk rumah saya.')} target="_blank" rel="noopener">Bantu pilih paket</a></div></div></section>
+      <section class="section package-help"><div class="container help-grid"><div><p class="eyebrow">Masih ragu?</p><h2 class="section-title" data-split>Jangan bayar bandwidth yang tidak terpakai.</h2></div><div><p class="lead">Ceritakan jumlah perangkat dan aktivitas harian di rumah. Tim kami akan membantu memilih paket yang masuk akal.</p><a class="button button-dark" href={whatsappLink('Halo BINNET, saya ingin dibantu memilih paket yang sesuai untuk rumah saya.')} target="_blank" rel="noopener">Bantu pilih paket</a></div></div></section>
     </>
   )}
 
   {slug === 'coverage-area' && (
     <section class="section coverage-section"><div class="container coverage-grid">
-      <div class="coverage-copy reveal"><p class="eyebrow">Cek dalam satu chat</p><h2 class="section-title">Kirim alamat. Kami cek jalurnya.</h2><p class="lead">Ketersediaan fiber ditentukan oleh posisi jaringan terdekat dan kondisi teknis di lapangan. Isi data singkat berikut untuk memulai pengecekan melalui WhatsApp.</p><div class="coverage-badges"><span>Tanpa biaya pengecekan</span><span>Jawaban dari tim lokal</span><span>Tidak mengikat</span></div></div>
+      <div class="coverage-copy reveal"><p class="eyebrow">Cek dalam satu chat</p><h2 class="section-title" data-split>Kirim alamat. Kami cek jalurnya.</h2><p class="lead">Ketersediaan fiber ditentukan oleh posisi jaringan terdekat dan kondisi teknis di lapangan. Isi data singkat berikut untuk memulai pengecekan melalui WhatsApp.</p><div class="coverage-badges"><span>Tanpa biaya pengecekan</span><span>Jawaban dari tim lokal</span><span>Tidak mengikat</span></div></div>
       <form class="coverage-form reveal" id="coverage-form">
         <label><span>Nama</span><input required name="name" autocomplete="name" placeholder="Nama Anda" /></label>
         <label><span>Nomor WhatsApp</span><input required name="phone" inputmode="tel" autocomplete="tel" placeholder="08xx xxxx xxxx" /></label>
@@ -130,7 +134,7 @@ if (!page) return Astro.redirect('/404');
 
   {slug === 'faq' && (
     <section class="section faq-section"><div class="container faq-grid">
-      <div class="faq-sticky reveal"><p class="eyebrow">Informasi dasar</p><h2 class="section-title">Singkat, jelas, selesai.</h2><a class="button button-dark" href={whatsappLink('Halo BINNET, saya punya pertanyaan mengenai layanan internet.')} target="_blank" rel="noopener">Tanya hal lain</a></div>
+      <div class="faq-sticky reveal"><p class="eyebrow">Informasi dasar</p><h2 class="section-title" data-split>Singkat, jelas, selesai.</h2><a class="button button-dark" href={whatsappLink('Halo BINNET, saya punya pertanyaan mengenai layanan internet.')} target="_blank" rel="noopener">Tanya hal lain</a></div>
       <div class="faq-list">{faqs.map((item, index) => <details class="reveal"><summary><span>{String(index + 1).padStart(2, '0')}</span><b>{item.question}</b><i>+</i></summary><p>{item.answer}</p></details>)}</div>
     </div></section>
   )}
@@ -139,7 +143,7 @@ if (!page) return Astro.redirect('/404');
     <section class="section gallery-section"><div class="container gallery-grid">
       {[
         ['/media/6060-img_5323.jpg', 'Instalasi jalur jaringan'], ['/media/6058-img_5315.jpg', 'Tim operasional BINNET'], ['/media/6066-img_5343.jpg', 'Penanganan di area pelanggan'], ['/media/6059-img_5407.jpg', 'Layanan pelanggan'], ['/media/6062-img_5451.jpg', 'Pemeriksaan perangkat'], ['/media/6064-img_5421.jpg', 'Tim BINNET'],
-      ].map((item, index) => <figure class:list={['gallery-item reveal', { wide: index === 0 || index === 3 }]}><img src={item[0]} alt={item[1]} loading="lazy" /><figcaption><span>{String(index + 1).padStart(2, '0')}</span>{item[1]}</figcaption></figure>)}
+      ].map((item, index) => <figure class:list={['gallery-item reveal-media', { wide: index === 0 || index === 3 }]}><img src={item[0]} alt={item[1]} loading="lazy" /><figcaption><span>{String(index + 1).padStart(2, '0')}</span>{item[1]}</figcaption></figure>)}
     </div></section>
   )}
 
@@ -185,6 +189,13 @@ if (!page) return Astro.redirect('/404');
   .service-detail-copy li::before { margin-right: .7rem; color: var(--lime); content: '●'; }
   .service-detail-copy a { display: inline-block; padding-bottom: .3rem; border-bottom: 1px solid; font-size: .75rem; font-weight: 800; }
 
+  .pricing-feature { display: grid; grid-template-columns: 1.15fr .85fr; gap: clamp(2rem, 7vw, 7rem); align-items: center; margin-bottom: clamp(5rem, 10vw, 9rem); padding: clamp(1.5rem, 4vw, 3.5rem); border-radius: 30px; background: #061d49; color: var(--white); }
+  .pricing-feature .eyebrow { color: var(--lime); }
+  .pricing-feature h2 { max-width: 720px; font-family: 'Space Grotesk'; font-size: clamp(2.5rem, 5vw, 5.5rem); font-weight: 600; letter-spacing: -.065em; line-height: .95; }
+  .pricing-feature > div > p:last-child { max-width: 600px; margin-top: 1.5rem; color: rgba(255,255,255,.6); font-size: .85rem; }
+  .pricing-feature-image { width: min(100%, 380px); justify-self: end; border-radius: 22px; box-shadow: 0 28px 70px rgba(0,0,0,.35); transform: rotate(2deg); transition: transform .6s var(--ease); }
+  .pricing-feature-image:hover { transform: rotate(0) translateY(-6px); }
+  .pricing-feature-image img { width: 100%; border-radius: inherit; }
   .pricing-note { display: grid; grid-template-columns: .3fr 1fr; gap: 2rem; margin-bottom: 3rem; padding-bottom: 1rem; border-bottom: 1px solid var(--line); }
   .pricing-note span { color: var(--cyan-deep); font-size: .65rem; font-weight: 800; text-transform: uppercase; }
   .pricing-note p { font-family: 'Space Grotesk'; font-size: clamp(1.25rem, 2.4vw, 2.2rem); letter-spacing: -.035em; }
@@ -258,9 +269,10 @@ if (!page) return Astro.redirect('/404');
   .full-review footer small { color: var(--muted); }
 
   @media (max-width: 850px) {
-    .split-story, .service-detail, .coverage-grid, .contact-grid, .faq-grid, .help-grid { grid-template-columns: 1fr; }
+    .split-story, .service-detail, .coverage-grid, .contact-grid, .faq-grid, .help-grid, .pricing-feature { grid-template-columns: 1fr; }
     .story-sticky, .coverage-copy, .faq-sticky { position: static; }
     .service-detail:nth-child(even) .service-detail-media { order: 0; }
+    .pricing-feature-image { width: min(100%, 440px); justify-self: center; transform: none; }
     .team-mosaic { min-height: 80svh; grid-template-columns: 1fr; grid-template-rows: 1.3fr 1fr; }
     .mosaic-wide { grid-row: 1; }
     .mosaic-tall { grid-row: 2; }

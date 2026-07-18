@@ -1,26 +1,26 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { blogPosts, plans, services, testimonials, whatsappLink } from '../data/site';
+import { blogPosts, plans, promoBenefits, services, testimonials, whatsappLink } from '../data/site';
 ---
 
-<Layout title="Beranda" description="Internet fiber optic unlimited tanpa FUP, gratis pemasangan, dan layanan teknisi lokal dari BINNET. Paket mulai Rp165 ribu per bulan.">
+<Layout title="Beranda" description="Internet fiber optic unlimited tanpa FUP, gratis pemasangan, dan layanan teknisi lokal dari BINNET. Paket promo mulai Rp149 ribu per bulan.">
   <section class="home-hero">
     <div class="hero-orbit orbit-one"></div>
     <div class="hero-orbit orbit-two"></div>
     <div class="container hero-grid">
       <div class="hero-copy">
         <p class="eyebrow">Fiber lokal · sejak 2013</p>
-        <h1 class="display">Internet cepat itu harus <em>terasa.</em></h1>
+        <h1 class="display" data-split>Internet cepat itu harus <em>terasa.</em></h1>
         <div class="hero-bottom">
           <p>Fiber optic unlimited tanpa FUP. Jernih untuk meeting, mulus untuk streaming, dan siap saat seluruh rumah online bersamaan.</p>
           <div class="hero-actions">
             <a class="button" href={whatsappLink()} target="_blank" rel="noopener">Cek jaringan rumah</a>
-            <a class="button button-ghost" href="#paket">Mulai Rp165 ribu</a>
+            <a class="button button-ghost" href="#promo">Promo mulai Rp149 ribu</a>
           </div>
         </div>
       </div>
 
-      <div class="hero-media" data-parallax>
+      <div class="hero-media reveal-media" data-parallax data-parallax-scroll data-speed=".035">
         <img src="/media/6060-img_5323.jpg" alt="Teknisi BINNET memasang jaringan fiber optic" width="1440" height="2560" fetchpriority="high" />
         <div class="media-note"><span>01</span><p>Tim lokal.<br />Respons lebih dekat.</p></div>
         <div class="live-pill"><i></i> Jaringan aktif</div>
@@ -36,12 +36,57 @@ import { blogPosts, plans, services, testimonials, whatsappLink } from '../data/
     </div>
   </div>
 
+  <section class="promo-stage" id="promo">
+    <div class="promo-glow" data-parallax-scroll data-speed=".12"></div>
+    <div class="container promo-shell">
+      <div class="promo-heading reveal">
+        <p class="eyebrow">Special promo · koneksi cepat, harga hemat</p>
+        <h2 class="section-title" data-split>Lebih kencang.<br />Lebih masuk akal.</h2>
+        <p class="lead">Empat paket baru dengan instalasi gratis, perangkat termasuk, customer service 24 jam, dan teknisi standby per area.</p>
+      </div>
+
+      <div class="promo-layout">
+        <button class="promo-flyer reveal-media" id="promo-open" type="button" data-cursor data-parallax-scroll data-speed=".045" aria-label="Buka flyer promo BINNET">
+          <img src="/media/generated/promo-binnet-special.webp" alt="Flyer special promo BINNET" width="1024" height="1536" />
+          <span>Lihat flyer penuh <i>↗</i></span>
+        </button>
+
+        <div class="promo-content">
+          <div class="promo-plans">
+            {plans.map((plan, index) => (
+              <article class:list={['promo-plan reveal', { hot: plan.recommended }]} data-magnetic>
+                <div><span>{String(index + 1).padStart(2, '0')}</span><b>{plan.name}</b></div>
+                <p><strong>{plan.speed}</strong> Mbps</p>
+                <s>Rp{plan.oldPrice}.000</s>
+                <h3><small>Rp</small>{plan.price}.000</h3>
+                <a href={whatsappLink(`Halo BINNET, saya tertarik promo ${plan.name} ${plan.speed} Mbps seharga Rp${plan.price}.000. Mohon cek area saya.`)} target="_blank" rel="noopener" aria-label={`Pilih ${plan.name}`}>Pilih ↗</a>
+              </article>
+            ))}
+          </div>
+          <div class="promo-benefits reveal">
+            {promoBenefits.map(item => <span><i>✓</i>{item}</span>)}
+          </div>
+          <div class="promo-cta reveal">
+            <div><span>Bonus utama</span><strong>Tagihan paket promo flat*</strong></div>
+            <a class="button" href={whatsappLink('Halo BINNET, saya ingin daftar special promo dan cek jaringan di alamat saya.')} target="_blank" rel="noopener">Ambil promo</a>
+          </div>
+          <p class="promo-terms">*Harga promo dan fasilitas mengikuti hasil pengecekan area serta syarat dan ketentuan BINNET.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <dialog class="promo-modal" id="promo-modal">
+    <button type="button" id="promo-close" aria-label="Tutup flyer">×</button>
+    <img src="/media/generated/promo-binnet-special.webp" alt="Flyer lengkap special promo BINNET" width="1024" height="1536" />
+  </dialog>
+
   <section class="section manifesto">
     <div class="container manifesto-grid">
       <div class="manifesto-number reveal">13<span>+</span></div>
       <div class="reveal">
         <p class="eyebrow">Lebih dari koneksi</p>
-        <h2 class="section-title">Internet rumah bukan soal angka paling besar.</h2>
+        <h2 class="section-title" data-split>Internet rumah bukan soal angka paling besar.</h2>
         <p class="lead manifesto-lead">Yang penting adalah stabil saat dibutuhkan, jelas tagihannya, dan ada manusia yang merespons ketika sesuatu tidak berjalan semestinya. Itulah cara BINNET bekerja sejak 2013.</p>
       </div>
     </div>
@@ -52,7 +97,7 @@ import { blogPosts, plans, services, testimonials, whatsappLink } from '../data/
       <div class="package-head reveal">
         <div>
           <p class="eyebrow">Pilih ritme rumah Anda</p>
-          <h2 class="section-title">Kecepatan yang pas.<br />Bukan asal tinggi.</h2>
+          <h2 class="section-title" data-split>Kecepatan yang pas.<br />Bukan asal tinggi.</h2>
         </div>
         <p class="lead">Semua paket unlimited tanpa FUP, sudah termasuk PPN, perangkat, dan pemasangan.</p>
       </div>
@@ -60,7 +105,7 @@ import { blogPosts, plans, services, testimonials, whatsappLink } from '../data/
       <div class="plans">
         {plans.map((plan, index) => (
           <article class:list={['plan reveal', { recommended: plan.recommended }]} style={`--delay:${index * 60}ms`}>
-            <div class="plan-top"><span>{String(index + 1).padStart(2, '0')}</span>{plan.recommended && <b>Pilihan seimbang</b>}</div>
+            <div class="plan-top"><span>{String(index + 1).padStart(2, '0')}</span><b>{plan.name}</b></div>
             <div class="plan-speed"><strong>{plan.speed}</strong><span>Mbps</span></div>
             <p class="plan-fit">{plan.fit}</p>
             <div class="plan-price"><small>Rp</small><strong>{plan.price}k</strong><span>/bulan</span></div>
@@ -78,7 +123,7 @@ import { blogPosts, plans, services, testimonials, whatsappLink } from '../data/
     <div class="container">
       <div class="service-intro reveal">
         <p class="eyebrow">Satu tim, tiga solusi</p>
-        <h2 class="section-title">Rumah terhubung.<br />Rumah terlindungi.</h2>
+        <h2 class="section-title" data-split>Rumah terhubung.<br />Rumah terlindungi.</h2>
       </div>
       <div class="service-list">
         {services.map(service => (
@@ -95,10 +140,10 @@ import { blogPosts, plans, services, testimonials, whatsappLink } from '../data/
   </section>
 
   <section class="field-story">
-    <div class="field-image"><img src="/media/6058-img_5315.jpg" alt="Tim teknisi BINNET" width="2560" height="1440" loading="lazy" /></div>
+    <div class="field-image" data-parallax-scroll data-speed=".04"><img src="/media/6058-img_5315.jpg" alt="Tim teknisi BINNET" width="2560" height="1440" loading="lazy" /></div>
     <div class="field-copy reveal">
       <p class="eyebrow">Bukan call center anonim</p>
-      <h2>Tim yang tahu jalan menuju rumah Anda.</h2>
+      <h2 data-split>Tim yang tahu jalan menuju rumah Anda.</h2>
       <p>BINNET dibangun sebagai jaringan lokal. Artinya, komunikasi lebih dekat, konteks area lebih dipahami, dan penanganan tidak berhenti di nomor tiket.</p>
       <a class="button" href="/about-us">Kenal BINNET</a>
     </div>
@@ -108,7 +153,7 @@ import { blogPosts, plans, services, testimonials, whatsappLink } from '../data/
   <section class="section review-section">
     <div class="container">
       <div class="review-head reveal">
-        <div><p class="eyebrow">Cerita dari jaringan</p><h2 class="section-title">Yang paling jujur adalah pengalaman pelanggan.</h2></div>
+        <div><p class="eyebrow">Cerita dari jaringan</p><h2 class="section-title" data-split>Yang paling jujur adalah pengalaman pelanggan.</h2></div>
         <span class="quote-mark">“</span>
       </div>
       <div class="review-grid">
@@ -126,7 +171,7 @@ import { blogPosts, plans, services, testimonials, whatsappLink } from '../data/
   <section class="section journal-section">
     <div class="container">
       <div class="journal-head reveal">
-        <div><p class="eyebrow">Jurnal koneksi</p><h2 class="section-title">Biar teknologi tidak terasa teknis.</h2></div>
+        <div><p class="eyebrow">Jurnal koneksi</p><h2 class="section-title" data-split>Biar teknologi tidak terasa teknis.</h2></div>
         <a href="/blog">Lihat semua artikel <span>↗</span></a>
       </div>
       <div class="journal-grid">
@@ -171,6 +216,46 @@ import { blogPosts, plans, services, testimonials, whatsappLink } from '../data/
   .ticker-track i { width: 7px; height: 7px; border-radius: 50%; background: var(--ink); }
   @keyframes ticker { to { transform: translateX(-50%); } }
 
+  .promo-stage { position: relative; overflow: hidden; padding: clamp(6rem, 11vw, 11rem) 0; background: #061d49; color: var(--white); }
+  .promo-stage::before { position: absolute; inset: 0; background: radial-gradient(circle at 70% 15%, rgba(53,198,244,.22), transparent 34%), linear-gradient(135deg, rgba(10,63,191,.35), transparent 50%); content: ''; }
+  .promo-glow { position: absolute; top: 10%; right: -10%; width: 48vw; aspect-ratio: 1; border: 1px solid rgba(255,255,255,.16); border-radius: 50%; box-shadow: 0 0 120px rgba(53,198,244,.12), inset 0 0 90px rgba(167,237,82,.06); }
+  .promo-shell { position: relative; z-index: 1; }
+  .promo-heading { display: grid; grid-template-columns: 1.15fr .85fr; gap: 2rem 5rem; align-items: end; margin-bottom: 4.5rem; }
+  .promo-heading .eyebrow { grid-column: 1 / -1; color: var(--lime); }
+  .promo-heading .lead { justify-self: end; color: rgba(255,255,255,.63); }
+  .promo-layout { display: grid; grid-template-columns: minmax(300px, .7fr) minmax(0, 1.3fr); gap: clamp(2rem, 5vw, 5rem); align-items: start; }
+  .promo-flyer { position: relative; top: 0; width: 100%; padding: 0; border: 1px solid rgba(255,255,255,.2); border-radius: 28px; background: none; box-shadow: 0 36px 90px rgba(0,0,0,.34); cursor: pointer; transform: rotate(-2deg); transition: transform .6s var(--ease), box-shadow .6s; }
+  .promo-flyer:hover { transform: rotate(0) translateY(-8px); box-shadow: 0 48px 110px rgba(0,0,0,.45); }
+  .promo-flyer img { width: 100%; border-radius: inherit; }
+  .promo-flyer > span { position: absolute; right: 1rem; bottom: 1rem; left: 1rem; display: flex; justify-content: space-between; padding: .85rem 1rem; border: 1px solid rgba(255,255,255,.25); border-radius: 999px; background: rgba(7,22,33,.82); backdrop-filter: blur(14px); color: var(--white); font-size: .7rem; font-weight: 800; }
+  .promo-flyer > span i { color: var(--lime); font-style: normal; }
+  .promo-content { min-width: 0; }
+  .promo-plans { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+  .promo-plan { min-height: 300px; display: flex; flex-direction: column; padding: 1.35rem; border: 1px solid rgba(255,255,255,.16); border-radius: 22px; background: rgba(255,255,255,.06); backdrop-filter: blur(12px); transition: background .4s, color .4s, border-color .4s; }
+  .promo-plan:hover, .promo-plan.hot { border-color: var(--lime); background: var(--lime); color: var(--ink); }
+  .promo-plan > div { display: flex; justify-content: space-between; gap: .6rem; color: rgba(255,255,255,.48); font-size: .6rem; letter-spacing: .08em; text-transform: uppercase; }
+  .promo-plan.hot > div, .promo-plan:hover > div { color: rgba(7,22,33,.58); }
+  .promo-plan > p { display: flex; align-items: baseline; gap: .45rem; margin: 2.3rem 0 0; }
+  .promo-plan > p strong { font-family: 'Space Grotesk'; font-size: clamp(3.2rem, 5vw, 5.2rem); font-weight: 500; letter-spacing: -.08em; line-height: .7; }
+  .promo-plan > p { font-size: .7rem; font-weight: 800; }
+  .promo-plan > s { margin-top: 1rem; color: #ff716a; font-size: .65rem; }
+  .promo-plan.hot > s, .promo-plan:hover > s { color: var(--red); }
+  .promo-plan h3 { margin-top: auto; font-family: 'Space Grotesk'; font-size: 2rem; letter-spacing: -.05em; }
+  .promo-plan h3 small { margin-right: .15rem; font-family: 'Manrope'; font-size: .65rem; }
+  .promo-plan > a { display: flex; justify-content: space-between; margin-top: 1rem; padding-top: .8rem; border-top: 1px solid currentColor; font-size: .7rem; font-weight: 800; }
+  .promo-benefits { display: flex; gap: .55rem; flex-wrap: wrap; margin-top: 1.3rem; }
+  .promo-benefits span { display: inline-flex; align-items: center; gap: .5rem; padding: .6rem .75rem; border: 1px solid rgba(255,255,255,.18); border-radius: 999px; color: rgba(255,255,255,.7); font-size: .61rem; }
+  .promo-benefits i { display: grid; width: 17px; height: 17px; place-items: center; border-radius: 50%; background: var(--lime); color: var(--ink); font-size: .55rem; font-style: normal; }
+  .promo-cta { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; margin-top: 1.5rem; padding: 1rem 1rem 1rem 1.4rem; border-radius: 999px; background: var(--white); color: var(--ink); }
+  .promo-cta > div { display: grid; }
+  .promo-cta > div span { color: var(--red); font-size: .57rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+  .promo-cta > div strong { font-family: 'Space Grotesk'; font-size: 1rem; }
+  .promo-terms { margin-top: .8rem; color: rgba(255,255,255,.38); font-size: .58rem; }
+  .promo-modal { width: min(92vw, 650px); max-height: 92svh; padding: 0; overflow: visible; border: 0; border-radius: 24px; background: transparent; box-shadow: 0 36px 100px rgba(0,0,0,.5); }
+  .promo-modal::backdrop { background: rgba(2,12,25,.84); backdrop-filter: blur(15px); }
+  .promo-modal img { width: 100%; max-height: 90svh; object-fit: contain; border-radius: 20px; }
+  .promo-modal button { position: absolute; z-index: 2; top: -18px; right: -18px; width: 44px; height: 44px; border: 0; border-radius: 50%; background: var(--lime); color: var(--ink); font-size: 1.5rem; cursor: pointer; }
+
   .manifesto { background: var(--paper); }
   .manifesto-grid { display: grid; grid-template-columns: .45fr 1.55fr; gap: clamp(2rem, 8vw, 9rem); align-items: start; }
   .manifesto-number { color: var(--cyan-deep); font-family: 'Space Grotesk'; font-size: clamp(6rem, 15vw, 13rem); font-weight: 600; letter-spacing: -.09em; line-height: .78; }
@@ -180,7 +265,7 @@ import { blogPosts, plans, services, testimonials, whatsappLink } from '../data/
   .package-section { background: var(--white); }
   .package-head { display: grid; grid-template-columns: 1.2fr .8fr; gap: 3rem; align-items: end; margin-bottom: 4.5rem; }
   .package-head .lead { justify-self: end; }
-  .plans { display: grid; grid-template-columns: repeat(5, 1fr); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+  .plans { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
   .plan { position: relative; min-height: 530px; display: flex; flex-direction: column; padding: 1.5rem; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); transition: background .45s var(--ease), color .45s, transform .45s var(--ease); transition-delay: var(--delay); }
   .plan:hover, .plan.recommended { z-index: 2; background: var(--ink); color: var(--white); transform: translateY(-12px); }
   .plan-top { min-height: 28px; display: flex; justify-content: space-between; gap: .5rem; color: var(--muted); font-size: .64rem; letter-spacing: .1em; text-transform: uppercase; }
@@ -251,21 +336,34 @@ import { blogPosts, plans, services, testimonials, whatsappLink } from '../data/
   @media (max-width: 1100px) {
     .hero-grid { grid-template-columns: 1fr .45fr; }
     .hero-media { min-height: 520px; }
-    .plans { grid-template-columns: repeat(3, 1fr); }
+    .plans { grid-template-columns: repeat(2, 1fr); }
     .review-grid { grid-template-columns: repeat(2, 1fr); }
     .journal-grid { grid-template-columns: 1fr 1fr; }
     .journal-card.featured { grid-column: 1 / -1; }
     .featured .journal-image { aspect-ratio: 16 / 8; }
   }
 
-  @media (max-width: 780px) {
-    .home-hero { padding-top: 8.5rem; }
+  @media (max-width: 960px) {
     .hero-grid { min-height: auto; grid-template-columns: 1fr; }
     .hero-copy { padding-bottom: 0; }
+    .hero-media { width: min(100%, 620px); min-height: 62vh; justify-self: end; border-radius: 160px 160px 26px 26px; transform: none; }
+    .promo-heading { grid-template-columns: 1fr; }
+    .promo-heading .lead { justify-self: start; }
+    .promo-layout { grid-template-columns: minmax(260px, .65fr) minmax(0, 1.35fr); gap: 2rem; }
+    .promo-plan { min-height: 270px; }
+    .promo-cta { border-radius: 24px; }
+  }
+
+  @media (max-width: 780px) {
+    .home-hero { padding-top: 8.5rem; }
     .hero-bottom { grid-template-columns: 1fr; align-items: start; }
     .hero-media { min-height: 64vh; border-radius: 140px 140px 24px 24px; transform: none; }
     .hero-index { margin-top: 2rem; }
     .manifesto-grid, .package-head { grid-template-columns: 1fr; }
+    .promo-layout { grid-template-columns: 1fr; }
+    .promo-flyer { width: min(100%, 460px); justify-self: center; transform: none; }
+    .promo-flyer:hover { transform: translateY(-4px); }
+    .promo-content { width: 100%; }
     .package-head .lead { justify-self: start; }
     .plans { grid-template-columns: repeat(2, 1fr); }
     .service-row { grid-template-columns: 35px 75px 1fr 30px; gap: 1rem; }
@@ -280,6 +378,17 @@ import { blogPosts, plans, services, testimonials, whatsappLink } from '../data/
     .hero-actions .button { width: 100%; }
     .hero-index span:last-child { display: none; }
     .plans { grid-template-columns: 1fr; border-left: 0; }
+    .promo-stage { padding-top: 5.5rem; }
+    .promo-heading { margin-bottom: 2.5rem; }
+    .promo-plans { display: flex; gap: .8rem; overflow-x: auto; margin-right: -16px; padding: 0 16px 1rem 0; scroll-snap-type: x mandatory; scrollbar-width: none; }
+    .promo-plans::-webkit-scrollbar { display: none; }
+    .promo-plan { min-width: min(78vw, 320px); min-height: 300px; scroll-snap-align: start; }
+    .promo-benefits { display: grid; grid-template-columns: 1fr 1fr; }
+    .promo-benefits span { border-radius: 14px; }
+    .promo-cta { align-items: stretch; flex-direction: column; padding: 1.2rem; }
+    .promo-cta .button { width: 100%; }
+    .promo-modal { width: calc(100vw - 28px); }
+    .promo-modal button { top: 8px; right: 8px; }
     .plan { min-height: 465px; border-left: 1px solid var(--line); }
     .plan:hover, .plan.recommended { transform: none; }
     .review-grid, .journal-grid { grid-template-columns: 1fr; }
@@ -294,11 +403,16 @@ import { blogPosts, plans, services, testimonials, whatsappLink } from '../data/
 
 <script>
   const parallax = document.querySelector('[data-parallax]');
-  if (parallax && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  if (parallax && window.matchMedia('(hover: hover) and (pointer: fine)').matches && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     window.addEventListener('pointermove', event => {
       const x = (event.clientX / window.innerWidth - .5) * 10;
       const y = (event.clientY / window.innerHeight - .5) * 10;
       (parallax as HTMLElement).style.translate = `${x}px ${y}px`;
     }, { passive: true });
   }
+
+  const promoModal = document.querySelector<HTMLDialogElement>('#promo-modal');
+  document.querySelector('#promo-open')?.addEventListener('click', () => promoModal?.showModal());
+  document.querySelector('#promo-close')?.addEventListener('click', () => promoModal?.close());
+  promoModal?.addEventListener('click', event => { if (event.target === promoModal) promoModal.close(); });
 </script>

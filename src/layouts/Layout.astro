@@ -160,7 +160,9 @@ const organizationSchema = {
         width: 100%;
         padding-top: 14px;
         pointer-events: none;
+        transition: transform .65s var(--ease), opacity .45s;
       }
+      .site-header.is-hidden { opacity: 0; transform: translateY(-115%); }
       .nav-shell {
         width: min(calc(100% - 28px), var(--max));
         min-height: 68px;
@@ -263,6 +265,68 @@ const organizationSchema = {
 
       .reveal { opacity: 0; transform: translateY(36px); transition: opacity .8s var(--ease), transform .8s var(--ease); }
       .reveal.is-visible { opacity: 1; transform: none; }
+      .reveal-media { overflow: hidden; clip-path: inset(0 0 100% 0 round 24px); transition: clip-path 1.15s var(--ease); }
+      .reveal-media img { transform: scale(1.12); transition: transform 1.4s var(--ease); }
+      .reveal-media.is-visible { clip-path: inset(0 0 0 0 round 24px); }
+      .reveal-media.is-visible img { transform: scale(1); }
+
+      .split-word {
+        display: inline-block;
+        opacity: 0;
+        transform: translateY(1.05em) rotate(2deg);
+        transition: opacity .7s var(--ease), transform .9s var(--ease);
+        transition-delay: calc(var(--word-index, 0) * 42ms);
+        will-change: transform;
+      }
+      body.is-ready [data-split].is-split-visible .split-word { opacity: 1; transform: none; }
+
+      .scroll-progress {
+        position: fixed;
+        z-index: 1200;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: linear-gradient(90deg, var(--lime), var(--cyan));
+        transform: scaleX(0);
+        transform-origin: left;
+        pointer-events: none;
+      }
+
+      .site-loader, .page-transition {
+        position: fixed;
+        z-index: 3000;
+        inset: 0;
+        pointer-events: none;
+      }
+      .site-loader { display: grid; place-items: center; overflow: hidden; background: var(--ink); color: var(--white); transition: visibility 0s 1.1s; }
+      .loader-panel { position: absolute; inset: 0; background: var(--cyan); transform-origin: top; transition: transform 1s var(--ease) .4s; }
+      .loader-brand { position: relative; z-index: 1; display: grid; justify-items: center; gap: 1rem; transition: opacity .3s ease .25s, transform .65s var(--ease) .2s; }
+      .loader-brand img { width: 78px; height: 78px; object-fit: contain; filter: drop-shadow(0 12px 24px rgba(0,0,0,.22)); }
+      .loader-brand span { font-family: 'Space Grotesk'; font-size: .72rem; font-weight: 700; letter-spacing: .24em; text-transform: uppercase; }
+      .loader-line { width: 140px; height: 2px; overflow: hidden; background: rgba(255,255,255,.2); }
+      .loader-line::after { display: block; width: 100%; height: 100%; background: var(--lime); content: ''; animation: loader-line 1s var(--ease) both; }
+      body.is-ready .loader-panel { transform: scaleY(0); }
+      body.is-ready .loader-brand { opacity: 0; transform: translateY(-24px); }
+      body.is-ready .site-loader { visibility: hidden; }
+      body.skip-intro .site-loader { display: none; }
+      @keyframes loader-line { from { transform: translateX(-100%); } to { transform: none; } }
+
+      .page-transition { display: grid; grid-template-rows: repeat(4, 1fr); visibility: hidden; }
+      .page-transition span { background: var(--cyan); transform: scaleX(0); transform-origin: right; transition: transform .55s var(--ease); }
+      .page-transition span:nth-child(2) { transition-delay: 50ms; }
+      .page-transition span:nth-child(3) { transition-delay: 100ms; }
+      .page-transition span:nth-child(4) { transition-delay: 150ms; }
+      body.is-leaving .page-transition { visibility: visible; }
+      body.is-leaving .page-transition span { transform: scaleX(1); }
+
+      .cursor-dot, .cursor-ring { position: fixed; z-index: 2500; top: 0; left: 0; border-radius: 50%; pointer-events: none; opacity: 0; }
+      .cursor-dot { width: 7px; height: 7px; background: var(--lime); }
+      .cursor-ring { width: 42px; height: 42px; border: 1px solid rgba(167,237,82,.8); mix-blend-mode: difference; transition: width .35s var(--ease), height .35s var(--ease), background .35s, border-color .35s; }
+      body.has-pointer .cursor-dot, body.has-pointer .cursor-ring { opacity: 1; }
+      body.cursor-active .cursor-ring { width: 68px; height: 68px; border-color: transparent; background: var(--white); }
+
+      [data-parallax-scroll] { --scroll-y: 0px; transform: translate3d(0, var(--scroll-y), 0); will-change: transform; }
 
       .site-footer { position: relative; overflow: hidden; padding: clamp(5rem, 9vw, 9rem) 0 2rem; background: var(--ink); color: var(--white); }
       .footer-kicker { color: var(--lime); }
@@ -320,16 +384,35 @@ const organizationSchema = {
         .footer-bottom { flex-direction: column; }
         .wa-float span:last-child { display: none; }
         .wa-float { width: 50px; justify-content: center; padding: 0; }
+        .site-loader .loader-brand img { width: 62px; height: 62px; }
+        .split-word { transition-delay: calc(var(--word-index, 0) * 24ms); }
+      }
+
+      @media (hover: none), (pointer: coarse) {
+        .cursor-dot, .cursor-ring { display: none; }
+        [data-parallax-scroll] { transform: none !important; }
       }
 
       @media (prefers-reduced-motion: reduce) {
         html { scroll-behavior: auto; }
         *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
         .reveal { opacity: 1; transform: none; }
+        .reveal-media { clip-path: none; }
+        .split-word { opacity: 1; transform: none; }
+        .site-loader, .page-transition, .scroll-progress, .cursor-dot, .cursor-ring { display: none; }
       }
     </style>
   </head>
   <body>
+    <script is:inline>try{if(sessionStorage.getItem('binnet-intro-seen')==='1')document.body.classList.add('skip-intro')}catch(e){}</script>
+    <div class="site-loader" aria-hidden="true">
+      <div class="loader-panel"></div>
+      <div class="loader-brand"><img src="/media/6111-cropped-logo-hd-binnet-transparan-png.png" alt="" /><span>Connecting home</span><i class="loader-line"></i></div>
+    </div>
+    <div class="page-transition" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+    <div class="scroll-progress" aria-hidden="true"></div>
+    <div class="cursor-dot" aria-hidden="true"></div>
+    <div class="cursor-ring" aria-hidden="true"></div>
     <header class="site-header">
       <div class="nav-shell">
         <a href="/" class="brand" aria-label="BINNET beranda">
@@ -363,7 +446,7 @@ const organizationSchema = {
           <div class="footer-brand"><strong>BINNET.NET</strong>Internet fiber optic unlimited sejak 2013, dengan tim lokal yang memahami area dan pelanggan secara langsung.</div>
           <div class="footer-col"><b>Jelajahi</b><a href="/pricing">Paket internet</a><a href="/our-services">Layanan</a><a href="/coverage-area">Cek area</a><a href="/blog">Jurnal</a></div>
           <div class="footer-col"><b>Perusahaan</b><a href="/about-us">Tentang kami</a><a href="/faq">Pertanyaan umum</a><a href="/contact-us">Kontak</a></div>
-          <div class="footer-col"><b>Terhubung</b><a href={whatsappLink()} target="_blank" rel="noopener">0857 7385 4210</a><a href="https://www.instagram.com/binnetwifi/" target="_blank" rel="noopener">Instagram</a><a href="mailto:info@binnet.biz.id">info@binnet.biz.id</a></div>
+          <div class="footer-col"><b>Terhubung</b><a href={whatsappLink()} target="_blank" rel="noopener">0857 7385 4210</a><a href="https://www.instagram.com/binnetwifi/" target="_blank" rel="noopener">Instagram</a><a href="mailto:info@binnet.biz.id">info@binnet.biz.id</a><span>Pandawa Regency, Tajur Halang, Bogor 16320</span></div>
         </div>
         <div class="footer-bottom"><span>© {new Date().getFullYear()} PT Citra Bintang Net</span><span>Fiber lokal · layanan manusia</span></div>
       </div>
@@ -372,18 +455,51 @@ const organizationSchema = {
     <a class="wa-float" href={whatsappLink()} target="_blank" rel="noopener" aria-label="Chat BINNET di WhatsApp"><i class="wa-dot"></i><span>Chat WhatsApp</span></a>
 
     <script>
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+      const body = document.body;
+      const introSeen = sessionStorage.getItem('binnet-intro-seen') === '1';
+      requestAnimationFrame(() => window.setTimeout(() => {
+        body.classList.add('is-ready');
+        sessionStorage.setItem('binnet-intro-seen', '1');
+      }, reduceMotion || introSeen ? 0 : finePointer ? 650 : 300));
+      window.addEventListener('pageshow', () => body.classList.remove('is-leaving'));
+
       const menuButton = document.querySelector('.menu-button');
       const mobileLinks = document.querySelectorAll('.mobile-nav a');
       const setMenu = (open: boolean) => {
-        document.body.classList.toggle('menu-open', open);
+        body.classList.toggle('menu-open', open);
         menuButton?.setAttribute('aria-expanded', String(open));
         menuButton?.setAttribute('aria-label', open ? 'Tutup menu' : 'Buka menu');
       };
-      menuButton?.addEventListener('click', () => setMenu(!document.body.classList.contains('menu-open')));
+      menuButton?.addEventListener('click', () => setMenu(!body.classList.contains('menu-open')));
       mobileLinks.forEach(link => link.addEventListener('click', () => setMenu(false)));
       window.addEventListener('keydown', event => { if (event.key === 'Escape') setMenu(false); });
 
-      const items = document.querySelectorAll('.reveal');
+      document.querySelectorAll<HTMLElement>('[data-split]').forEach(element => {
+        let index = 0;
+        const wrapWords = (node: Node) => {
+          Array.from(node.childNodes).forEach(child => {
+            if (child.nodeType === Node.TEXT_NODE && child.textContent?.trim()) {
+              const fragment = document.createDocumentFragment();
+              child.textContent.split(/(\s+)/).forEach(part => {
+                if (/^\s+$/.test(part)) return fragment.appendChild(document.createTextNode(part));
+                if (!part) return;
+                const span = document.createElement('span');
+                span.className = 'split-word';
+                span.style.setProperty('--word-index', String(index++));
+                span.textContent = part;
+                fragment.appendChild(span);
+              });
+              child.replaceWith(fragment);
+            } else if (child.nodeType === Node.ELEMENT_NODE) wrapWords(child);
+          });
+        };
+        wrapWords(element);
+      });
+
+      const items = document.querySelectorAll('.reveal, .reveal-media');
+      const splitItems = document.querySelectorAll('[data-split]');
       if ('IntersectionObserver' in window) {
         const observer = new IntersectionObserver(entries => {
           entries.forEach(entry => {
@@ -394,9 +510,88 @@ const organizationSchema = {
           });
         }, { threshold: .12 });
         items.forEach(item => observer.observe(item));
+        const splitObserver = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-split-visible');
+              splitObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: .18 });
+        splitItems.forEach(item => splitObserver.observe(item));
       } else {
         items.forEach(item => item.classList.add('is-visible'));
+        splitItems.forEach(item => item.classList.add('is-split-visible'));
       }
+
+      const progress = document.querySelector<HTMLElement>('.scroll-progress');
+      const header = document.querySelector<HTMLElement>('.site-header');
+      const parallaxItems = document.querySelectorAll<HTMLElement>('[data-parallax-scroll]');
+      let lastScroll = window.scrollY;
+      let scrollTick = false;
+      const updateScrollMotion = () => {
+        const top = window.scrollY;
+        const max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+        if (progress) progress.style.transform = `scaleX(${Math.min(1, top / max)})`;
+        header?.classList.toggle('is-hidden', top > lastScroll && top > 160 && !body.classList.contains('menu-open'));
+        if (!reduceMotion && finePointer) {
+          parallaxItems.forEach(item => {
+            const rect = item.getBoundingClientRect();
+            if (rect.bottom > -200 && rect.top < window.innerHeight + 200) {
+              const speed = Number(item.dataset.speed || .08);
+              const offset = (rect.top + rect.height / 2 - window.innerHeight / 2) * -speed;
+              item.style.setProperty('--scroll-y', `${offset.toFixed(1)}px`);
+            }
+          });
+        }
+        lastScroll = top;
+        scrollTick = false;
+      };
+      window.addEventListener('scroll', () => {
+        if (!scrollTick) { requestAnimationFrame(updateScrollMotion); scrollTick = true; }
+      }, { passive: true });
+      updateScrollMotion();
+
+      if (finePointer && !reduceMotion) {
+        const dot = document.querySelector<HTMLElement>('.cursor-dot');
+        const ring = document.querySelector<HTMLElement>('.cursor-ring');
+        let pointerX = -100, pointerY = -100, ringX = -100, ringY = -100;
+        window.addEventListener('pointermove', event => {
+          pointerX = event.clientX;
+          pointerY = event.clientY;
+          body.classList.add('has-pointer');
+          if (dot) dot.style.transform = `translate3d(${pointerX - 3.5}px, ${pointerY - 3.5}px, 0)`;
+        }, { passive: true });
+        const renderCursor = () => {
+          ringX += (pointerX - ringX) * .16;
+          ringY += (pointerY - ringY) * .16;
+          if (ring) ring.style.transform = `translate3d(${ringX - ring.offsetWidth / 2}px, ${ringY - ring.offsetHeight / 2}px, 0)`;
+          requestAnimationFrame(renderCursor);
+        };
+        renderCursor();
+        document.querySelectorAll('a, button, summary, [data-cursor]').forEach(item => {
+          item.addEventListener('pointerenter', () => body.classList.add('cursor-active'));
+          item.addEventListener('pointerleave', () => body.classList.remove('cursor-active'));
+        });
+        document.querySelectorAll<HTMLElement>('.button, [data-magnetic]').forEach(item => {
+          item.addEventListener('pointermove', event => {
+            const rect = item.getBoundingClientRect();
+            item.style.translate = `${(event.clientX - rect.left - rect.width / 2) * .13}px ${(event.clientY - rect.top - rect.height / 2) * .13}px`;
+          });
+          item.addEventListener('pointerleave', () => { item.style.translate = ''; });
+        });
+      }
+
+      document.querySelectorAll<HTMLAnchorElement>('a[href]').forEach(link => {
+        link.addEventListener('click', event => {
+          if (reduceMotion || event.defaultPrevented || event.metaKey || event.ctrlKey || link.target === '_blank' || link.hasAttribute('download')) return;
+          const url = new URL(link.href, window.location.href);
+          if (url.origin !== window.location.origin || url.protocol === 'mailto:' || url.pathname === window.location.pathname && url.hash) return;
+          event.preventDefault();
+          body.classList.add('is-leaving');
+          window.setTimeout(() => { window.location.href = url.href; }, 620);
+        });
+      });
     </script>
   </body>
 </html>

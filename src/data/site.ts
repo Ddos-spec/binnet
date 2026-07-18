@@ -5,41 +5,46 @@ export const whatsappLink = (message = 'Halo BINNET, saya ingin cek jaringan dan
 
 export const plans = [
   {
-    speed: 10,
-    price: 165,
-    oldPrice: 220,
-    devices: '1–3 perangkat',
-    fit: 'Chat, belajar, dan browsing harian',
-  },
-  {
-    speed: 20,
-    price: 220,
-    oldPrice: 330,
-    devices: '4–5 perangkat',
-    fit: 'Streaming dan kerja dari rumah',
-  },
-  {
-    speed: 30,
-    price: 245,
-    oldPrice: 385,
-    devices: '5–7 perangkat',
-    fit: 'Rumah aktif dengan banyak kebutuhan',
-    recommended: true,
+    speed: 25,
+    price: 149,
+    oldPrice: 199,
+    name: 'Paket Hemat',
+    devices: 'Rumah ringkas',
+    fit: 'Streaming lancar dan aktivitas harian',
   },
   {
     speed: 50,
-    price: 275,
-    oldPrice: 440,
-    devices: '7–10 perangkat',
-    fit: 'Gaming, meeting, dan streaming 4K',
+    price: 179,
+    oldPrice: 249,
+    name: 'Paket Keluarga',
+    devices: 'Keluarga aktif',
+    fit: 'Kerja, belajar, dan hiburan bersama',
+    recommended: true,
+  },
+  {
+    speed: 80,
+    price: 219,
+    oldPrice: 299,
+    name: 'Paket Gaming',
+    devices: 'Performa intensif',
+    fit: 'Gaming, streaming, dan download cepat',
   },
   {
     speed: 100,
-    price: 430,
-    oldPrice: 660,
-    devices: '10–15 perangkat',
-    fit: 'Keluarga besar dan usaha rumahan',
+    price: 329,
+    oldPrice: 399,
+    name: 'Paket Sultan',
+    devices: 'Rumah dan usaha aktif',
+    fit: 'Semua kebutuhan tanpa kompromi',
   },
+];
+
+export const promoBenefits = [
+  'Harga sudah termasuk',
+  'Biaya instalasi gratis',
+  'Sewa perangkat termasuk',
+  'Customer service 24 jam',
+  'Teknisi standby per area',
 ];
 
 export const testimonials = [
@@ -101,7 +106,7 @@ export const faqs = [
   },
   {
     question: 'Paket mana yang cocok untuk rumah saya?',
-    answer: 'Pilih berdasarkan jumlah perangkat aktif dan aktivitas paling berat. Untuk 5–7 perangkat dengan kombinasi streaming dan kerja, 30 Mbps adalah titik awal yang seimbang.',
+    answer: 'Pilih berdasarkan jumlah perangkat aktif dan aktivitas paling berat. Paket 25 Mbps cocok untuk kebutuhan dasar, 50 Mbps untuk keluarga aktif, 80 Mbps untuk gaming dan aktivitas intensif, sedangkan 100 Mbps untuk rumah atau usaha dengan kebutuhan tinggi.',
   },
   {
     question: 'Bagaimana jika koneksi mengalami kendala?',
@@ -172,16 +177,16 @@ export const blogPosts = [
     intro: 'Cara paling praktis memilih paket adalah melihat berapa perangkat yang aktif bersamaan, bukan jumlah seluruh perangkat yang dimiliki. Meeting, streaming resolusi tinggi, unggah file, dan gaming juga memiliki pola kebutuhan berbeda.',
     sections: [
       {
-        heading: '10–20 Mbps untuk kebutuhan ringan',
-        paragraphs: ['Cocok untuk satu hingga lima perangkat dengan aktivitas browsing, chat, belajar, streaming ringan, dan meeting yang tidak berjalan bersamaan dalam jumlah banyak.'],
+        heading: '25 Mbps untuk kebutuhan harian',
+        paragraphs: ['Cocok untuk aktivitas browsing, chat, belajar, streaming, dan meeting dengan penggunaan bersamaan yang masih terukur.'],
       },
       {
-        heading: '30–50 Mbps untuk rumah aktif',
-        paragraphs: ['Rentang ini lebih nyaman untuk beberapa pengguna yang bekerja, belajar, streaming, atau bermain game pada waktu yang sama. Kualitas router dan penempatannya tetap menentukan pengalaman Wi‑Fi.'],
+        heading: '50 Mbps untuk keluarga aktif',
+        paragraphs: ['Kecepatan ini lebih nyaman untuk beberapa pengguna yang bekerja, belajar, streaming, atau bermain pada waktu yang sama. Kualitas router dan penempatannya tetap menentukan pengalaman Wi‑Fi.'],
       },
       {
-        heading: '100 Mbps untuk banyak perangkat dan aktivitas berat',
-        paragraphs: ['Pertimbangkan 100 Mbps jika ada banyak perangkat aktif, beberapa layar streaming resolusi tinggi, transfer file besar, kamera cloud, atau usaha rumahan yang sangat bergantung pada koneksi.'],
+        heading: '80–100 Mbps untuk aktivitas intensif',
+        paragraphs: ['Pertimbangkan 80 atau 100 Mbps jika ada banyak perangkat aktif, beberapa layar streaming resolusi tinggi, gaming, transfer file besar, kamera cloud, atau usaha rumahan yang sangat bergantung pada koneksi.'],
       },
     ],
   },

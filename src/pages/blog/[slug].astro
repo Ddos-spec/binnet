@@ -28,12 +28,12 @@ const articleSchema = {
       <div class="container article-head">
         <a class="back-link" href="/blog">← Kembali ke jurnal</a>
         <div class="article-meta"><span>{post.category}</span><span>{post.date}</span><span>{post.readTime} baca</span></div>
-        <h1>{post.title}</h1>
+        <h1 data-split>{post.title}</h1>
         <p>{post.excerpt}</p>
       </div>
     </header>
 
-    <div class="article-cover container"><img src={post.image} alt={`Ilustrasi ${post.title}`} width="1600" height="1000" /></div>
+    <div class="article-cover container reveal-media"><img src={post.image} alt={`Ilustrasi ${post.title}`} width="1600" height="1000" /></div>
 
     <div class="article-layout container">
       <aside class="article-aside">
@@ -46,7 +46,7 @@ const articleSchema = {
         {post.sections.map((section, index) => (
           <section class="article-section reveal">
             <span>{String(index + 1).padStart(2, '0')}</span>
-            <h2>{section.heading}</h2>
+            <h2 data-split>{section.heading}</h2>
             {section.paragraphs.map(paragraph => <p>{paragraph}</p>)}
           </section>
         ))}

@@ -7,7 +7,7 @@ import { blogPosts } from '../../data/site';
   <section class="page-hero blog-hero">
     <div class="container">
       <p class="eyebrow">Jurnal BINNET</p>
-      <h1 class="display">Teknologi, tanpa bahasa alien.</h1>
+      <h1 class="display" data-split>Teknologi, tanpa bahasa alien.</h1>
       <p class="lead">Panduan praktis agar internet, router, dan perangkat di rumah bekerja lebih baik—ditulis untuk manusia, bukan hanya teknisi.</p>
     </div>
   </section>
@@ -18,7 +18,7 @@ import { blogPosts } from '../../data/site';
       <div class="post-grid">
         {blogPosts.map((post, index) => (
           <a class:list={['post-card reveal', { featured: index === 0 }]} href={`/blog/${post.slug}`}>
-            <div class="post-media"><img src={post.image} alt={`Ilustrasi ${post.title}`} loading={index < 2 ? 'eager' : 'lazy'} /></div>
+            <div class="post-media reveal-media"><img src={post.image} alt={`Ilustrasi ${post.title}`} loading={index < 2 ? 'eager' : 'lazy'} /></div>
             <div class="post-top"><span>{post.category}</span><span>{post.readTime}</span></div>
             <h2>{post.title}</h2>
             <p>{post.excerpt}</p>
