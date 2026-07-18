@@ -7,3 +7,4 @@ __pycache__/
 scrape.py
 list_pages.py
 *.json.bak
+.vercel
