@@ -1,0 +1,116 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { blogPosts, whatsappLink } from '../../data/site';
+
+export function getStaticPaths() {
+  return blogPosts.map(post => ({ params: { slug: post.slug }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const related = blogPosts.filter(item => item.slug !== post.slug).slice(0, 2);
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: post.title,
+  description: post.excerpt,
+  image: new URL(post.image, 'https://binnet.biz.id').toString(),
+  datePublished: '2026-07-18',
+  dateModified: '2026-07-18',
+  author: { '@type': 'Organization', name: 'BINNET' },
+  publisher: { '@type': 'Organization', name: 'PT Citra Bintang Net' },
+};
+---
+
+<Layout title={post.title} description={post.excerpt} image={post.image} article>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+  <article>
+    <header class="article-hero">
+      <div class="container article-head">
+        <a class="back-link" href="/blog">← Kembali ke jurnal</a>
+        <div class="article-meta"><span>{post.category}</span><span>{post.date}</span><span>{post.readTime} baca</span></div>
+        <h1>{post.title}</h1>
+        <p>{post.excerpt}</p>
+      </div>
+    </header>
+
+    <div class="article-cover container"><img src={post.image} alt={`Ilustrasi ${post.title}`} width="1600" height="1000" /></div>
+
+    <div class="article-layout container">
+      <aside class="article-aside">
+        <span>Bagikan wawasan</span>
+        <a href={whatsappLink(`Saya baru membaca artikel BINNET: ${post.title}`)} target="_blank" rel="noopener">WhatsApp ↗</a>
+        <a href="/pricing">Lihat paket ↗</a>
+      </aside>
+      <div class="article-body">
+        <p class="article-intro">{post.intro}</p>
+        {post.sections.map((section, index) => (
+          <section class="article-section reveal">
+            <span>{String(index + 1).padStart(2, '0')}</span>
+            <h2>{section.heading}</h2>
+            {section.paragraphs.map(paragraph => <p>{paragraph}</p>)}
+          </section>
+        ))}
+        <div class="article-cta reveal">
+          <span>Masih ada kendala?</span>
+          <h2>Biarkan tim BINNET membantu mengeceknya.</h2>
+          <a class="button" href={whatsappLink('Halo BINNET, saya membaca artikel di website dan ingin konsultasi mengenai koneksi di rumah.') } target="_blank" rel="noopener">Tanya tim BINNET</a>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <section class="section related-section">
+    <div class="container">
+      <p class="eyebrow">Lanjut membaca</p>
+      <div class="related-grid">
+        {related.map(item => (
+          <a href={`/blog/${item.slug}`} class="related-card">
+            <img src={item.image} alt="" loading="lazy" />
+            <div><span>{item.category} · {item.readTime}</span><h3>{item.title}</h3></div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .article-hero { padding: 11rem 0 8rem; background: var(--ink); color: var(--white); }
+  .back-link { display: inline-block; margin-bottom: 4rem; color: rgba(255,255,255,.5); font-size: .7rem; font-weight: 800; }
+  .article-meta { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem; color: var(--lime); font-size: .64rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+  .article-meta span + span::before { margin-right: 1rem; color: rgba(255,255,255,.3); content: '•'; }
+  .article-head h1 { max-width: 1100px; font-family: 'Space Grotesk'; font-size: clamp(3rem, 7vw, 7.5rem); font-weight: 600; letter-spacing: -.07em; line-height: .92; }
+  .article-head > p { max-width: 690px; margin: 2.5rem 0 0 auto; color: rgba(255,255,255,.62); font-size: clamp(1rem, 1.6vw, 1.25rem); }
+  .article-cover { position: relative; z-index: 2; margin-top: -3.5rem; }
+  .article-cover img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 28px; box-shadow: 0 25px 80px rgba(0,0,0,.22); }
+  .article-layout { display: grid; grid-template-columns: .32fr .68fr; gap: clamp(3rem, 8vw, 9rem); padding-block: clamp(5rem, 10vw, 9rem); }
+  .article-aside { position: sticky; top: 8rem; height: fit-content; display: grid; gap: .75rem; padding-top: 1rem; border-top: 1px solid var(--line); font-size: .7rem; }
+  .article-aside span { margin-bottom: .75rem; color: var(--muted); font-size: .6rem; letter-spacing: .12em; text-transform: uppercase; }
+  .article-aside a { width: fit-content; border-bottom: 1px solid; font-weight: 800; }
+  .article-intro { margin-bottom: 5rem; font-family: 'Space Grotesk'; font-size: clamp(1.6rem, 3.3vw, 3rem); letter-spacing: -.045em; line-height: 1.25; }
+  .article-section { position: relative; padding: 0 0 4.5rem 4rem; border-top: 1px solid var(--line); }
+  .article-section > span { position: absolute; top: 1.15rem; left: 0; color: var(--cyan-deep); font-size: .65rem; font-weight: 800; }
+  .article-section h2 { padding-top: 1rem; font-family: 'Space Grotesk'; font-size: clamp(1.65rem, 3vw, 2.8rem); font-weight: 600; letter-spacing: -.045em; }
+  .article-section p { margin-top: 1.2rem; color: #3d4c53; font-size: clamp(.96rem, 1.3vw, 1.08rem); line-height: 1.85; }
+  .article-cta { margin-top: 1rem; padding: clamp(2rem, 5vw, 4rem); border-radius: 26px; background: var(--cyan); }
+  .article-cta > span { font-size: .65rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+  .article-cta h2 { margin: 1rem 0 2rem; font-family: 'Space Grotesk'; font-size: clamp(2rem, 4vw, 4rem); letter-spacing: -.055em; line-height: 1; }
+  .related-section { background: var(--white); }
+  .related-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+  .related-card { display: grid; grid-template-columns: 170px 1fr; gap: 1.5rem; align-items: center; padding-top: 1rem; border-top: 1px solid var(--line); }
+  .related-card img { width: 170px; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 14px; }
+  .related-card span { color: var(--muted); font-size: .6rem; text-transform: uppercase; }
+  .related-card h3 { margin-top: .6rem; font-family: 'Space Grotesk'; font-size: clamp(1.2rem, 2vw, 1.8rem); letter-spacing: -.04em; line-height: 1.15; }
+  @media (max-width: 780px) {
+    .article-hero { padding-bottom: 6rem; }
+    .article-cover { margin-top: -2rem; }
+    .article-layout { grid-template-columns: 1fr; }
+    .article-aside { position: static; }
+    .related-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 520px) {
+    .article-section { padding-left: 2.3rem; }
+    .related-card { grid-template-columns: 110px 1fr; }
+    .related-card img { width: 110px; }
+  }
+</style>

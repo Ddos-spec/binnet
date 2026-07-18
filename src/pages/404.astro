@@ -1,0 +1,12 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout title="Halaman Tidak Ditemukan" description="Halaman yang Anda cari tidak tersedia.">
+  <section class="not-found"><div class="container"><span>404</span><h1>Sepertinya sinyal halaman ini hilang.</h1><p>Tenang, koneksi utama masih aman.</p><a class="button" href="/">Kembali ke beranda</a></div></section>
+</Layout>
+<style>
+  .not-found { min-height: 90svh; display: grid; place-items: center; padding: 10rem 0 5rem; background: var(--ink); color: var(--white); text-align: center; }
+  .not-found span { color: var(--lime); font-family: 'Space Grotesk'; font-size: clamp(5rem, 16vw, 14rem); font-weight: 600; letter-spacing: -.08em; line-height: .75; }
+  .not-found h1 { max-width: 800px; margin: 2rem auto 1rem; font-family: 'Space Grotesk'; font-size: clamp(2.4rem, 6vw, 5.5rem); letter-spacing: -.06em; line-height: .95; }
+  .not-found p { margin-bottom: 2rem; color: rgba(255,255,255,.55); }
+</style>

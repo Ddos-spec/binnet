@@ -1,0 +1,58 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { blogPosts } from '../../data/site';
+---
+
+<Layout title="Jurnal" description="Panduan praktis seputar Wi-Fi, router, keamanan jaringan, CCTV, dan memilih paket internet rumah dari BINNET.">
+  <section class="page-hero blog-hero">
+    <div class="container">
+      <p class="eyebrow">Jurnal BINNET</p>
+      <h1 class="display">Teknologi, tanpa bahasa alien.</h1>
+      <p class="lead">Panduan praktis agar internet, router, dan perangkat di rumah bekerja lebih baik—ditulis untuk manusia, bukan hanya teknisi.</p>
+    </div>
+  </section>
+
+  <section class="section blog-listing">
+    <div class="container">
+      <div class="listing-intro reveal"><span>06 artikel pilihan</span><p>Mulai dari masalah yang paling sering terjadi di rumah, lalu selesaikan dengan langkah yang bisa langsung dicoba.</p></div>
+      <div class="post-grid">
+        {blogPosts.map((post, index) => (
+          <a class:list={['post-card reveal', { featured: index === 0 }]} href={`/blog/${post.slug}`}>
+            <div class="post-media"><img src={post.image} alt={`Ilustrasi ${post.title}`} loading={index < 2 ? 'eager' : 'lazy'} /></div>
+            <div class="post-top"><span>{post.category}</span><span>{post.readTime}</span></div>
+            <h2>{post.title}</h2>
+            <p>{post.excerpt}</p>
+            <div class="post-link">Baca panduan <span>↗</span></div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .blog-hero { background: var(--ink); }
+  .blog-hero .display { max-width: 1050px; }
+  .blog-listing { background: var(--white); }
+  .listing-intro { display: grid; grid-template-columns: .35fr 1fr; gap: 3rem; margin-bottom: 5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--line); }
+  .listing-intro span { color: var(--cyan-deep); font-size: .7rem; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+  .listing-intro p { max-width: 700px; font-family: 'Space Grotesk'; font-size: clamp(1.45rem, 2.8vw, 2.5rem); letter-spacing: -.04em; line-height: 1.2; }
+  .post-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(3rem, 7vw, 7rem) 1.5rem; }
+  .post-card.featured { grid-column: 1 / -1; display: grid; grid-template-columns: 1.35fr .65fr; column-gap: 3rem; }
+  .post-card.featured .post-media { grid-row: 1 / 6; aspect-ratio: 16 / 10; }
+  .post-media { overflow: hidden; aspect-ratio: 16 / 10; border-radius: 22px; background: var(--ink); }
+  .post-media img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s var(--ease); }
+  .post-card:hover .post-media img { transform: scale(1.045); }
+  .post-top { display: flex; justify-content: space-between; margin: 1.2rem 0; color: var(--muted); font-size: .65rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+  .post-card h2 { max-width: 640px; font-family: 'Space Grotesk'; font-size: clamp(1.75rem, 3.3vw, 3.5rem); font-weight: 600; letter-spacing: -.055em; line-height: 1.05; }
+  .post-card:not(.featured) h2 { font-size: clamp(1.65rem, 2.7vw, 2.65rem); }
+  .post-card > p { max-width: 600px; margin-top: 1rem; color: var(--muted); font-size: .84rem; }
+  .post-link { display: flex; justify-content: space-between; margin-top: auto; padding-top: 1.5rem; border-bottom: 1px solid var(--line); padding-bottom: .8rem; font-size: .74rem; font-weight: 800; }
+  .post-link span { color: var(--cyan-deep); font-size: 1rem; }
+  @media (max-width: 780px) {
+    .listing-intro { grid-template-columns: 1fr; gap: 1rem; }
+    .post-grid { grid-template-columns: 1fr; }
+    .post-card.featured { grid-column: auto; display: block; }
+    .post-card.featured .post-media { aspect-ratio: 16 / 10; }
+  }
+</style>
