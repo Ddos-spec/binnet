@@ -1,295 +1,412 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import fs from 'node:fs';
-import path from 'node:path';
 
-// Load homepage content from WP scrape
-const summaryPath = path.resolve('../../scraped/summary.json');
-const summary = JSON.parse(fs.readFileSync(summaryPath, 'utf-8'));
+const pricingPlans = [
+  { speed: '10 Mbps',  price: 'Rp 100.000', popular: false, color: '#1e5bb4' },
+  { speed: '20 Mbps',  price: 'Rp 150.000', popular: false, color: '#1e5bb4' },
+  { speed: '30 Mbps',  price: 'Rp 200.000', popular: true,  color: '#00b4d8' },
+  { speed: '50 Mbps',  price: 'Rp 250.000', popular: false, color: '#1e5bb4' },
+  { speed: '100 Mbps', price: 'Rp 350.000', popular: false, color: '#1e5bb4' },
+];
 
-// Find the main "home" page
-const homePage = summary.pages.find((p: any) => p.slug === 'home') 
-  || summary.pages.find((p: any) => p.slug === 'home-07')
-  || summary.pages[0];
+const testimonials = [
+  { name: 'Meisha',  text: 'Koneksi BINNET sangat stabil, tidak pernah putus saat work from home. Rekomendeasi banget!', avatar: '/media/3047-test1.jpg' },
+  { name: 'Rudi',    text: 'Harga terjangkau, kecepatan sesuai paket. Customer service cepat respons. Puas!', avatar: '/media/3048-test2.jpg' },
+  { name: 'Aula',    text: 'Sudah 2 tahun pakai BINNET, belum pernah kecewa. Internet lancar untuk streaming dan gaming.', avatar: '/media/3049-test3.jpg' },
+  { name: 'Vera',    text: 'Pemasangan cepat, teknisi ramah. Sinyal kuat sampai ke seluruh rumah.', avatar: '/media/4456-author1.jpg' },
+  { name: 'Chandra', text: 'Internet bisnis BINNET andal sekali. Cocok untuk operasional toko online saya.', avatar: '/media/4457-author2-2.jpg' },
+  { name: 'Naimah',  text: 'Daftar mudah, langsung terpasang dalam 1 hari. Mantap!', avatar: '/media/2101-author-home2.jpg' },
+];
 
-// Load its content
-const pagesDir = path.resolve('../../scraped/pages');
-const files = fs.readdirSync(pagesDir);
-const matchFile = files.find((f: string) => f.includes(`-${homePage?.slug}.md`));
-
-let htmlContent = '';
-if (matchFile) {
-  const raw = fs.readFileSync(path.join(pagesDir, matchFile), 'utf-8');
-  const fmEnd = raw.indexOf('\n---\n', 4);
-  const body = fmEnd > -1 ? raw.slice(fmEnd + 5).trim() : raw;
-  htmlContent = body.replace(
-    /https:\/\/binnet\.biz\.id\/wp-content\/uploads\/[^"'\s]*/g,
-    (match: string) => `/media/${match.split('/').pop() || ''}`
-  );
-}
-
-const pages = summary.pages;
-const posts = summary.posts;
+const services = [
+  {
+    icon: '/media/968-wi-fi.svg',
+    title: 'Internet Rumah',
+    desc: 'Koneksi fiber optik stabil untuk kebutuhan streaming, gaming, dan belajar online.',
+  },
+  {
+    icon: '/media/966-radio.svg',
+    title: 'Internet Bisnis',
+    desc: 'Bandwidth dedicated dengan SLA uptime tinggi untuk operasional bisnis Anda.',
+  },
+  {
+    icon: '/media/967-satellite.svg',
+    title: 'Pemasangan CCTV',
+    desc: 'Layanan instalasi CCTV profesional untuk keamanan rumah dan kantor.',
+  },
+  {
+    icon: '/media/965-charging.svg',
+    title: 'Perbaikan Elektronik',
+    desc: 'Servis dan perbaikan perangkat elektronik oleh teknisi berpengalaman.',
+  },
+];
 ---
 
-<Layout title="Home">
-  <!-- HERO SECTION -->
+<Layout title="Home" description="Koneksi Cepat Harga Hemat — PT Citra Bintang Net, ISP terpercaya untuk rumah dan bisnis Anda.">
+
+  <!-- ── HERO ─────────────────────────────────────── -->
   <section class="hero">
-    <div class="hero-inner">
+    <div class="hero-bg"></div>
+    <div class="container hero-inner">
       <div class="hero-text">
-        <span class="badge">ISP Terpercaya</span>
-        <h1>Smart Solutions<br/>Unleash the Power of<br/><span class="accent">High-Speed Internet</span></h1>
-        <p>PT Citra Bintang Net (BINNET) — menyediakan layanan internet berkecepatan tinggi yang andal untuk rumah dan bisnis Anda.</p>
+        <p class="hero-eyebrow">PT Citra Bintang Net</p>
+        <h1>Koneksi Cepat<br/><span>Harga Hemat</span></h1>
+        <p class="hero-sub">Nikmati internet tanpa batas mulai dari <strong>100 ribuan saja</strong></p>
         <div class="hero-btns">
-          <a href="/our-services" class="btn btn-primary">Lihat Layanan</a>
-          <a href="/contact-us" class="btn btn-outline">Hubungi Kami</a>
+          <a href="/pricing" class="btn btn-primary">Lihat Pricelist</a>
+          <a href="/contact-us" class="btn btn-outline">Daftar Sekarang</a>
+        </div>
+        <div class="hero-badges">
+          <div class="badge-item">
+            <span class="badge-num">4800+</span>
+            <span class="badge-lbl">Pelanggan</span>
+          </div>
+          <div class="badge-divider"></div>
+          <div class="badge-item">
+            <span class="badge-num">99.9%</span>
+            <span class="badge-lbl">Uptime</span>
+          </div>
+          <div class="badge-divider"></div>
+          <div class="badge-item">
+            <span class="badge-num">24/7</span>
+            <span class="badge-lbl">Support</span>
+          </div>
         </div>
       </div>
-      <div class="hero-img">
-        <img src="/media/4680-hero1-home7.jpg" alt="BINNET Internet" />
-      </div>
-    </div>
-  </section>
-
-  <!-- STATS -->
-  <section class="stats">
-    <div class="stats-inner">
-      <div class="stat">
-        <img src="/media/5054-svg1-counter.svg" alt="" />
-        <div>
-          <strong>4800+</strong>
-          <span>Pelanggan Puas</span>
-        </div>
-      </div>
-      <div class="stat">
-        <img src="/media/5055-svg2-counter.svg" alt="" />
-        <div>
-          <strong>10+</strong>
-          <span>Tahun Pengalaman</span>
-        </div>
-      </div>
-      <div class="stat">
-        <img src="/media/5056-svg3-counter.svg" alt="" />
-        <div>
-          <strong>99.9%</strong>
-          <span>Uptime</span>
-        </div>
-      </div>
-      <div class="stat">
-        <img src="/media/5060-svg4-counter.svg" alt="" />
-        <div>
-          <strong>24/7</strong>
-          <span>Support</span>
-        </div>
+      <div class="hero-visual">
+        <img src="/media/5216-img-layout1-05.png" alt="Internet BINNET" class="hero-img"/>
       </div>
     </div>
   </section>
 
-  <!-- SERVICES PREVIEW -->
-  <section class="services-preview">
-    <div class="section-inner">
-      <h2 class="section-title">Layanan Kami</h2>
-      <p class="section-sub">Solusi internet terbaik untuk kebutuhan Anda</p>
-      <div class="services-grid">
-        <div class="service-card">
-          <img src="/media/2845-service-img01.png" alt="Internet Rumah" />
-          <h3>Internet Rumah</h3>
-          <p>Nikmati internet super cepat untuk streaming, gaming, dan bekerja dari rumah.</p>
-          <a href="/our-services" class="card-link">Selengkapnya →</a>
-        </div>
-        <div class="service-card">
-          <img src="/media/2846-service-img02.png" alt="Internet Bisnis" />
-          <h3>Internet Bisnis</h3>
-          <p>Koneksi dedicated untuk bisnis Anda dengan SLA dan prioritas bandwidth.</p>
-          <a href="/our-services" class="card-link">Selengkapnya →</a>
-        </div>
-        <div class="service-card">
-          <img src="/media/2856-service-img03.jpg" alt="Enterprise" />
-          <h3>Enterprise</h3>
-          <p>Solusi jaringan skala besar untuk perusahaan dan instansi pemerintah.</p>
-          <a href="/our-services" class="card-link">Selengkapnya →</a>
-        </div>
+  <!-- ── ABOUT STRIP ───────────────────────────────── -->
+  <section class="about-strip">
+    <div class="container about-inner">
+      <div class="about-img">
+        <img src="/media/6252-chatgpt-image-apr-18-2025-06_18_50-pm.png" alt="PT Citra Bintang Net"/>
+      </div>
+      <div class="about-text">
+        <span class="section-label">About Us</span>
+        <h2 class="section-title">PT Citra Bintang Net</h2>
+        <p class="section-sub">BINNET adalah penyedia layanan internet (ISP) yang melayani pelanggan rumahan dan bisnis dengan teknologi terkini. Kami berkomitmen menghadirkan koneksi yang stabil, cepat, dan harga yang ramah di kantong.</p>
+        <a href="/about-us" class="btn btn-primary" style="margin-top:1.5rem;display:inline-flex;">Selengkapnya</a>
       </div>
     </div>
   </section>
 
-  <!-- ALL PAGES NAVIGATION (dev helper) -->
-  <section class="dev-pages">
-    <div class="section-inner">
-      <h2 class="section-title" style="color:#374151;">📄 Semua Halaman ({pages.length})</h2>
-      <p class="section-sub" style="color:#6B7280;">Preview navigator — semua halaman dari scrape WordPress</p>
-      <div class="pages-grid">
-        {pages.map((p: any) => (
-          <a href={`/${p.slug}`} class="page-card">
-            <span class="page-icon">📄</span>
-            <strong>{p.title}</strong>
-            <small>/{p.slug}/</small>
-          </a>
+  <!-- ── PRICELIST ──────────────────────────────────── -->
+  <section class="pricing-section">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-label">PRICELIST</span>
+        <h2 class="section-title">Internet Terbaik Tanpa Biaya Mahal</h2>
+        <p class="section-sub">Pilih paket sesuai kebutuhan Anda. Semua paket sudah termasuk instalasi gratis.</p>
+      </div>
+
+      <div class="pricing-grid">
+        {pricingPlans.map(plan => (
+          <div class={`pricing-card ${plan.popular ? 'popular' : ''}`}>
+            {plan.popular && <div class="popular-badge">Terpopuler</div>}
+            <div class="pricing-speed">{plan.speed}</div>
+            <div class="pricing-price">{plan.price}<span>/bulan</span></div>
+            <ul class="pricing-features">
+              <li>✓ Unlimited Kuota</li>
+              <li>✓ Instalasi Gratis</li>
+              <li>✓ Support 24/7</li>
+              <li>✓ Tanpa FUP</li>
+            </ul>
+            <a href="/contact-us" class={`btn ${plan.popular ? 'btn-primary' : 'btn-outline-blue'}`}>
+              Daftar Sekarang
+            </a>
+          </div>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- POSTS PREVIEW -->
-  {posts.length > 0 && (
-    <section class="posts-preview">
-      <div class="section-inner">
-        <h2 class="section-title">Blog Terbaru</h2>
-        <div class="posts-grid">
-          {posts.slice(0, 3).map((p: any) => (
-            <a href={`/blog/${p.slug}`} class="post-card">
-              <strong>{p.title}</strong>
-              <small>{p.date}</small>
-            </a>
-          ))}
-        </div>
+  <!-- ── SERVICES ───────────────────────────────────── -->
+  <section class="services-section">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-label">Layanan Kami</span>
+        <h2 class="section-title">Layanan Lengkap untuk Rumah Anda</h2>
       </div>
-    </section>
-  )}
+
+      <div class="services-grid">
+        {services.map(s => (
+          <div class="service-card">
+            <div class="service-icon">
+              <img src={s.icon} alt={s.title}/>
+            </div>
+            <h3>{s.title}</h3>
+            <p>{s.desc}</p>
+            <a href="/our-services" class="service-link">Pelajari lebih →</a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TESTIMONIALS ───────────────────────────────── -->
+  <section class="testi-section">
+    <div class="container">
+      <div class="section-head centered">
+        <span class="section-label">TESTIMONI</span>
+        <h2 class="section-title">Apa Kata Pelanggan Kami?</h2>
+      </div>
+
+      <div class="testi-grid">
+        {testimonials.map(t => (
+          <div class="testi-card">
+            <p class="testi-text">"{t.text}"</p>
+            <div class="testi-author">
+              <img src={t.avatar} alt={t.name}/>
+              <strong>{t.name}</strong>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA BANNER ─────────────────────────────────── -->
+  <section class="cta-banner">
+    <div class="container cta-inner">
+      <div>
+        <h2>Siap Nikmati Internet Cepat?</h2>
+        <p>Hubungi kami sekarang dan dapatkan instalasi gratis hari ini!</p>
+      </div>
+      <div class="cta-btns">
+        <a href="/contact-us" class="btn btn-white">Hubungi Kami</a>
+        <a href="/pricing" class="btn btn-outline-white">Lihat Paket</a>
+      </div>
+    </div>
+  </section>
+
 </Layout>
 
 <style>
-  /* HERO */
+  /* ── HERO ─────────────── */
   .hero {
-    background: linear-gradient(135deg, #003D7A 0%, #0057A8 60%, #00AEEF 100%);
-    color: #fff;
-    padding: 5rem 2rem;
+    position: relative;
+    background: linear-gradient(135deg, #0d2b5e 0%, #1a3c6e 50%, #1e5bb4 100%);
+    overflow: hidden;
+    padding: 5rem 0;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background: url('/media/5206-bg1-home05.png') center/cover no-repeat;
+    opacity: .08;
   }
   .hero-inner {
-    max-width: 1200px;
-    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-eyebrow {
+    color: var(--cyan);
+    font-size: .875rem;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    margin-bottom: .75rem;
+  }
+  .hero-text h1 {
+    font-size: clamp(2.25rem, 5vw, 3.5rem);
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.1;
+    margin-bottom: 1.25rem;
+  }
+  .hero-text h1 span { color: var(--cyan); }
+  .hero-sub { color: rgba(255,255,255,.8); font-size: 1.1rem; margin-bottom: 2rem; }
+  .hero-sub strong { color: var(--yellow); }
+  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
+  .hero-badges {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    padding: 1.25rem 1.5rem;
+    background: rgba(255,255,255,.08);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,.15);
+    border-radius: 16px;
+    width: fit-content;
+  }
+  .badge-item { text-align: center; }
+  .badge-num { display: block; font-size: 1.5rem; font-weight: 800; color: #fff; }
+  .badge-lbl { font-size: .75rem; color: rgba(255,255,255,.6); text-transform: uppercase; letter-spacing: .06em; }
+  .badge-divider { width: 1px; height: 40px; background: rgba(255,255,255,.2); }
+  .hero-visual { position: relative; }
+  .hero-img { border-radius: 20px; box-shadow: 0 24px 64px rgba(0,0,0,.3); }
+
+  /* BUTTONS */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: .8rem 1.75rem;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: .9rem;
+    transition: all .2s;
+    cursor: pointer;
+    border: 2px solid transparent;
+  }
+  .btn-primary { background: var(--cyan); color: var(--blue); }
+  .btn-primary:hover { background: #00d0f0; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,180,216,.3); }
+  .btn-outline { border-color: rgba(255,255,255,.4); color: #fff; }
+  .btn-outline:hover { background: rgba(255,255,255,.1); }
+  .btn-outline-blue { border-color: var(--blue-md); color: var(--blue-md); background: transparent; }
+  .btn-outline-blue:hover { background: var(--blue-md); color: #fff; }
+  .btn-white { background: #fff; color: var(--blue); }
+  .btn-white:hover { background: #e8f4ff; }
+  .btn-outline-white { border-color: rgba(255,255,255,.5); color: #fff; }
+  .btn-outline-white:hover { background: rgba(255,255,255,.1); }
+
+  /* ── ABOUT ────────────── */
+  .about-strip { padding: 5rem 0; background: var(--off); }
+  .about-inner {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
     align-items: center;
   }
-  .badge {
-    display: inline-block;
-    background: rgba(0,174,239,.3);
-    border: 1px solid rgba(0,174,239,.5);
-    color: #7dd3fc;
-    padding: .35rem 1rem;
-    border-radius: 999px;
-    font-size: .8rem;
-    font-weight: 600;
-    letter-spacing: .05em;
-    margin-bottom: 1.25rem;
-  }
-  .hero-text h1 {
-    font-size: clamp(2rem, 4vw, 3.25rem);
-    font-weight: 900;
-    line-height: 1.15;
-    margin-bottom: 1.25rem;
-  }
-  .accent { color: #00AEEF; }
-  .hero-text p { font-size: 1.1rem; opacity: .85; margin-bottom: 2rem; max-width: 480px; }
-  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    padding: .85rem 2rem;
-    border-radius: 8px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all .2s;
-    font-size: .95rem;
-  }
-  .btn-primary { background: #00AEEF; color: #fff; }
-  .btn-primary:hover { background: #0096d6; transform: translateY(-2px); }
-  .btn-outline { border: 2px solid rgba(255,255,255,.4); color: #fff; }
-  .btn-outline:hover { background: rgba(255,255,255,.1); }
-  .hero-img img {
-    width: 100%;
-    border-radius: 16px;
-    box-shadow: 0 24px 64px rgba(0,0,0,.3);
-  }
+  .about-img img { border-radius: 20px; box-shadow: var(--shadow); }
 
-  /* STATS */
-  .stats { background: #F4F8FC; padding: 3rem 2rem; }
-  .stats-inner {
-    max-width: 1200px;
-    margin: 0 auto;
+  /* ── PRICING ──────────── */
+  .pricing-section { padding: 5rem 0; }
+  .section-head { margin-bottom: 3rem; }
+  .section-head.centered { text-align: center; }
+  .section-head.centered .section-sub { margin: 0 auto; }
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.25rem;
+  }
+  .pricing-card {
+    position: relative;
+    border: 2px solid #e2e8f0;
+    border-radius: var(--radius);
+    padding: 2rem 1.25rem;
+    text-align: center;
+    transition: all .25s;
+    background: #fff;
+  }
+  .pricing-card:hover { border-color: var(--blue-lt); box-shadow: 0 8px 32px rgba(30,91,180,.12); transform: translateY(-4px); }
+  .pricing-card.popular { border-color: var(--cyan); box-shadow: 0 8px 32px rgba(0,180,216,.2); transform: translateY(-8px); }
+  .popular-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--cyan);
+    color: var(--blue);
+    font-size: .72rem;
+    font-weight: 800;
+    padding: .25rem .85rem;
+    border-radius: 999px;
+    white-space: nowrap;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+  }
+  .pricing-speed { font-size: 1.4rem; font-weight: 800; color: var(--blue); margin-bottom: .5rem; }
+  .pricing-price { font-size: 1.6rem; font-weight: 900; color: var(--blue-lt); margin-bottom: 1.25rem; }
+  .pricing-price span { font-size: .8rem; font-weight: 500; color: var(--muted); }
+  .pricing-features { list-style: none; text-align: left; margin-bottom: 1.5rem; }
+  .pricing-features li { font-size: .85rem; color: #374151; padding: .35rem 0; border-bottom: 1px solid #f1f5f9; }
+  .pricing-features li:last-child { border: none; }
+
+  /* ── SERVICES ─────────── */
+  .services-section { padding: 5rem 0; background: var(--off); }
+  .services-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
+    gap: 1.5rem;
   }
-  .stat {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    background: #fff;
-    padding: 1.5rem;
-    border-radius: 12px;
-    box-shadow: 0 2px 12px rgba(0,0,0,.06);
-  }
-  .stat img { width: 40px; height: 40px; }
-  .stat strong { display: block; font-size: 1.75rem; font-weight: 800; color: #0057A8; }
-  .stat span { font-size: .85rem; color: #6B7280; }
-
-  /* SECTIONS */
-  .section-inner { max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; }
-  .section-title { font-size: 2rem; font-weight: 800; color: #003D7A; text-align: center; margin-bottom: .5rem; }
-  .section-sub { text-align: center; color: #6B7280; margin-bottom: 2.5rem; }
-
-  /* SERVICES */
-  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
   .service-card {
     background: #fff;
-    border: 1px solid #E5E7EB;
-    border-radius: 12px;
-    padding: 1.5rem;
-    transition: transform .2s, box-shadow .2s;
+    border-radius: var(--radius);
+    padding: 2rem 1.5rem;
+    text-align: center;
+    box-shadow: 0 2px 16px rgba(0,0,0,.06);
+    transition: all .25s;
   }
-  .service-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,.1); }
-  .service-card img { width: 100%; height: 160px; object-fit: cover; border-radius: 8px; margin-bottom: 1rem; }
-  .service-card h3 { font-size: 1.15rem; font-weight: 700; color: #003D7A; margin-bottom: .5rem; }
-  .service-card p { font-size: .9rem; color: #6B7280; margin-bottom: 1rem; }
-  .card-link { color: #0057A8; font-weight: 600; text-decoration: none; font-size: .9rem; }
-  .card-link:hover { color: #00AEEF; }
-
-  /* DEV PAGES NAV */
-  .dev-pages { background: #F9FAFB; border-top: 1px solid #E5E7EB; }
-  .pages-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; }
-  .page-card {
+  .service-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(30,91,180,.12); }
+  .service-icon {
+    width: 72px;
+    height: 72px;
+    background: linear-gradient(135deg, #e8f4ff, #cce8f8);
+    border-radius: 16px;
     display: flex;
-    flex-direction: column;
-    gap: .25rem;
-    background: #fff;
-    border: 1px solid #E5E7EB;
-    border-radius: 10px;
-    padding: 1rem 1.25rem;
-    text-decoration: none;
-    color: inherit;
-    transition: border-color .2s, box-shadow .2s;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.25rem;
+    padding: 1rem;
   }
-  .page-card:hover { border-color: #0057A8; box-shadow: 0 4px 16px rgba(0,87,168,.1); }
-  .page-icon { font-size: 1.25rem; }
-  .page-card strong { font-size: .9rem; color: #111827; }
-  .page-card small { font-size: .75rem; color: #9CA3AF; }
+  .service-icon img { width: 36px; height: 36px; }
+  .service-card h3 { font-size: 1rem; font-weight: 700; color: var(--blue); margin-bottom: .5rem; }
+  .service-card p { font-size: .875rem; color: var(--muted); margin-bottom: 1rem; }
+  .service-link { font-size: .85rem; font-weight: 700; color: var(--blue-lt); transition: color .2s; }
+  .service-link:hover { color: var(--cyan); }
 
-  /* POSTS */
-  .posts-preview { background: #fff; }
-  .posts-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
-  .post-card {
-    display: flex;
-    flex-direction: column;
-    gap: .5rem;
-    padding: 1.5rem;
-    border: 1px solid #E5E7EB;
-    border-radius: 12px;
-    text-decoration: none;
-    color: inherit;
+  /* ── TESTIMONIALS ─────── */
+  .testi-section { padding: 5rem 0; }
+  .testi-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  .testi-card {
+    background: var(--off);
+    border-radius: var(--radius);
+    padding: 1.75rem;
+    border: 1px solid #e2e8f0;
     transition: all .2s;
   }
-  .post-card:hover { border-color: #0057A8; transform: translateY(-2px); }
-  .post-card strong { color: #003D7A; font-size: .95rem; }
-  .post-card small { color: #9CA3AF; font-size: .8rem; }
+  .testi-card:hover { box-shadow: var(--shadow); transform: translateY(-2px); }
+  .testi-text { font-size: .9rem; color: #374151; line-height: 1.75; margin-bottom: 1.25rem; font-style: italic; }
+  .testi-author { display: flex; align-items: center; gap: .75rem; }
+  .testi-author img { width: 42px; height: 42px; border-radius: 50%; object-fit: cover; }
+  .testi-author strong { font-size: .9rem; color: var(--blue); }
 
+  /* ── CTA ──────────────── */
+  .cta-banner {
+    background: linear-gradient(135deg, #1a3c6e, #1e5bb4);
+    padding: 4rem 0;
+    margin-top: 5rem;
+  }
+  .cta-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .cta-inner h2 { font-size: 1.75rem; font-weight: 800; color: #fff; margin-bottom: .5rem; }
+  .cta-inner p { color: rgba(255,255,255,.75); }
+  .cta-btns { display: flex; gap: 1rem; }
+
+  /* ── RESPONSIVE ───────── */
+  @media (max-width: 1024px) {
+    .pricing-grid { grid-template-columns: repeat(3, 1fr); }
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+    .testi-grid { grid-template-columns: repeat(2, 1fr); }
+  }
   @media (max-width: 768px) {
     .hero-inner { grid-template-columns: 1fr; }
-    .hero-img { display: none; }
-    .stats-inner { grid-template-columns: repeat(2,1fr); }
+    .hero-visual { display: none; }
+    .about-inner { grid-template-columns: 1fr; }
+    .pricing-grid { grid-template-columns: repeat(2, 1fr); }
     .services-grid { grid-template-columns: 1fr; }
-    .posts-grid { grid-template-columns: 1fr; }
+    .testi-grid { grid-template-columns: 1fr; }
+    .cta-inner { flex-direction: column; text-align: center; }
+  }
+  @media (max-width: 480px) {
+    .pricing-grid { grid-template-columns: 1fr; }
   }
 </style>
