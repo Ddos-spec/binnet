@@ -8,9 +8,6 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: site
 
     steps:
       - name: Checkout repo
@@ -29,7 +26,6 @@ jobs:
 
       - name: Install sshpass
         run: sudo apt-get install -y sshpass
-        working-directory: .
 
       - name: Setup SSH key
         run: |
@@ -37,7 +33,6 @@ jobs:
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/github_deploy
           chmod 600 ~/.ssh/github_deploy
           ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
-        working-directory: .
 
       - name: Deploy via rsync over SSH
         run: |
