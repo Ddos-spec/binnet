@@ -1,6 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import ResponsiveImage from '../components/ResponsiveImage.astro';
 import { blogPosts, plans, promoBenefits, services, testimonials, whatsappLink } from '../data/site';
+
+const imageId = (path: string) => path.replace('/media/', '').replace(/\.[^.]+$/, '');
+const imageDimensions: Record<string, [number, number]> = {
+  '/media/6060-img_5323.jpg': [1440, 2560],
+  '/media/6063-img-20250408-wa0013.jpg': [1920, 2560],
+};
 ---
 
 <Layout title="Beranda" description="Internet fiber optic unlimited untuk rumah dan usaha dari BINNET. Paket mulai Rp149 ribu per bulan.">
@@ -21,7 +28,7 @@ import { blogPosts, plans, promoBenefits, services, testimonials, whatsappLink }
       </div>
 
       <div class="hero-media reveal-media" data-parallax data-parallax-scroll data-speed=".035">
-        <img src="/media/6060-img_5323.jpg" alt="Teknisi BINNET memasang jaringan fiber optic" width="1440" height="2560" fetchpriority="high" />
+        <ResponsiveImage id="6060-img_5323" alt="Teknisi BINNET memasang jaringan fiber optic" width={1440} height={2560} sizes="(max-width: 960px) calc(100vw - 48px), 38vw" loading="eager" fetchpriority="high" position="center top" />
         <div class="media-note"><span>01</span><p>Tim lokal.<br />Respons lebih dekat.</p></div>
         <div class="live-pill"><i></i> Jaringan aktif</div>
       </div>
@@ -81,9 +88,9 @@ import { blogPosts, plans, promoBenefits, services, testimonials, whatsappLink }
         <button type="button" id="welcome-promo-close" aria-label="Tutup informasi promo">×</button>
       </header>
       <img
-        src="/media/promo-special-2026.webp"
-        srcset="/media/promo-special-2026-540.webp 540w, /media/promo-special-2026.webp 1024w"
-        sizes="(max-width: 560px) calc(100vw - 24px), 430px"
+        data-src="/media/promo-special-2026.webp"
+        data-srcset="/media/promo-special-2026-540.webp 540w, /media/promo-special-2026.webp 1024w"
+        data-sizes="(max-width: 560px) calc(100vw - 24px), 430px"
         alt="Brosur paket promo BINNET 25, 50, 80, dan 100 Mbps"
         width="1024"
         height="1536"
@@ -145,7 +152,11 @@ import { blogPosts, plans, promoBenefits, services, testimonials, whatsappLink }
         {services.map(service => (
           <a class="service-row reveal" href="/our-services">
             <span class="service-num">{service.number}</span>
-            <div class="service-image"><img src={service.image} alt="" loading="lazy" /></div>
+            <div class="service-image">
+              {imageDimensions[service.image]
+                ? <ResponsiveImage id={imageId(service.image)} alt="" width={imageDimensions[service.image][0]} height={imageDimensions[service.image][1]} sizes="(max-width: 780px) 75px, 120px" />
+                : <img src={service.image} alt="" width="626" height="417" loading="lazy" decoding="async" />}
+            </div>
             <h3>{service.title}</h3>
             <p>{service.description}</p>
             <span class="service-arrow">↗</span>
@@ -156,7 +167,7 @@ import { blogPosts, plans, promoBenefits, services, testimonials, whatsappLink }
   </section>
 
   <section class="field-story">
-    <div class="field-image" data-parallax-scroll data-speed=".04"><img src="/media/6058-img_5315.jpg" alt="Tim teknisi BINNET" width="2560" height="1440" loading="lazy" /></div>
+    <div class="field-image" data-parallax-scroll data-speed=".04"><ResponsiveImage id="6058-img_5315" alt="Tim teknisi BINNET" width={2560} height={1440} sizes="100vw" /></div>
     <div class="field-copy reveal">
       <p class="eyebrow">Bukan call center anonim</p>
       <h2 data-split>Tim yang tahu jalan menuju rumah Anda.</h2>
@@ -452,8 +463,12 @@ import { blogPosts, plans, promoBenefits, services, testimonials, whatsappLink }
   }
 
   const welcomePromo = document.querySelector<HTMLDialogElement>('#welcome-promo');
+  const welcomePromoImage = welcomePromo?.querySelector<HTMLImageElement>('img[data-src]');
   const welcomePromoKey = 'binnet-welcome-promo-seen-v1';
   const closeWelcomePromo = () => welcomePromo?.close();
+  const showWelcomePromo = () => {
+    if (welcomePromo && !welcomePromo.open) welcomePromo.showModal();
+  };
 
   document.querySelector('#welcome-promo-close')?.addEventListener('click', closeWelcomePromo);
   welcomePromo?.addEventListener('click', event => {
@@ -463,12 +478,19 @@ import { blogPosts, plans, promoBenefits, services, testimonials, whatsappLink }
   try {
     if (welcomePromo && sessionStorage.getItem(welcomePromoKey) !== '1') {
       window.setTimeout(() => {
-        if (!welcomePromo.open) welcomePromo.showModal();
+        if (welcomePromoImage) {
+          welcomePromoImage.src = welcomePromoImage.dataset.src || '';
+          welcomePromoImage.srcset = welcomePromoImage.dataset.srcset || '';
+          welcomePromoImage.sizes = welcomePromoImage.dataset.sizes || '';
+          if (welcomePromoImage.complete) showWelcomePromo();
+          else welcomePromoImage.addEventListener('load', showWelcomePromo, { once: true });
+          window.setTimeout(showWelcomePromo, 1200);
+        } else showWelcomePromo();
         sessionStorage.setItem(welcomePromoKey, '1');
-      }, 1100);
+      }, 900);
     }
   } catch {
-    window.setTimeout(() => welcomePromo?.showModal(), 1100);
+    window.setTimeout(showWelcomePromo, 1100);
   }
 
 </script>

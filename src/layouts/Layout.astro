@@ -49,7 +49,7 @@ const organizationSchema = {
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
-    <link rel="icon" href="/media/6111-cropped-logo-hd-binnet-transparan-png.png" />
+    <link rel="icon" href="/media/brand/binnet-favicon-64.png" type="image/png" sizes="64x64" />
     <meta property="og:locale" content="id_ID" />
     <meta property="og:type" content={article ? 'article' : 'website'} />
     <meta property="og:title" content={pageTitle} />
@@ -57,12 +57,37 @@ const organizationSchema = {
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={new URL(image, 'https://binnet.biz.id').toString()} />
     <meta name="twitter:card" content="summary_large_image" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="preload" href="/fonts/manrope-latin-variable.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/space-grotesk-latin-variable.woff2" as="font" type="font/woff2" crossorigin />
+    {currentPath === '/' && (
+      <link
+        rel="preload"
+        as="image"
+        href="/media/optimized/6060-img_5323-800.webp"
+        imagesrcset="/media/optimized/6060-img_5323-480.webp 480w, /media/optimized/6060-img_5323-800.webp 800w, /media/optimized/6060-img_5323-1280.webp 1280w"
+        imagesizes="(max-width: 960px) calc(100vw - 48px), 38vw"
+        type="image/webp"
+        fetchpriority="high"
+      />
+    )}
     <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
 
     <style is:global>
+      @font-face {
+        font-family: 'Manrope';
+        font-style: normal;
+        font-weight: 400 800;
+        font-display: swap;
+        src: url('/fonts/manrope-latin-variable.woff2') format('woff2');
+      }
+      @font-face {
+        font-family: 'Space Grotesk';
+        font-style: normal;
+        font-weight: 400 700;
+        font-display: swap;
+        src: url('/fonts/space-grotesk-latin-variable.woff2') format('woff2');
+      }
+
       :root {
         --ink: #0b3f91;
         --ink-2: #0d5cbb;
@@ -327,6 +352,13 @@ const organizationSchema = {
 
       [data-parallax-scroll] { --scroll-y: 0px; transform: translate3d(0, var(--scroll-y), 0); will-change: transform; }
 
+      @supports (content-visibility: auto) {
+        .section, .promo-stage, .field-story, .team-mosaic {
+          content-visibility: auto;
+          contain-intrinsic-size: auto 900px;
+        }
+      }
+
       .site-footer { position: relative; overflow: hidden; padding: clamp(5rem, 9vw, 9rem) 0 2rem; background: var(--ink); color: var(--white); }
       .footer-kicker { color: var(--lime); }
       .footer-title { max-width: 960px; margin-bottom: 3rem; font-family: 'Space Grotesk'; font-size: clamp(3.2rem, 8vw, 8rem); font-weight: 600; letter-spacing: -.075em; line-height: .9; }
@@ -389,7 +421,7 @@ const organizationSchema = {
       }
 
       @media (hover: none), (pointer: coarse) {
-        .cursor-dot, .cursor-ring { display: none; }
+        .site-loader, .cursor-dot, .cursor-ring { display: none; }
         [data-parallax-scroll] { transform: none !important; }
       }
 
@@ -407,7 +439,7 @@ const organizationSchema = {
     <script is:inline>try{if(sessionStorage.getItem('binnet-intro-seen')==='1')document.body.classList.add('skip-intro')}catch(e){}</script>
     <div class="site-loader" aria-hidden="true">
       <div class="loader-panel"></div>
-      <div class="loader-brand"><img src="/media/6111-cropped-logo-hd-binnet-transparan-png.png" alt="" /><span>Connecting home</span><i class="loader-line"></i></div>
+      <div class="loader-brand"><img src="/media/brand/binnet-logo-128.webp" alt="" width="128" height="128" /><span>Connecting home</span><i class="loader-line"></i></div>
     </div>
     <div class="page-transition" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
     <div class="scroll-progress" aria-hidden="true"></div>
@@ -416,7 +448,7 @@ const organizationSchema = {
     <header class="site-header">
       <div class="nav-shell">
         <a href="/" class="brand" aria-label="BINNET beranda">
-          <img src="/media/6111-cropped-logo-hd-binnet-transparan-png.png" alt="" width="39" height="39" />
+          <img src="/media/brand/binnet-logo-128.webp" alt="" width="39" height="39" />
           <span class="brand-copy"><strong>BINNET</strong><small>PT Citra Bintang Net</small></span>
         </a>
         <nav class="desktop-nav" aria-label="Navigasi utama">
@@ -465,7 +497,7 @@ const organizationSchema = {
       requestAnimationFrame(() => window.setTimeout(() => {
         body.classList.add('is-ready');
         sessionStorage.setItem('binnet-intro-seen', '1');
-      }, reduceMotion || introSeen ? 0 : finePointer ? 650 : 300));
+      }, reduceMotion || introSeen || !finePointer ? 0 : 650));
       window.addEventListener('pageshow', () => body.classList.remove('is-leaving'));
 
       const menuButton = document.querySelector('.menu-button');

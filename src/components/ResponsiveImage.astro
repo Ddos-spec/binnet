@@ -1,0 +1,74 @@
+---
+interface Props {
+  id: string;
+  alt: string;
+  width: number;
+  height: number;
+  sizes?: string;
+  loading?: 'eager' | 'lazy';
+  fetchpriority?: 'high' | 'low' | 'auto';
+  fit?: 'cover' | 'contain';
+  position?: string;
+  ratio?: string;
+  radius?: string;
+  class?: string;
+}
+
+const {
+  id,
+  alt,
+  width,
+  height,
+  sizes = '100vw',
+  loading = 'lazy',
+  fetchpriority = 'auto',
+  fit = 'cover',
+  position = 'center',
+  ratio,
+  radius,
+  class: className,
+} = Astro.props;
+
+const widths = [480, 800, 1280];
+const srcset = widths.map(item => `/media/optimized/${id}-${item}.webp ${item}w`).join(', ');
+const pictureStyle = [ratio && `--image-ratio:${ratio}`, radius && `--image-radius:${radius}`].filter(Boolean).join(';');
+---
+
+<picture
+  class:list={['responsive-picture', className]}
+  style={pictureStyle || undefined}
+>
+  <source type="image/webp" srcset={srcset} sizes={sizes} />
+  <img
+    src={`/media/optimized/${id}-800.webp`}
+    srcset={srcset}
+    sizes={sizes}
+    alt={alt}
+    width={width}
+    height={height}
+    loading={loading}
+    decoding="async"
+    fetchpriority={fetchpriority}
+    style={`object-fit:${fit};object-position:${position}`}
+  />
+</picture>
+
+<style>
+  .responsive-picture {
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: var(--image-radius, 0);
+    aspect-ratio: var(--image-ratio, auto);
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    transition: transform .8s cubic-bezier(.22, 1, .36, 1);
+  }
+
+  :global(a:hover) .responsive-picture img { transform: scale(1.045); }
+</style>
