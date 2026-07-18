@@ -5,7 +5,7 @@ import { faqs, plans, services, testimonials, whatsappLink } from '../data/site'
 
 const imageId = (path: string) => path.replace('/media/', '').replace(/\.[^.]+$/, '');
 const imageDimensions: Record<string, [number, number]> = {
-  '/media/6058-img_5315.jpg': [2560, 1440],
+  '/media/network-infrastructure-final.jpg': [2560, 1440],
   '/media/6059-img_5407.jpg': [2560, 1440],
   '/media/6060-img_5323.jpg': [1440, 2560],
   '/media/6062-img_5451.jpg': [1440, 2560],
@@ -67,7 +67,7 @@ if (!page) return Astro.redirect('/404');
         </div>
       </section>
       <section class="team-mosaic">
-        <div class="mosaic-wide reveal-media"><ResponsiveImage id="6058-img_5315" alt="Infrastruktur server dan jaringan" width={2560} height={1440} sizes="(max-width: 850px) 100vw, 60vw" /></div>
+        <div class="mosaic-wide reveal-media"><ResponsiveImage id="network-infrastructure-final" alt="Infrastruktur server dan jaringan" width={2560} height={1440} sizes="(max-width: 850px) 100vw, 60vw" /></div>
         <div class="mosaic-tall reveal-media"><ResponsiveImage id="6060-img_5323" alt="Teknisi mengonfigurasi kabel jaringan" width={1440} height={2560} sizes="(max-width: 850px) 100vw, 40vw" /></div>
         <div class="mosaic-small reveal-media"><ResponsiveImage id="6059-img_5407" alt="Tim layanan pelanggan dengan headset" width={2560} height={1440} sizes="40vw" /></div>
         <div class="mosaic-note"><span>01</span><p>Layanan internet untuk rumah dan usaha.</p></div>
@@ -155,7 +155,7 @@ if (!page) return Astro.redirect('/404');
   {slug === 'our-projects' && (
     <section class="section gallery-section"><div class="container gallery-grid">
       {[
-        ['/media/6060-img_5323.jpg', 'Konfigurasi jaringan'], ['/media/6058-img_5315.jpg', 'Infrastruktur server'], ['/media/6066-img_5343.jpg', 'Dukungan pelanggan'], ['/media/6059-img_5407.jpg', 'Tim layanan pelanggan'], ['/media/6062-img_5451.jpg', 'Kabel jaringan'], ['/media/6064-img_5421.jpg', 'Perangkat Wi-Fi rumah'],
+        ['/media/6060-img_5323.jpg', 'Konfigurasi jaringan'], ['/media/network-infrastructure-final.jpg', 'Infrastruktur server'], ['/media/6066-img_5343.jpg', 'Dukungan pelanggan'], ['/media/6059-img_5407.jpg', 'Tim layanan pelanggan'], ['/media/6062-img_5451.jpg', 'Kabel jaringan'], ['/media/6064-img_5421.jpg', 'Perangkat Wi-Fi rumah'],
       ].map((item, index) => <figure class:list={['gallery-item reveal-media', { wide: index === 0 || index === 3 }]}><ResponsiveImage id={imageId(item[0])} alt={item[1]} width={imageDimensions[item[0]][0]} height={imageDimensions[item[0]][1]} sizes={index === 0 || index === 3 ? 'calc(100vw - 48px)' : '(max-width: 600px) calc(100vw - 32px), 50vw'} ratio={index === 0 || index === 3 ? '16 / 8' : '4 / 3'} radius="22px" /><figcaption><span>{String(index + 1).padStart(2, '0')}</span>{item[1]}</figcaption></figure>)}
     </div></section>
   )}

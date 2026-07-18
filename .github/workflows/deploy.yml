@@ -1,0 +1,44 @@
+name: Deploy to Hoster.co.id via SFTP
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+          cache-dependency-path: site/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+        working-directory: site
+
+      - name: Build Astro site
+        run: npm run build
+        working-directory: site
+
+      - name: Setup SSH key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/github_deploy
+          chmod 600 ~/.ssh/github_deploy
+          ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
+
+      - name: Deploy via rsync over SSH
+        run: |
+          rsync -avz --delete \
+            -e "ssh -i ~/.ssh/github_deploy -p 22 -o StrictHostKeyChecking=no" \
+            site/dist/ \
+            ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/binnetbi/public_html/
+        env:
+          SSHPASS: ${{ secrets.SSH_PASSPHRASE }}

@@ -1,0 +1,439 @@
+- generic [active] [ref=e1]:
+  - generic: Connecting home
+  - banner:
+    - generic [ref=e2]:
+      - link "BINNET beranda" [ref=e3] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e4]:
+          - strong [ref=e5]: BINNET
+          - generic [ref=e6]: PT Citra Bintang Net
+      - navigation "Navigasi utama" [ref=e7]:
+        - link "Beranda" [ref=e8] [cursor=pointer]:
+          - /url: /
+        - link "Paket" [ref=e9] [cursor=pointer]:
+          - /url: /pricing
+        - link "Layanan" [ref=e10] [cursor=pointer]:
+          - /url: /our-services
+        - link "Area" [ref=e11] [cursor=pointer]:
+          - /url: /coverage-area
+        - link "Tentang" [ref=e12] [cursor=pointer]:
+          - /url: /about-us
+        - link "Jurnal" [ref=e13] [cursor=pointer]:
+          - /url: /blog
+        - link "Cek area ↗" [ref=e14] [cursor=pointer]:
+          - /url: https://wa.me/6285773854210?text=Halo%20BINNET%2C%20saya%20ingin%20cek%20jaringan%20dan%20paket%20internet%20di%20alamat%20saya.
+  - navigation "Navigasi mobile":
+    - link "Beranda":
+      - /url: /
+    - link "Paket":
+      - /url: /pricing
+    - link "Layanan":
+      - /url: /our-services
+    - link "Area":
+      - /url: /coverage-area
+    - link "Tentang":
+      - /url: /about-us
+    - link "Jurnal":
+      - /url: /blog
+    - link "WhatsApp · 0857 7385 4210 ↗":
+      - /url: https://wa.me/6285773854210?text=Halo%20BINNET%2C%20saya%20ingin%20cek%20jaringan%20dan%20paket%20internet%20di%20alamat%20saya.
+  - main [ref=e15]:
+    - generic [ref=e16]:
+      - generic [ref=e19]:
+        - generic [ref=e20]:
+          - paragraph [ref=e21]: Fiber lokal · sejak 2013
+          - heading "Internet cepat itu harus terasa." [level=1] [ref=e22]:
+            - generic [ref=e23]: Internet
+            - generic [ref=e24]: cepat
+            - generic [ref=e25]: itu
+            - generic [ref=e26]: harus
+            - emphasis [ref=e27]:
+              - generic [ref=e28]: terasa.
+          - generic [ref=e29]:
+            - paragraph [ref=e30]: Fiber optic unlimited tanpa FUP. Jernih untuk meeting, mulus untuk streaming, dan siap saat seluruh rumah online bersamaan.
+            - generic [ref=e31]:
+              - link "Cek jaringan rumah ↗" [ref=e32] [cursor=pointer]:
+                - /url: https://wa.me/6285773854210?text=Halo%20BINNET%2C%20saya%20ingin%20cek%20jaringan%20dan%20paket%20internet%20di%20alamat%20saya.
+              - link "Promo mulai Rp149 ribu ↗" [ref=e33] [cursor=pointer]:
+                - /url: "#promo"
+        - generic [ref=e34]:
+          - img "Teknisi BINNET memasang jaringan fiber optic" [ref=e35]
+          - generic [ref=e36]:
+            - generic [ref=e37]: "01"
+            - paragraph [ref=e38]: Tim lokal.Respons lebih dekat.
+          - generic [ref=e40]: Jaringan aktif
+      - generic [ref=e42]:
+        - generic [ref=e43]: PT Citra Bintang Net
+        - generic [ref=e44]: Unlimited · Tanpa FUP · Gratis instalasi
+    - generic [ref=e46]:
+      - generic [ref=e47]: Kerja tanpa jeda
+      - generic [ref=e49]: Main tanpa drama
+      - generic [ref=e51]: Nonton tanpa lingkaran
+      - generic [ref=e53]: Harga tanpa kejutan
+      - generic [ref=e55]: Kerja tanpa jeda
+      - generic [ref=e57]: Main tanpa drama
+      - generic [ref=e59]: Nonton tanpa lingkaran
+      - generic [ref=e61]: Harga tanpa kejutan
+    - generic [ref=e65]:
+      - generic [ref=e66]:
+        - paragraph [ref=e67]: Special promo · koneksi cepat, harga hemat
+        - heading "Lebih kencang. Lebih masuk akal." [level=2] [ref=e68]:
+          - generic [ref=e69]: Lebih
+          - generic [ref=e70]: kencang.
+          - generic [ref=e71]: Lebih
+          - generic [ref=e72]: masuk
+          - generic [ref=e73]: akal.
+        - paragraph [ref=e74]: Empat paket baru dengan instalasi gratis, perangkat termasuk, customer service 24 jam, dan teknisi standby per area.
+      - generic [ref=e75]:
+        - button "Buka flyer promo BINNET" [ref=e76] [cursor=pointer]:
+          - img "Flyer special promo BINNET" [ref=e77]
+          - generic [ref=e78]:
+            - text: Lihat flyer penuh
+            - generic [ref=e79]: ↗
+        - generic [ref=e80]:
+          - generic [ref=e81]:
+            - article [ref=e82]:
+              - generic [ref=e83]:
+                - generic [ref=e84]: "01"
+                - generic [ref=e85]: Paket Hemat
+              - paragraph [ref=e86]:
+                - strong [ref=e87]: "25"
+                - text: Mbps
+              - generic [ref=e88]: Rp199.000
+              - heading "Rp149.000" [level=3] [ref=e89]
+              - link "Pilih Paket Hemat" [ref=e90] [cursor=pointer]:
+                - /url: https://wa.me/6285773854210?text=Halo%20BINNET%2C%20saya%20tertarik%20promo%20Paket%20Hemat%2025%20Mbps%20seharga%20Rp149.000.%20Mohon%20cek%20area%20saya.
+                - text: Pilih ↗
+            - article [ref=e91]:
+              - generic [ref=e92]:
+                - generic [ref=e93]: "02"
+                - generic [ref=e94]: Paket Keluarga
+              - paragraph [ref=e95]:
+                - strong [ref=e96]: "50"
+                - text: Mbps
+              - generic [ref=e97]: Rp249.000
+              - heading "Rp179.000" [level=3] [ref=e98]
+              - link "Pilih Paket Keluarga" [ref=e99] [cursor=pointer]:
+                - /url: https://wa.me/6285773854210?text=Halo%20BINNET%2C%20saya%20tertarik%20promo%20Paket%20Keluarga%2050%20Mbps%20seharga%20Rp179.000.%20Mohon%20cek%20area%20saya.
+                - text: Pilih ↗
+            - article [ref=e100]:
+              - generic [ref=e101]:
+                - generic [ref=e102]: "03"
+                - generic [ref=e103]: Paket Gaming
+              - paragraph [ref=e104]:
+                - strong [ref=e105]: "80"
+                - text: Mbps
+              - generic [ref=e106]: Rp299.000
+              - heading "Rp219.000" [level=3] [ref=e107]
+              - link "Pilih Paket Gaming" [ref=e108] [cursor=pointer]:
+                - /url: https://wa.me/6285773854210?text=Halo%20BINNET%2C%20saya%20tertarik%20promo%20Paket%20Gaming%2080%20Mbps%20seharga%20Rp219.000.%20Mohon%20cek%20area%20saya.
+                - text: Pilih ↗
+            - article [ref=e109]:
+              - generic [ref=e110]:
+                - generic [ref=e111]: "04"
+                - generic [ref=e112]: Paket Sultan
+              - paragraph [ref=e113]:
+                - strong [ref=e114]: "100"
+                - text: Mbps
+              - generic [ref=e115]: Rp399.000
+              - heading "Rp329.000" [level=3] [ref=e116]
+              - link "Pilih Paket Sultan" [ref=e117] [cursor=pointer]:
+                - /url: https://wa.me/6285773854210?text=Halo%20BINNET%2C%20saya%20tertarik%20promo%20Paket%20Sultan%20100%20Mbps%20seharga%20Rp329.000.%20Mohon%20cek%20area%20saya.
+                - text: Pilih ↗
+          - generic [ref=e118]:
+            - generic [ref=e119]:
+              - generic [ref=e120]: ✓
+              - text: Harga sudah termasuk
+            - generic [ref=e121]:
+              - generic [ref=e122]: ✓
+              - text: Biaya instalasi gratis
+            - generic [ref=e123]:
+              - generic [ref=e124]: ✓
+              - text: Sewa perangkat termasuk
+            - generic [ref=e125]:
+              - generic [ref=e126]: ✓
+              - text: Customer service 24 jam
+            - generic [ref=e127]:
+              - generic [ref=e128]: ✓
+              - text: Teknisi standby per area
+          - generic [ref=e129]:
+            - generic [ref=e130]:
+              - generic [ref=e131]: Bonus utama
+              - strong [ref=e132]: Tagihan paket promo flat*
+            - link "Ambil promo ↗" [ref=e133] [cursor=pointer]:
+              - /url: https://wa.me/6285773854210?text=Halo%20BINNET%2C%20saya%20ingin%20daftar%20special%20promo%20dan%20cek%20jaringan%20di%20alamat%20saya.
+          - paragraph [ref=e134]: "*Harga promo dan fasilitas mengikuti hasil pengecekan area serta syarat dan ketentuan BINNET."
+    - generic [ref=e136]:
+      - generic [ref=e137]: 13+
+      - generic [ref=e138]:
+        - paragraph [ref=e139]: Lebih dari koneksi
+        - heading "Internet rumah bukan soal angka paling besar." [level=2] [ref=e140]:
+          - generic [ref=e141]: Internet
+          - generic [ref=e142]: rumah
+          - generic [ref=e143]: bukan
+          - generic [ref=e144]: soal
+          - generic [ref=e145]: angka
+          - generic [ref=e146]: paling
+          - generic [ref=e147]: besar.
+        - paragraph [ref=e148]: Yang penting adalah stabil saat dibutuhkan, jelas tagihannya, dan ada manusia yang merespons ketika sesuatu tidak berjalan semestinya. Itulah cara BINNET bekerja sejak 2013.
+    - generic [ref=e150]:
+      - generic [ref=e151]:
+        - generic [ref=e152]:
+          - paragraph [ref=e153]: Pilih ritme rumah Anda
+          - heading "Kecepatan yang pas. Bukan asal tinggi." [level=2] [ref=e154]:
+            - generic [ref=e155]: Kecepatan
+            - generic [ref=e156]: yang
+            - generic [ref=e157]: pas.
+            - generic [ref=e158]: Bukan
+            - generic [ref=e159]: asal
+            - generic [ref=e160]: tinggi.
+        - paragraph [ref=e161]: Semua paket unlimited tanpa FUP, sudah termasuk PPN, perangkat, dan pemasangan.
+      - generic [ref=e162]:
+        - article [ref=e163]:
+          - generic [ref=e164]:
+            - generic [ref=e165]: "01"
+            - generic [ref=e166]: Paket Hemat
+          - generic [ref=e167]:
+            - strong [ref=e168]: "25"
+            - generic [ref=e169]: Mbps
+          - paragraph [ref=e170]: Streaming lancar dan aktivitas harian
+          - generic [ref=e171]:
+            - generic [ref=e172]: Rp
+            - strong [ref=e173]: 149k
+            - generic [ref=e174]: /bulan
+          - generic [ref=e175]: Normal Rp199k
+          - generic [ref=e176]:
+            - text: Ideal untuk
+            - generic [ref=e177]: Rumah ringkas
+          - link "Pilih paket ↗" [ref=e178] [cursor=pointer]:
+            - /url: https://wa.me/6285773854210?text=Halo%20BINNET%2C%20saya%20tertarik%20paket%2025%20Mbps.%20Bisa%20cek%20jaringan%20di%20alamat%20saya%3F
+            - text: Pilih paket
+            - generic [ref=e179]: ↗
+        - article [ref=e180]:
+          - generic [ref=e181]:
+            - generic [ref=e182]: "02"
+            - generic [ref=e183]: Paket Keluarga
+          - generic [ref=e184]:
+            - strong [ref=e185]: "50"
+            - generic [ref=e186]: Mbps
+          - paragraph [ref=e187]: Kerja, belajar, dan hiburan bersama
+          - generic [ref=e188]:
+            - generic [ref=e189]: Rp
+            - strong [ref=e190]: 179k
+            - generic [ref=e191]: /bulan
+          - generic [ref=e192]: Normal Rp249k
+          - generic [ref=e193]:
+            - text: Ideal untuk
+            - generic [ref=e194]: Keluarga aktif
+          - link "Pilih paket ↗" [ref=e195] [cursor=pointer]:
+            - /url: https://wa.me/6285773854210?text=Halo%20BINNET%2C%20saya%20tertarik%20paket%2050%20Mbps.%20Bisa%20cek%20jaringan%20di%20alamat%20saya%3F
+            - text: Pilih paket
+            - generic [ref=e196]: ↗
+        - article [ref=e197]:
+          - generic [ref=e198]:
+            - generic [ref=e199]: "03"
+            - generic [ref=e200]: Paket Gaming
+          - generic [ref=e201]:
+            - strong [ref=e202]: "80"
+            - generic [ref=e203]: Mbps
+          - paragraph [ref=e204]: Gaming, streaming, dan download cepat
+          - generic [ref=e205]:
+            - generic [ref=e206]: Rp
+            - strong [ref=e207]: 219k
+            - generic [ref=e208]: /bulan
+          - generic [ref=e209]: Normal Rp299k
+          - generic [ref=e210]:
+            - text: Ideal untuk
+            - generic [ref=e211]: Performa intensif
+          - link "Pilih paket ↗" [ref=e212] [cursor=pointer]:
+            - /url: https://wa.me/6285773854210?text=Halo%20BINNET%2C%20saya%20tertarik%20paket%2080%20Mbps.%20Bisa%20cek%20jaringan%20di%20alamat%20saya%3F
+            - text: Pilih paket
+            - generic [ref=e213]: ↗
+        - article [ref=e214]:
+          - generic [ref=e215]:
+            - generic [ref=e216]: "04"
+            - generic [ref=e217]: Paket Sultan
+          - generic [ref=e218]:
+            - strong [ref=e219]: "100"
+            - generic [ref=e220]: Mbps
+          - paragraph [ref=e221]: Semua kebutuhan tanpa kompromi
+          - generic [ref=e222]:
+            - generic [ref=e223]: Rp
+            - strong [ref=e224]: 329k
+            - generic [ref=e225]: /bulan
+          - generic [ref=e226]: Normal Rp399k
+          - generic [ref=e227]:
+            - text: Ideal untuk
+            - generic [ref=e228]: Rumah dan usaha aktif
+          - link "Pilih paket ↗" [ref=e229] [cursor=pointer]:
+            - /url: https://wa.me/6285773854210?text=Halo%20BINNET%2C%20saya%20tertarik%20paket%20100%20Mbps.%20Bisa%20cek%20jaringan%20di%20alamat%20saya%3F
+            - text: Pilih paket
+            - generic [ref=e230]: ↗
+      - paragraph [ref=e231]: "*Ketersediaan layanan mengikuti hasil pengecekan jaringan di alamat pemasangan."
+    - generic [ref=e233]:
+      - generic [ref=e234]:
+        - paragraph [ref=e235]: Satu tim, tiga solusi
+        - heading "Rumah terhubung. Rumah terlindungi." [level=2] [ref=e236]:
+          - generic [ref=e237]: Rumah
+          - generic [ref=e238]: terhubung.
+          - generic [ref=e239]: Rumah
+          - generic [ref=e240]: terlindungi.
+      - generic [ref=e241]:
+        - link "01 Internet Fiber Koneksi fiber optic unlimited untuk rumah dan usaha, tanpa FUP dan tanpa biaya yang disembunyikan. ↗" [ref=e242] [cursor=pointer]:
+          - /url: /our-services
+          - generic [ref=e243]: "01"
+          - heading "Internet Fiber" [level=3] [ref=e245]
+          - paragraph [ref=e246]: Koneksi fiber optic unlimited untuk rumah dan usaha, tanpa FUP dan tanpa biaya yang disembunyikan.
+          - generic [ref=e247]: ↗
+        - link "02 Instalasi CCTV Sistem keamanan yang dapat dipantau dari smartphone, dipasang oleh teknisi yang memahami kondisi lapangan. ↗" [ref=e248] [cursor=pointer]:
+          - /url: /our-services
+          - generic [ref=e249]: "02"
+          - heading "Instalasi CCTV" [level=3] [ref=e251]
+          - paragraph [ref=e252]: Sistem keamanan yang dapat dipantau dari smartphone, dipasang oleh teknisi yang memahami kondisi lapangan.
+          - generic [ref=e253]: ↗
+        - link "03 Elektronik & Jaringan Pemeriksaan dan perbaikan perangkat elektronik serta jaringan rumah secara praktis dan terukur. ↗" [ref=e254] [cursor=pointer]:
+          - /url: /our-services
+          - generic [ref=e255]: "03"
+          - heading "Elektronik & Jaringan" [level=3] [ref=e257]
+          - paragraph [ref=e258]: Pemeriksaan dan perbaikan perangkat elektronik serta jaringan rumah secara praktis dan terukur.
+          - generic [ref=e259]: ↗
+    - generic [ref=e260]:
+      - img "Tim teknisi BINNET" [ref=e262]
+      - generic [ref=e263]:
+        - paragraph [ref=e264]: Bukan call center anonim
+        - heading "Tim yang tahu jalan menuju rumah Anda." [level=2] [ref=e265]:
+          - generic [ref=e266]: Tim
+          - generic [ref=e267]: yang
+          - generic [ref=e268]: tahu
+          - generic [ref=e269]: jalan
+          - generic [ref=e270]: menuju
+          - generic [ref=e271]: rumah
+          - generic [ref=e272]: Anda.
+        - paragraph [ref=e273]: BINNET dibangun sebagai jaringan lokal. Artinya, komunikasi lebih dekat, konteks area lebih dipahami, dan penanganan tidak berhenti di nomor tiket.
+        - link "Kenal BINNET ↗" [ref=e274] [cursor=pointer]:
+          - /url: /about-us
+      - generic [ref=e275]:
+        - generic [ref=e276]: Tim operasional BINNET
+        - generic [ref=e277]: Depok dan sekitarnya
+    - generic [ref=e279]:
+      - generic [ref=e280]:
+        - generic [ref=e281]:
+          - paragraph [ref=e282]: Cerita dari jaringan
+          - heading "Yang paling jujur adalah pengalaman pelanggan." [level=2] [ref=e283]:
+            - generic [ref=e284]: Yang
+            - generic [ref=e285]: paling
+            - generic [ref=e286]: jujur
+            - generic [ref=e287]: adalah
+            - generic [ref=e288]: pengalaman
+            - generic [ref=e289]: pelanggan.
+        - generic [ref=e290]: “
+      - generic [ref=e291]:
+        - blockquote [ref=e292]:
+          - generic [ref=e293]: "01"
+          - paragraph [ref=e294]: “Jaringannya selalu stabil sekalipun semua perangkat di rumah sedang dipakai. Saat hujan pun tetap aman.”
+          - generic [ref=e295]:
+            - strong [ref=e296]: Meisha
+            - generic [ref=e297]: BSI 2
+        - blockquote [ref=e298]:
+          - generic [ref=e299]: "02"
+          - paragraph [ref=e300]: “Kalau ada kendala selalu direspons dengan baik. Saya sudah memakai BINNET di dua rumah dan sejauh ini aman.”
+          - generic [ref=e301]:
+            - strong [ref=e302]: Rudi
+            - generic [ref=e303]: Duren Mekar
+        - blockquote [ref=e304]:
+          - generic [ref=e305]: "03"
+          - paragraph [ref=e306]: “Komplain direspons dan diperbaiki dengan cepat. Owner dan timnya ramah, pelayanannya terasa dekat.”
+          - generic [ref=e307]:
+            - strong [ref=e308]: Aula
+            - generic [ref=e309]: BSI 2
+        - blockquote [ref=e310]:
+          - generic [ref=e311]: "04"
+          - paragraph [ref=e312]: “Harga tetap, jaringan bagus, dan komplain cukup lewat WhatsApp sehingga cepat ditangani.”
+          - generic [ref=e313]:
+            - strong [ref=e314]: Naimah
+            - generic [ref=e315]: Pelanggan BINNET
+    - generic [ref=e317]:
+      - generic [ref=e318]:
+        - generic [ref=e319]:
+          - paragraph [ref=e320]: Jurnal koneksi
+          - heading "Biar teknologi tidak terasa teknis." [level=2] [ref=e321]:
+            - generic [ref=e322]: Biar
+            - generic [ref=e323]: teknologi
+            - generic [ref=e324]: tidak
+            - generic [ref=e325]: terasa
+            - generic [ref=e326]: teknis.
+        - link "Lihat semua artikel ↗" [ref=e327] [cursor=pointer]:
+          - /url: /blog
+      - generic [ref=e328]:
+        - 'link "Wi‑Fi Rumah 5 menit Posisi Router Wi‑Fi yang Tepat: Sinyal Lebih Merata Tanpa Ganti Paket Sebelum menaikkan kecepatan internet, cek dulu posisi router. Beberapa meter bisa membuat perbedaan besar." [ref=e329] [cursor=pointer]':
+          - /url: /blog/posisi-router-wifi-terbaik-di-rumah
+          - generic [ref=e331]:
+            - generic [ref=e332]: Wi‑Fi Rumah
+            - generic [ref=e333]: 5 menit
+          - 'heading "Posisi Router Wi‑Fi yang Tepat: Sinyal Lebih Merata Tanpa Ganti Paket" [level=3] [ref=e334]'
+          - paragraph [ref=e335]: Sebelum menaikkan kecepatan internet, cek dulu posisi router. Beberapa meter bisa membuat perbedaan besar.
+        - 'link "Perangkat 6 menit Wi‑Fi 2,4 GHz vs 5 GHz: Mana yang Sebaiknya Dipakai? Yang satu menjangkau lebih jauh, yang lain melaju lebih cepat. Kuncinya bukan memilih salah satu, tetapi menggunakannya dengan benar." [ref=e336] [cursor=pointer]':
+          - /url: /blog/perbedaan-wifi-2-4-ghz-dan-5-ghz
+          - generic [ref=e338]:
+            - generic [ref=e339]: Perangkat
+            - generic [ref=e340]: 6 menit
+          - 'heading "Wi‑Fi 2,4 GHz vs 5 GHz: Mana yang Sebaiknya Dipakai?" [level=3] [ref=e341]'
+          - paragraph [ref=e342]: Yang satu menjangkau lebih jauh, yang lain melaju lebih cepat. Kuncinya bukan memilih salah satu, tetapi menggunakannya dengan benar.
+        - link "Panduan Paket 6 menit Berapa Mbps yang Cukup untuk Rumah Anda? Hitung perangkat yang aktif bersamaan dan aktivitas terberatnya. Angka besar belum tentu pilihan paling efisien." [ref=e343] [cursor=pointer]:
+          - /url: /blog/cara-memilih-kecepatan-internet-rumah
+          - generic [ref=e345]:
+            - generic [ref=e346]: Panduan Paket
+            - generic [ref=e347]: 6 menit
+          - heading "Berapa Mbps yang Cukup untuk Rumah Anda?" [level=3] [ref=e348]
+          - paragraph [ref=e349]: Hitung perangkat yang aktif bersamaan dan aktivitas terberatnya. Angka besar belum tentu pilihan paling efisien.
+  - contentinfo [ref=e350]:
+    - generic [ref=e351]:
+      - paragraph [ref=e352]: Koneksi dimulai dari percakapan
+      - heading "Alamat Anda. Jaringan kami?" [level=2] [ref=e353]: Alamat Anda.Jaringan kami?
+      - generic [ref=e354]:
+        - link "Cek jaringan sekarang ↗" [ref=e355] [cursor=pointer]:
+          - /url: https://wa.me/6285773854210?text=Halo%20BINNET%2C%20saya%20ingin%20cek%20jaringan%20dan%20paket%20internet%20di%20alamat%20saya.
+        - link "Lihat semua paket ↗" [ref=e356] [cursor=pointer]:
+          - /url: /pricing
+      - generic [ref=e357]:
+        - generic [ref=e358]:
+          - strong [ref=e359]: BINNET.NET
+          - text: Internet fiber optic unlimited sejak 2013, dengan tim lokal yang memahami area dan pelanggan secara langsung.
+        - generic [ref=e360]:
+          - generic [ref=e361]: Jelajahi
+          - link "Paket internet" [ref=e362] [cursor=pointer]:
+            - /url: /pricing
+          - link "Layanan" [ref=e363] [cursor=pointer]:
+            - /url: /our-services
+          - link "Cek area" [ref=e364] [cursor=pointer]:
+            - /url: /coverage-area
+          - link "Jurnal" [ref=e365] [cursor=pointer]:
+            - /url: /blog
+        - generic [ref=e366]:
+          - generic [ref=e367]: Perusahaan
+          - link "Tentang kami" [ref=e368] [cursor=pointer]:
+            - /url: /about-us
+          - link "Pertanyaan umum" [ref=e369] [cursor=pointer]:
+            - /url: /faq
+          - link "Kontak" [ref=e370] [cursor=pointer]:
+            - /url: /contact-us
+        - generic [ref=e371]:
+          - generic [ref=e372]: Terhubung
+          - link "0857 7385 4210" [ref=e373] [cursor=pointer]:
+            - /url: https://wa.me/6285773854210?text=Halo%20BINNET%2C%20saya%20ingin%20cek%20jaringan%20dan%20paket%20internet%20di%20alamat%20saya.
+          - link "Instagram" [ref=e374] [cursor=pointer]:
+            - /url: https://www.instagram.com/binnetwifi/
+          - link "info@binnet.biz.id" [ref=e375] [cursor=pointer]:
+            - /url: mailto:info@binnet.biz.id
+          - generic [ref=e376]: Pandawa Regency, Tajur Halang, Bogor 16320
+      - generic [ref=e377]:
+        - generic [ref=e378]: © 2026 PT Citra Bintang Net
+        - generic [ref=e379]: Fiber lokal · layanan manusia
+  - link "Chat BINNET di WhatsApp" [ref=e380] [cursor=pointer]:
+    - /url: https://wa.me/6285773854210?text=Halo%20BINNET%2C%20saya%20ingin%20cek%20jaringan%20dan%20paket%20internet%20di%20alamat%20saya.
+    - generic [ref=e383]: Chat WhatsApp
+  - generic [ref=e386]:
+    - button [ref=e387]
+    - button [ref=e393]
+    - button [ref=e397]
+    - button [ref=e402]

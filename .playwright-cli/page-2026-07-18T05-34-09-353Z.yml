@@ -1,0 +1,170 @@
+- generic [active] [ref=e1]:
+  - generic: Connecting home
+  - banner:
+    - generic [ref=e2]:
+      - link "BINNET beranda" [ref=e3] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e4]:
+          - strong [ref=e5]: BINNET
+          - generic [ref=e6]: PT Citra Bintang Net
+      - navigation "Navigasi utama" [ref=e7]:
+        - link "Beranda" [ref=e8] [cursor=pointer]:
+          - /url: /
+        - link "Paket" [ref=e9] [cursor=pointer]:
+          - /url: /pricing
+        - link "Layanan" [ref=e10] [cursor=pointer]:
+          - /url: /our-services
+        - link "Area" [ref=e11] [cursor=pointer]:
+          - /url: /coverage-area
+        - link "Tentang" [ref=e12] [cursor=pointer]:
+          - /url: /about-us
+        - link "Jurnal" [ref=e13] [cursor=pointer]:
+          - /url: /blog
+        - link "Cek area ↗" [ref=e14] [cursor=pointer]:
+          - /url: https://wa.me/6285773854210?text=Halo%20BINNET%2C%20saya%20ingin%20cek%20jaringan%20dan%20paket%20internet%20di%20alamat%20saya.
+  - navigation "Navigasi mobile":
+    - link "Beranda":
+      - /url: /
+    - link "Paket":
+      - /url: /pricing
+    - link "Layanan":
+      - /url: /our-services
+    - link "Area":
+      - /url: /coverage-area
+    - link "Tentang":
+      - /url: /about-us
+    - link "Jurnal":
+      - /url: /blog
+    - link "WhatsApp · 0857 7385 4210 ↗":
+      - /url: https://wa.me/6285773854210?text=Halo%20BINNET%2C%20saya%20ingin%20cek%20jaringan%20dan%20paket%20internet%20di%20alamat%20saya.
+  - main [ref=e15]:
+    - generic [ref=e17]:
+      - paragraph [ref=e18]: Jurnal BINNET
+      - heading "Teknologi, tanpa bahasa alien." [level=1] [ref=e19]:
+        - generic [ref=e20]: Teknologi,
+        - generic [ref=e21]: tanpa
+        - generic [ref=e22]: bahasa
+        - generic [ref=e23]: alien.
+      - paragraph [ref=e24]: Panduan praktis agar internet, router, dan perangkat di rumah bekerja lebih baik—ditulis untuk manusia, bukan hanya teknisi.
+    - generic [ref=e26]:
+      - generic [ref=e27]:
+        - generic [ref=e28]: 06 artikel pilihan
+        - paragraph [ref=e29]: Mulai dari masalah yang paling sering terjadi di rumah, lalu selesaikan dengan langkah yang bisa langsung dicoba.
+      - generic [ref=e30]:
+        - 'link "Ilustrasi Posisi Router Wi‑Fi yang Tepat: Sinyal Lebih Merata Tanpa Ganti Paket Wi‑Fi Rumah 5 menit Posisi Router Wi‑Fi yang Tepat: Sinyal Lebih Merata Tanpa Ganti Paket Sebelum menaikkan kecepatan internet, cek dulu posisi router. Beberapa meter bisa membuat perbedaan besar. Baca panduan ↗" [ref=e31] [cursor=pointer]':
+          - /url: /blog/posisi-router-wifi-terbaik-di-rumah
+          - 'img "Ilustrasi Posisi Router Wi‑Fi yang Tepat: Sinyal Lebih Merata Tanpa Ganti Paket" [ref=e33]'
+          - generic [ref=e34]:
+            - generic [ref=e35]: Wi‑Fi Rumah
+            - generic [ref=e36]: 5 menit
+          - 'heading "Posisi Router Wi‑Fi yang Tepat: Sinyal Lebih Merata Tanpa Ganti Paket" [level=2] [ref=e37]'
+          - paragraph [ref=e38]: Sebelum menaikkan kecepatan internet, cek dulu posisi router. Beberapa meter bisa membuat perbedaan besar.
+          - generic [ref=e39]:
+            - text: Baca panduan
+            - generic [ref=e40]: ↗
+        - 'link "Ilustrasi Wi‑Fi 2,4 GHz vs 5 GHz: Mana yang Sebaiknya Dipakai? Perangkat 6 menit Wi‑Fi 2,4 GHz vs 5 GHz: Mana yang Sebaiknya Dipakai? Yang satu menjangkau lebih jauh, yang lain melaju lebih cepat. Kuncinya bukan memilih salah satu, tetapi menggunakannya dengan benar. Baca panduan ↗" [ref=e41] [cursor=pointer]':
+          - /url: /blog/perbedaan-wifi-2-4-ghz-dan-5-ghz
+          - 'img "Ilustrasi Wi‑Fi 2,4 GHz vs 5 GHz: Mana yang Sebaiknya Dipakai?" [ref=e43]'
+          - generic [ref=e44]:
+            - generic [ref=e45]: Perangkat
+            - generic [ref=e46]: 6 menit
+          - 'heading "Wi‑Fi 2,4 GHz vs 5 GHz: Mana yang Sebaiknya Dipakai?" [level=2] [ref=e47]'
+          - paragraph [ref=e48]: Yang satu menjangkau lebih jauh, yang lain melaju lebih cepat. Kuncinya bukan memilih salah satu, tetapi menggunakannya dengan benar.
+          - generic [ref=e49]:
+            - text: Baca panduan
+            - generic [ref=e50]: ↗
+        - link "Ilustrasi Berapa Mbps yang Cukup untuk Rumah Anda? Panduan Paket 6 menit Berapa Mbps yang Cukup untuk Rumah Anda? Hitung perangkat yang aktif bersamaan dan aktivitas terberatnya. Angka besar belum tentu pilihan paling efisien. Baca panduan ↗" [ref=e51] [cursor=pointer]:
+          - /url: /blog/cara-memilih-kecepatan-internet-rumah
+          - img "Ilustrasi Berapa Mbps yang Cukup untuk Rumah Anda?" [ref=e53]
+          - generic [ref=e54]:
+            - generic [ref=e55]: Panduan Paket
+            - generic [ref=e56]: 6 menit
+          - heading "Berapa Mbps yang Cukup untuk Rumah Anda?" [level=2] [ref=e57]
+          - paragraph [ref=e58]: Hitung perangkat yang aktif bersamaan dan aktivitas terberatnya. Angka besar belum tentu pilihan paling efisien.
+          - generic [ref=e59]:
+            - text: Baca panduan
+            - generic [ref=e60]: ↗
+        - link "Ilustrasi Wi‑Fi Terasa Lambat? Lakukan 7 Pengecekan Ini Sebelum Menghubungi Teknisi Troubleshooting 7 menit Wi‑Fi Terasa Lambat? Lakukan 7 Pengecekan Ini Sebelum Menghubungi Teknisi Diagnosis sederhana selama lima menit dapat membedakan masalah perangkat, Wi‑Fi, atau jalur internet. Baca panduan ↗" [ref=e61] [cursor=pointer]:
+          - /url: /blog/wifi-lambat-lakukan-pengecekan-ini
+          - img "Ilustrasi Wi‑Fi Terasa Lambat? Lakukan 7 Pengecekan Ini Sebelum Menghubungi Teknisi" [ref=e63]
+          - generic [ref=e64]:
+            - generic [ref=e65]: Troubleshooting
+            - generic [ref=e66]: 7 menit
+          - heading "Wi‑Fi Terasa Lambat? Lakukan 7 Pengecekan Ini Sebelum Menghubungi Teknisi" [level=2] [ref=e67]
+          - paragraph [ref=e68]: Diagnosis sederhana selama lima menit dapat membedakan masalah perangkat, Wi‑Fi, atau jalur internet.
+          - generic [ref=e69]:
+            - text: Baca panduan
+            - generic [ref=e70]: ↗
+        - link "Ilustrasi Cara Mengamankan Wi‑Fi Rumah Tanpa Menjadi Ahli IT Keamanan 6 menit Cara Mengamankan Wi‑Fi Rumah Tanpa Menjadi Ahli IT Lima pengaturan dasar dapat mencegah orang asing memakai jaringan dan melindungi perangkat di rumah. Baca panduan ↗" [ref=e71] [cursor=pointer]:
+          - /url: /blog/cara-mengamankan-wifi-rumah
+          - img "Ilustrasi Cara Mengamankan Wi‑Fi Rumah Tanpa Menjadi Ahli IT" [ref=e73]
+          - generic [ref=e74]:
+            - generic [ref=e75]: Keamanan
+            - generic [ref=e76]: 6 menit
+          - heading "Cara Mengamankan Wi‑Fi Rumah Tanpa Menjadi Ahli IT" [level=2] [ref=e77]
+          - paragraph [ref=e78]: Lima pengaturan dasar dapat mencegah orang asing memakai jaringan dan melindungi perangkat di rumah.
+          - generic [ref=e79]:
+            - text: Baca panduan
+            - generic [ref=e80]: ↗
+        - link "Ilustrasi Titik Pemasangan CCTV yang Efektif untuk Rumah CCTV 6 menit Titik Pemasangan CCTV yang Efektif untuk Rumah Bukan soal memasang kamera sebanyak mungkin. Prioritaskan jalur masuk, sudut buta, dan kualitas bukti visual. Baca panduan ↗" [ref=e81] [cursor=pointer]:
+          - /url: /blog/posisi-cctv-rumah-yang-efektif
+          - img "Ilustrasi Titik Pemasangan CCTV yang Efektif untuk Rumah" [ref=e83]
+          - generic [ref=e84]:
+            - generic [ref=e85]: CCTV
+            - generic [ref=e86]: 6 menit
+          - heading "Titik Pemasangan CCTV yang Efektif untuk Rumah" [level=2] [ref=e87]
+          - paragraph [ref=e88]: Bukan soal memasang kamera sebanyak mungkin. Prioritaskan jalur masuk, sudut buta, dan kualitas bukti visual.
+          - generic [ref=e89]:
+            - text: Baca panduan
+            - generic [ref=e90]: ↗
+  - contentinfo [ref=e91]:
+    - generic [ref=e92]:
+      - paragraph [ref=e93]: Koneksi dimulai dari percakapan
+      - heading "Alamat Anda. Jaringan kami?" [level=2] [ref=e94]: Alamat Anda.Jaringan kami?
+      - generic [ref=e95]:
+        - link "Cek jaringan sekarang ↗" [ref=e96] [cursor=pointer]:
+          - /url: https://wa.me/6285773854210?text=Halo%20BINNET%2C%20saya%20ingin%20cek%20jaringan%20dan%20paket%20internet%20di%20alamat%20saya.
+        - link "Lihat semua paket ↗" [ref=e97] [cursor=pointer]:
+          - /url: /pricing
+      - generic [ref=e98]:
+        - generic [ref=e99]:
+          - strong [ref=e100]: BINNET.NET
+          - text: Internet fiber optic unlimited sejak 2013, dengan tim lokal yang memahami area dan pelanggan secara langsung.
+        - generic [ref=e101]:
+          - generic [ref=e102]: Jelajahi
+          - link "Paket internet" [ref=e103] [cursor=pointer]:
+            - /url: /pricing
+          - link "Layanan" [ref=e104] [cursor=pointer]:
+            - /url: /our-services
+          - link "Cek area" [ref=e105] [cursor=pointer]:
+            - /url: /coverage-area
+          - link "Jurnal" [ref=e106] [cursor=pointer]:
+            - /url: /blog
+        - generic [ref=e107]:
+          - generic [ref=e108]: Perusahaan
+          - link "Tentang kami" [ref=e109] [cursor=pointer]:
+            - /url: /about-us
+          - link "Pertanyaan umum" [ref=e110] [cursor=pointer]:
+            - /url: /faq
+          - link "Kontak" [ref=e111] [cursor=pointer]:
+            - /url: /contact-us
+        - generic [ref=e112]:
+          - generic [ref=e113]: Terhubung
+          - link "0857 7385 4210" [ref=e114] [cursor=pointer]:
+            - /url: https://wa.me/6285773854210?text=Halo%20BINNET%2C%20saya%20ingin%20cek%20jaringan%20dan%20paket%20internet%20di%20alamat%20saya.
+          - link "Instagram" [ref=e115] [cursor=pointer]:
+            - /url: https://www.instagram.com/binnetwifi/
+          - link "info@binnet.biz.id" [ref=e116] [cursor=pointer]:
+            - /url: mailto:info@binnet.biz.id
+          - generic [ref=e117]: Pandawa Regency, Tajur Halang, Bogor 16320
+      - generic [ref=e118]:
+        - generic [ref=e119]: © 2026 PT Citra Bintang Net
+        - generic [ref=e120]: Fiber lokal · layanan manusia
+  - link "Chat BINNET di WhatsApp" [ref=e121] [cursor=pointer]:
+    - /url: https://wa.me/6285773854210?text=Halo%20BINNET%2C%20saya%20ingin%20cek%20jaringan%20dan%20paket%20internet%20di%20alamat%20saya.
+    - generic [ref=e123]: Chat WhatsApp
+  - generic [ref=e126]:
+    - button [ref=e127]
+    - button [ref=e133]
+    - button [ref=e137]
+    - button [ref=e142]
