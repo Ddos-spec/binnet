@@ -233,9 +233,9 @@ import { blogPosts, plans, promoBenefits, services, testimonials, whatsappLink }
   .promo-heading .eyebrow { grid-column: 1 / -1; color: var(--lime); }
   .promo-heading .lead { justify-self: end; color: rgba(255,255,255,.63); }
   .promo-layout { display: grid; grid-template-columns: minmax(300px, .7fr) minmax(0, 1.3fr); gap: clamp(2rem, 5vw, 5rem); align-items: start; }
-  .promo-flyer { position: relative; top: 0; width: 100%; padding: 0; border: 1px solid rgba(255,255,255,.2); border-radius: 28px; background: none; box-shadow: 0 36px 90px rgba(0,0,0,.34); cursor: pointer; transform: rotate(-2deg); transition: transform .6s var(--ease), box-shadow .6s; }
+  .promo-flyer { position: relative; top: 0; width: 100%; aspect-ratio: 4 / 5; padding: 0; overflow: hidden; border: 1px solid rgba(255,255,255,.2); border-radius: 28px; background: none; box-shadow: 0 36px 90px rgba(0,0,0,.34); cursor: pointer; transform: rotate(-2deg); transition: transform .6s var(--ease), box-shadow .6s; }
   .promo-flyer:hover { transform: rotate(0) translateY(-8px); box-shadow: 0 48px 110px rgba(0,0,0,.45); }
-  .promo-flyer img { width: 100%; border-radius: inherit; }
+  .promo-flyer img { width: 100%; height: 100%; border-radius: inherit; object-fit: cover; object-position: center top; }
   .promo-flyer > span { position: absolute; right: 1rem; bottom: 1rem; left: 1rem; display: flex; justify-content: space-between; padding: .85rem 1rem; border: 1px solid rgba(255,255,255,.25); border-radius: 999px; background: rgba(7,22,33,.82); backdrop-filter: blur(14px); color: var(--white); font-size: .7rem; font-weight: 800; }
   .promo-flyer > span i { color: var(--lime); font-style: normal; }
   .promo-content { min-width: 0; }
@@ -260,14 +260,14 @@ import { blogPosts, plans, promoBenefits, services, testimonials, whatsappLink }
   .promo-cta > div span { color: var(--red); font-size: .57rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
   .promo-cta > div strong { font-family: 'Space Grotesk'; font-size: 1rem; }
   .promo-terms { margin-top: .8rem; color: rgba(255,255,255,.38); font-size: .58rem; }
-  .promo-modal { width: min(calc(100vw - 28px), 380px); max-height: 92svh; margin: auto; padding: 0; overflow: hidden; border: 1px solid rgba(167,237,82,.45); border-radius: 28px; background: var(--ink); color: var(--white); box-shadow: 0 36px 100px rgba(0,0,0,.58), 0 0 0 1px rgba(37,212,245,.18); }
+  .promo-modal { width: min(calc(100vw - 28px), 350px); max-height: 92svh; margin: auto; padding: 0; overflow: hidden; border: 1px solid rgba(167,237,82,.45); border-radius: 28px; background: var(--ink); color: var(--white); box-shadow: 0 36px 100px rgba(0,0,0,.58), 0 0 0 1px rgba(37,212,245,.18); }
   .promo-modal::backdrop { background: rgba(2,12,25,.84); backdrop-filter: blur(15px); }
   .promo-modal-card { overflow: hidden; }
   .promo-modal-top { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 68px; padding: .85rem 1rem .85rem 1.25rem; background: var(--white); color: var(--ink); }
   .promo-modal-top div { display: grid; gap: .25rem; }
   .promo-modal-top span { color: var(--cyan-deep); font-size: .57rem; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; }
   .promo-modal-top strong { font-family: 'Space Grotesk'; font-size: clamp(.95rem, 2vw, 1.15rem); letter-spacing: -.03em; }
-  .promo-modal img { display: block; width: auto; max-width: 100%; height: auto; max-height: calc(92svh - 160px); margin: 0 auto; object-fit: contain; }
+  .promo-modal img { display: block; width: auto; max-width: 100%; height: auto; max-height: min(64svh, 500px); margin: 0 auto; object-fit: contain; }
   .promo-modal button { display: grid; width: 38px; height: 38px; flex: 0 0 38px; place-items: center; border: 1px solid var(--line); border-radius: 50%; background: var(--ink); color: var(--white); font-size: 1.45rem; cursor: pointer; transition: background .2s, color .2s, transform .2s; }
   .promo-modal button:hover { transform: rotate(90deg); background: var(--lime); color: var(--ink); }
   .promo-modal button:focus-visible, .promo-modal-cta a:focus-visible { outline: 3px solid var(--lime); outline-offset: 3px; }
@@ -362,6 +362,12 @@ import { blogPosts, plans, promoBenefits, services, testimonials, whatsappLink }
     .journal-grid { grid-template-columns: 1fr 1fr; }
     .journal-card.featured { grid-column: 1 / -1; }
     .featured .journal-image { aspect-ratio: 16 / 8; }
+  }
+
+  @media (min-width: 781px) {
+    /* Keep the flyer’s lower edge level with the promo CTA, not below it. */
+    .promo-layout { align-items: stretch; }
+    .promo-flyer { align-self: stretch; height: calc(100% - 1.75rem); aspect-ratio: auto; }
   }
 
   @media (max-width: 960px) {
