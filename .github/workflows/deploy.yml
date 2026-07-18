@@ -28,15 +28,20 @@ jobs:
         run: sudo apt-get install -y sshpass
 
       - name: Setup SSH key
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         run: |
           mkdir -p ~/.ssh
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/github_deploy
+          printf '%s\n' "$SSH_PRIVATE_KEY" > ~/.ssh/github_deploy
           chmod 600 ~/.ssh/github_deploy
-          ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
 
       - name: Deploy via rsync over SSH
+        env:
+          SSH_PASSPHRASE: ${{ secrets.SSH_PASSPHRASE }}
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_USER: ${{ secrets.SSH_USER }}
         run: |
-          sshpass -P passphrase -p '${{ secrets.SSH_PASSPHRASE }}' rsync -avz --delete \
-            -e "ssh -i ~/.ssh/github_deploy -p 22 -o StrictHostKeyChecking=no" \
+          sshpass -P passphrase -p "$SSH_PASSPHRASE" rsync -avz --delete \
+            -e "ssh -i ~/.ssh/github_deploy -p 22 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" \
             dist/ \
-            ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/binnetbi/public_html/
+            "$SSH_USER@$SSH_HOST:/home/binnetbi/public_html/"
