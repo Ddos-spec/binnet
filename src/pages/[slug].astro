@@ -1,12 +1,17 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import fs from 'node:fs';
+import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 
+// Resolve relative to THIS file (works locally & on Vercel)
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const DATA_DIR  = path.resolve(__dirname, '../data');
+
 export async function getStaticPaths() {
-  const summaryPath = path.resolve('../../scraped/summary.json');
-  const summary = JSON.parse(fs.readFileSync(summaryPath, 'utf-8'));
-  
+  const summary = JSON.parse(
+    fs.readFileSync(path.join(DATA_DIR, 'summary.json'), 'utf-8')
+  );
   return summary.pages.map((page: any) => ({
     params: { slug: page.slug },
     props: { pageInfo: page },
@@ -26,28 +31,22 @@ interface Props {
 const { pageInfo } = Astro.props;
 const { slug } = Astro.params;
 
-// Read the .md file content
-const pagesDir = path.resolve('../../scraped/pages');
+// Read .md file content
+const pagesDir = path.join(DATA_DIR, 'pages');
 const files = fs.readdirSync(pagesDir);
 const matchFile = files.find(f => f.includes(`-${slug}.md`));
 
-let rawContent = '';
 let htmlContent = '';
 
 if (matchFile) {
   const raw = fs.readFileSync(path.join(pagesDir, matchFile), 'utf-8');
-  // Strip frontmatter
+  // Strip YAML frontmatter
   const fmEnd = raw.indexOf('\n---\n', 4);
-  rawContent = fmEnd > -1 ? raw.slice(fmEnd + 5).trim() : raw;
-  
-  // Fix internal WordPress image URLs → local /media/
-  htmlContent = rawContent.replace(
-    /https:\/\/binnet\.biz\.id\/wp-content\/uploads\/[^"'\s]*/g,
-    (match) => {
-      const filename = match.split('/').pop() || '';
-      // Try to find matching local file (by original filename part)
-      return `/media/${filename}`;
-    }
+  const body  = fmEnd > -1 ? raw.slice(fmEnd + 5).trim() : raw;
+  // Rewrite WP image URLs → local /media/
+  htmlContent = body.replace(
+    /https?:\/\/binnet\.biz\.id\/wp-content\/uploads\/[^\s"'<>]*/g,
+    (match) => `/media/${match.split('/').pop() || ''}`
   );
 }
 ---
@@ -55,27 +54,56 @@ if (matchFile) {
 <Layout title={pageInfo.title}>
   <div class="page-hero">
     <h1>{pageInfo.title}</h1>
-    <p><a href={pageInfo.link} target="_blank" rel="noopener" style="color:rgba(255,255,255,.6);font-size:.85rem;">
-      Sumber: binnet.biz.id/{pageInfo.slug}/
-    </a></p>
+    <p>
+      <a href={pageInfo.link} target="_blank" rel="noopener"
+        style="color:rgba(255,255,255,.55);font-size:.8rem;">
+        ↗ binnet.biz.id/{pageInfo.slug}/
+      </a>
+    </p>
   </div>
 
   <div class="wp-content">
-    {htmlContent 
+    {htmlContent
       ? <Fragment set:html={htmlContent} />
-      : <p style="color:#6B7280;text-align:center;padding:4rem 0;">Konten halaman ini kosong atau belum dirender oleh Elementor.</p>
+      : <p class="empty-notice">Konten halaman ini belum tersedia.</p>
     }
   </div>
 </Layout>
 
 <style>
-  .wp-content {
-    /* Override for Elementor shortcode fallback */
+  .page-hero {
+    background: linear-gradient(135deg, #0d2b5e 0%, #1a3c6e 60%, #1e5bb4 100%);
+    color: #fff;
+    padding: 3.5rem 2rem;
+    text-align: center;
+  }
+  .page-hero h1 {
+    font-size: clamp(1.75rem, 4vw, 2.75rem);
+    font-weight: 900;
+    margin-bottom: .5rem;
   }
 
-  /* Elementor shortcode visual notice */
+  .wp-content {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
+  }
+  .wp-content :global(img) { max-width: 100%; border-radius: 8px; }
+  .wp-content :global(h1),
+  .wp-content :global(h2),
+  .wp-content :global(h3) { color: #1a3c6e; margin: 1.5rem 0 .75rem; }
+  .wp-content :global(p)  { color: #374151; margin-bottom: 1rem; }
+  .wp-content :global(a)  { color: #1e5bb4; }
+
+  /* Hide Elementor junk */
   .wp-content :global(.elementor-shortcode),
-  .wp-content :global([data-elementor-type]) {
-    display: none;
+  .wp-content :global([data-elementor-type]),
+  .wp-content :global(.elementor-widget-container:empty) { display: none; }
+
+  .empty-notice {
+    text-align: center;
+    color: #94a3b8;
+    padding: 5rem 0;
+    font-size: 1rem;
   }
 </style>

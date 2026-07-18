@@ -1,0 +1,2201 @@
+{
+  "scraped_at": "2026-07-17T16:52:57.065781",
+  "source": "https://binnet.biz.id",
+  "counts": {
+    "pages": 21,
+    "posts": 8,
+    "media": 221,
+    "categories": 6,
+    "tags": 6
+  },
+  "pages": [
+    {
+      "id": 5171,
+      "title": "Home 07",
+      "slug": "home-07",
+      "status": "publish",
+      "link": "https://binnet.biz.id/home-07/"
+    },
+    {
+      "id": 4654,
+      "title": "Home 05",
+      "slug": "home-05",
+      "status": "publish",
+      "link": "https://binnet.biz.id/home-05/"
+    },
+    {
+      "id": 4103,
+      "title": "Testomonials",
+      "slug": "testomonials",
+      "status": "publish",
+      "link": "https://binnet.biz.id/testomonials/"
+    },
+    {
+      "id": 4069,
+      "title": "Pricing",
+      "slug": "pricing",
+      "status": "publish",
+      "link": "https://binnet.biz.id/pricing/"
+    },
+    {
+      "id": 4053,
+      "title": "Our Projects",
+      "slug": "our-projects",
+      "status": "publish",
+      "link": "https://binnet.biz.id/our-projects/"
+    },
+    {
+      "id": 4038,
+      "title": "Our Services",
+      "slug": "our-services",
+      "status": "publish",
+      "link": "https://binnet.biz.id/our-services/"
+    },
+    {
+      "id": 3907,
+      "title": "Blog Grid",
+      "slug": "blog-grid",
+      "status": "publish",
+      "link": "https://binnet.biz.id/blog-grid/"
+    },
+    {
+      "id": 3791,
+      "title": "Home 06",
+      "slug": "home-06",
+      "status": "publish",
+      "link": "https://binnet.biz.id/home-06/"
+    },
+    {
+      "id": 42,
+      "title": "Contact Us",
+      "slug": "contact-us",
+      "status": "publish",
+      "link": "https://binnet.biz.id/contact-us/"
+    },
+    {
+      "id": 39,
+      "title": "Faq",
+      "slug": "faq",
+      "status": "publish",
+      "link": "https://binnet.biz.id/faq/"
+    },
+    {
+      "id": 36,
+      "title": "Blog Classic",
+      "slug": "blog-classic",
+      "status": "publish",
+      "link": "https://binnet.biz.id/blog-classic/"
+    },
+    {
+      "id": 34,
+      "title": "About Us",
+      "slug": "about-us",
+      "status": "publish",
+      "link": "https://binnet.biz.id/about-us/"
+    },
+    {
+      "id": 24,
+      "title": "Home 04",
+      "slug": "home-04",
+      "status": "publish",
+      "link": "https://binnet.biz.id/home-04/"
+    },
+    {
+      "id": 23,
+      "title": "Home 03",
+      "slug": "home-03",
+      "status": "publish",
+      "link": "https://binnet.biz.id/home-03/"
+    },
+    {
+      "id": 22,
+      "title": "Home 02",
+      "slug": "home-02",
+      "status": "publish",
+      "link": "https://binnet.biz.id/home-02/"
+    },
+    {
+      "id": 20,
+      "title": "Home",
+      "slug": "home",
+      "status": "publish",
+      "link": "https://binnet.biz.id/"
+    },
+    {
+      "id": 12,
+      "title": "My account",
+      "slug": "my-account",
+      "status": "publish",
+      "link": "https://binnet.biz.id/my-account/"
+    },
+    {
+      "id": 11,
+      "title": "Checkout",
+      "slug": "checkout",
+      "status": "publish",
+      "link": "https://binnet.biz.id/checkout/"
+    },
+    {
+      "id": 10,
+      "title": "Cart",
+      "slug": "cart",
+      "status": "publish",
+      "link": "https://binnet.biz.id/cart/"
+    },
+    {
+      "id": 9,
+      "title": "Shop",
+      "slug": "shop",
+      "status": "publish",
+      "link": "https://binnet.biz.id/shop/"
+    },
+    {
+      "id": 2,
+      "title": "Sample Page",
+      "slug": "sample-page",
+      "status": "publish",
+      "link": "https://binnet.biz.id/sample-page/"
+    }
+  ],
+  "posts": [
+    {
+      "id": 299,
+      "title": "Experience the future of connectivity",
+      "slug": "experience-the-future-of-connectivity",
+      "date": "2023-07-10"
+    },
+    {
+      "id": 296,
+      "title": "We start about the regular hard Business Advice",
+      "slug": "we-start-about-the-regular-hard-business-advice",
+      "date": "2023-07-10"
+    },
+    {
+      "id": 294,
+      "title": "Regular start and regular hub wishes as",
+      "slug": "regular-start-and-regular-hub-wishes-as",
+      "date": "2023-07-10"
+    },
+    {
+      "id": 291,
+      "title": "Stock new work start at the market handel",
+      "slug": "stock-new-work-start-at-the-market-handel",
+      "date": "2023-07-10"
+    },
+    {
+      "id": 282,
+      "title": "Instralation Accecories of stand tyree",
+      "slug": "instralation-accecories-of-stand-tyree",
+      "date": "2023-07-10"
+    },
+    {
+      "id": 167,
+      "title": "choose the right broadband plan for my needs",
+      "slug": "choose-the-right-broadband-plan-for-my-needs",
+      "date": "2023-07-06"
+    },
+    {
+      "id": 165,
+      "title": "This prefabricated passive house is highly sustainable",
+      "slug": "this-prefabricated-passive-house-is-highly-sustainable",
+      "date": "2023-07-06"
+    },
+    {
+      "id": 160,
+      "title": "the advantages of using broadband internet over other",
+      "slug": "the-advantages-of-using-broadband-internet-over-other",
+      "date": "2023-07-06"
+    }
+  ],
+  "media": [
+    {
+      "id": 6314,
+      "url": "https://binnet.biz.id/wp-content/uploads/woocommerce-placeholder.png",
+      "localFile": "6314-woocommerce-placeholder-2.png",
+      "alt": "",
+      "title": "woocommerce-placeholder",
+      "mime": "image/png",
+      "date": "2025-12-23"
+    },
+    {
+      "id": 6267,
+      "url": "https://binnet.biz.id/wp-content/uploads/2025/04/logo-home4.png",
+      "localFile": "6267-logo-home4-2.png",
+      "alt": "",
+      "title": "logo-home4",
+      "mime": "image/png",
+      "date": "2025-04-18"
+    },
+    {
+      "id": 6266,
+      "url": "https://binnet.biz.id/wp-content/uploads/2025/04/logo-home3.png",
+      "localFile": "6266-logo-home3-2.png",
+      "alt": "",
+      "title": "logo-home3",
+      "mime": "image/png",
+      "date": "2025-04-18"
+    },
+    {
+      "id": 6265,
+      "url": "https://binnet.biz.id/wp-content/uploads/2025/04/logo-2.png",
+      "localFile": "6265-logo-2.png",
+      "alt": "",
+      "title": "logo",
+      "mime": "image/png",
+      "date": "2025-04-18"
+    },
+    {
+      "id": 6252,
+      "url": "https://binnet.biz.id/wp-content/uploads/2025/04/ChatGPT-Image-Apr-18-2025-06_18_50-PM.png",
+      "localFile": "6252-chatgpt-image-apr-18-2025-06_18_50-pm.png",
+      "alt": "",
+      "title": "ChatGPT Image Apr 18, 2025, 06_18_50 PM",
+      "mime": "image/png",
+      "date": "2025-04-18"
+    },
+    {
+      "id": 6251,
+      "url": "https://binnet.biz.id/wp-content/uploads/2025/04/Brosur.jpeg",
+      "localFile": "6251-brosur.jpeg",
+      "alt": "",
+      "title": "Brosur",
+      "mime": "image/jpeg",
+      "date": "2025-04-18"
+    },
+    {
+      "id": 6249,
+      "url": "https://binnet.biz.id/wp-content/uploads/2025/04/Shoe-Store-Popup-pic.jpg",
+      "localFile": "6249-shoe-store-popup-pic-jpg.jpg",
+      "alt": "",
+      "title": "Shoe-Store-Popup-pic.jpg",
+      "mime": "image/jpeg",
+      "date": "2025-04-18"
+    },
+    {
+      "id": 6210,
+      "url": "https://binnet.biz.id/wp-content/uploads/2025/04/ChatGPT-Image-Apr-13-2025-05_26_56-PM.png",
+      "localFile": "6210-chatgpt-image-apr-13-2025-05_26_56-pm.png",
+      "alt": "",
+      "title": "ChatGPT Image Apr 13, 2025, 05_26_56 PM",
+      "mime": "image/png",
+      "date": "2025-04-18"
+    },
+    {
+      "id": 6111,
+      "url": "https://binnet.biz.id/wp-content/uploads/2025/04/cropped-Logo-HD-BINNET-Transparan.png",
+      "localFile": "6111-cropped-logo-hd-binnet-transparan-png.png",
+      "alt": "",
+      "title": "cropped-Logo-HD-BINNET-Transparan.png",
+      "mime": "image/png",
+      "date": "2025-04-18"
+    },
+    {
+      "id": 6101,
+      "url": "https://binnet.biz.id/wp-content/uploads/2025/04/Logo-HD-BINNET-Transparan.png",
+      "localFile": "6101-logo-hd-binnet-transparan.png",
+      "alt": "",
+      "title": "Logo HD BINNET &#8211; Transparan",
+      "mime": "image/png",
+      "date": "2025-04-18"
+    },
+    {
+      "id": 6066,
+      "url": "https://binnet.biz.id/wp-content/uploads/2025/04/IMG_5343-scaled.jpg",
+      "localFile": "6066-img_5343.jpg",
+      "alt": "",
+      "title": "IMG_5343",
+      "mime": "image/jpeg",
+      "date": "2025-04-16"
+    },
+    {
+      "id": 6065,
+      "url": "https://binnet.biz.id/wp-content/uploads/2025/04/WhatsApp-Image-2025-04-08-at-11.25.16-scaled.jpeg",
+      "localFile": "6065-whatsapp-image-2025-04-08-at-11-25-16.jpeg",
+      "alt": "",
+      "title": "WhatsApp Image 2025-04-08 at 11.25.16",
+      "mime": "image/jpeg",
+      "date": "2025-04-16"
+    },
+    {
+      "id": 6064,
+      "url": "https://binnet.biz.id/wp-content/uploads/2025/04/IMG_5421-scaled.jpg",
+      "localFile": "6064-img_5421.jpg",
+      "alt": "",
+      "title": "IMG_5421",
+      "mime": "image/jpeg",
+      "date": "2025-04-16"
+    },
+    {
+      "id": 6063,
+      "url": "https://binnet.biz.id/wp-content/uploads/2025/04/IMG-20250408-WA0013-scaled.jpg",
+      "localFile": "6063-img-20250408-wa0013.jpg",
+      "alt": "",
+      "title": "IMG-20250408-WA0013",
+      "mime": "image/jpeg",
+      "date": "2025-04-16"
+    },
+    {
+      "id": 6062,
+      "url": "https://binnet.biz.id/wp-content/uploads/2025/04/IMG_5451-scaled.jpg",
+      "localFile": "6062-img_5451.jpg",
+      "alt": "",
+      "title": "IMG_5451",
+      "mime": "image/jpeg",
+      "date": "2025-04-16"
+    },
+    {
+      "id": 6061,
+      "url": "https://binnet.biz.id/wp-content/uploads/2025/04/IMG_4460.heic",
+      "localFile": "6061-img_4460.heic",
+      "alt": "",
+      "title": "IMG_4460",
+      "mime": "image/heic",
+      "date": "2025-04-16"
+    },
+    {
+      "id": 6060,
+      "url": "https://binnet.biz.id/wp-content/uploads/2025/04/IMG_5323-scaled.jpg",
+      "localFile": "6060-img_5323.jpg",
+      "alt": "",
+      "title": "IMG_5323",
+      "mime": "image/jpeg",
+      "date": "2025-04-16"
+    },
+    {
+      "id": 6059,
+      "url": "https://binnet.biz.id/wp-content/uploads/2025/04/IMG_5407-scaled.jpg",
+      "localFile": "6059-img_5407.jpg",
+      "alt": "",
+      "title": "IMG_5407",
+      "mime": "image/jpeg",
+      "date": "2025-04-16"
+    },
+    {
+      "id": 6058,
+      "url": "https://binnet.biz.id/wp-content/uploads/2025/04/IMG_5315-scaled.jpg",
+      "localFile": "6058-img_5315.jpg",
+      "alt": "",
+      "title": "IMG_5315",
+      "mime": "image/jpeg",
+      "date": "2025-04-16"
+    },
+    {
+      "id": 5920,
+      "url": "https://binnet.biz.id/wp-content/uploads/2025/04/cropped-Logo-HD-BINNET.png",
+      "localFile": "5920-cropped-logo-hd-binnet-png.png",
+      "alt": "",
+      "title": "cropped-Logo-HD-BINNET.png",
+      "mime": "image/png",
+      "date": "2025-04-16"
+    },
+    {
+      "id": 5919,
+      "url": "https://binnet.biz.id/wp-content/uploads/2025/04/Logo-HD-BINNET.png",
+      "localFile": "5919-logo-hd-binnet.png",
+      "alt": "",
+      "title": "Logo HD BINNET",
+      "mime": "image/png",
+      "date": "2025-04-16"
+    },
+    {
+      "id": 5734,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/movie-img2.jpg",
+      "localFile": "5734-movie-img2.jpg",
+      "alt": "",
+      "title": "movie-img2",
+      "mime": "image/jpeg",
+      "date": "2023-08-23"
+    },
+    {
+      "id": 5727,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/movie-img1.jpg",
+      "localFile": "5727-movie-img1.jpg",
+      "alt": "",
+      "title": "movie-img1",
+      "mime": "image/jpeg",
+      "date": "2023-08-23"
+    },
+    {
+      "id": 5632,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/BG-test1.jpg",
+      "localFile": "5632-bg-test1.jpg",
+      "alt": "",
+      "title": "BG-test1",
+      "mime": "image/jpeg",
+      "date": "2023-08-22"
+    },
+    {
+      "id": 5622,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/process-img1.png",
+      "localFile": "5622-process-img1.png",
+      "alt": "",
+      "title": "process-img1",
+      "mime": "image/png",
+      "date": "2023-08-22"
+    },
+    {
+      "id": 5575,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/img-group5-1.png",
+      "localFile": "5575-img-group5.png",
+      "alt": "",
+      "title": "img-group5",
+      "mime": "image/png",
+      "date": "2023-08-22"
+    },
+    {
+      "id": 5574,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/img-group4-1.png",
+      "localFile": "5574-img-group4.png",
+      "alt": "",
+      "title": "img-group4",
+      "mime": "image/png",
+      "date": "2023-08-22"
+    },
+    {
+      "id": 5573,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/img-group3-1.png",
+      "localFile": "5573-img-group3.png",
+      "alt": "",
+      "title": "img-group3",
+      "mime": "image/png",
+      "date": "2023-08-22"
+    },
+    {
+      "id": 5572,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/img-group2-1.png",
+      "localFile": "5572-img-group2.png",
+      "alt": "",
+      "title": "img-group2",
+      "mime": "image/png",
+      "date": "2023-08-22"
+    },
+    {
+      "id": 5571,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/img-group1.png",
+      "localFile": "5571-img-group1.png",
+      "alt": "",
+      "title": "img-group1",
+      "mime": "image/png",
+      "date": "2023-08-22"
+    },
+    {
+      "id": 5469,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/Arrow-home05-min.png",
+      "localFile": "5469-arrow-home05-min.png",
+      "alt": "",
+      "title": "Arrow-home05-min",
+      "mime": "image/png",
+      "date": "2023-08-21"
+    },
+    {
+      "id": 5446,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/BG-home5.jpg",
+      "localFile": "5446-bg-home5.jpg",
+      "alt": "",
+      "title": "BG-home5",
+      "mime": "image/jpeg",
+      "date": "2023-08-21"
+    },
+    {
+      "id": 5351,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/svg-home05.svg",
+      "localFile": "5351-svg-home05.svg",
+      "alt": "",
+      "title": "svg-home05",
+      "mime": "image/svg+xml",
+      "date": "2023-08-21"
+    },
+    {
+      "id": 5216,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/img-layout1-05.png",
+      "localFile": "5216-img-layout1-05.png",
+      "alt": "",
+      "title": "img-layout1-05",
+      "mime": "image/png",
+      "date": "2023-08-21"
+    },
+    {
+      "id": 5206,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/bg1-home05.png",
+      "localFile": "5206-bg1-home05.png",
+      "alt": "",
+      "title": "bg1-home05",
+      "mime": "image/png",
+      "date": "2023-08-21"
+    },
+    {
+      "id": 5122,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/frame-footer07.png",
+      "localFile": "5122-frame-footer07.png",
+      "alt": "",
+      "title": "frame-footer07",
+      "mime": "image/png",
+      "date": "2023-08-21"
+    },
+    {
+      "id": 5073,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/img-home07.png",
+      "localFile": "5073-img-home07.png",
+      "alt": "",
+      "title": "img-home07",
+      "mime": "image/png",
+      "date": "2023-08-19"
+    },
+    {
+      "id": 5060,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/svg4-counter.svg",
+      "localFile": "5060-svg4-counter.svg",
+      "alt": "",
+      "title": "svg4-counter",
+      "mime": "image/svg+xml",
+      "date": "2023-08-18"
+    },
+    {
+      "id": 5056,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/svg3-counter.svg",
+      "localFile": "5056-svg3-counter.svg",
+      "alt": "",
+      "title": "svg3-counter",
+      "mime": "image/svg+xml",
+      "date": "2023-08-18"
+    },
+    {
+      "id": 5055,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/svg2-counter.svg",
+      "localFile": "5055-svg2-counter.svg",
+      "alt": "",
+      "title": "svg2-counter",
+      "mime": "image/svg+xml",
+      "date": "2023-08-18"
+    },
+    {
+      "id": 5054,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/svg1-counter.svg",
+      "localFile": "5054-svg1-counter.svg",
+      "alt": "",
+      "title": "svg1-counter",
+      "mime": "image/svg+xml",
+      "date": "2023-08-18"
+    },
+    {
+      "id": 4964,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/project-img2.jpg",
+      "localFile": "4964-project-img2.jpg",
+      "alt": "",
+      "title": "project-img2",
+      "mime": "image/jpeg",
+      "date": "2023-08-18"
+    },
+    {
+      "id": 4963,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/project-img1.jpg",
+      "localFile": "4963-project-img1.jpg",
+      "alt": "",
+      "title": "project-img1",
+      "mime": "image/jpeg",
+      "date": "2023-08-18"
+    },
+    {
+      "id": 4885,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/svg3-home7.svg",
+      "localFile": "4885-svg3-home7.svg",
+      "alt": "",
+      "title": "svg3-home7",
+      "mime": "image/svg+xml",
+      "date": "2023-08-18"
+    },
+    {
+      "id": 4884,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/svg2-home7-1.svg",
+      "localFile": "4884-svg2-home7-2.svg",
+      "alt": "",
+      "title": "svg2-home7",
+      "mime": "image/svg+xml",
+      "date": "2023-08-18"
+    },
+    {
+      "id": 4883,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/svg1-home7.svg",
+      "localFile": "4883-svg1-home7.svg",
+      "alt": "",
+      "title": "svg1-home7",
+      "mime": "image/svg+xml",
+      "date": "2023-08-18"
+    },
+    {
+      "id": 4870,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/service-img3.jpg",
+      "localFile": "4870-service-img3.jpg",
+      "alt": "",
+      "title": "service-img3",
+      "mime": "image/jpeg",
+      "date": "2023-08-18"
+    },
+    {
+      "id": 4869,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/service-img2.jpg",
+      "localFile": "4869-service-img2.jpg",
+      "alt": "",
+      "title": "service-img2",
+      "mime": "image/jpeg",
+      "date": "2023-08-18"
+    },
+    {
+      "id": 4868,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/service-img1.jpg",
+      "localFile": "4868-service-img1.jpg",
+      "alt": "",
+      "title": "service-img1",
+      "mime": "image/jpeg",
+      "date": "2023-08-18"
+    },
+    {
+      "id": 4846,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/img2-layout1.png",
+      "localFile": "4846-img2-layout1.png",
+      "alt": "",
+      "title": "img2-layout1",
+      "mime": "image/png",
+      "date": "2023-08-18"
+    },
+    {
+      "id": 4806,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/img-layout1.jpg",
+      "localFile": "4806-img-layout1.jpg",
+      "alt": "",
+      "title": "img-layout1",
+      "mime": "image/jpeg",
+      "date": "2023-08-17"
+    },
+    {
+      "id": 4804,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/img1-home7.png",
+      "localFile": "4804-img1-home7.png",
+      "alt": "",
+      "title": "img1-home7",
+      "mime": "image/png",
+      "date": "2023-08-17"
+    },
+    {
+      "id": 4788,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/svg2home7.svg",
+      "localFile": "4788-svg2home7.svg",
+      "alt": "",
+      "title": "svg2home7",
+      "mime": "image/svg+xml",
+      "date": "2023-08-17"
+    },
+    {
+      "id": 4781,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/svg1home7.svg",
+      "localFile": "4781-svg1home7.svg",
+      "alt": "",
+      "title": "svg1home7",
+      "mime": "image/svg+xml",
+      "date": "2023-08-17"
+    },
+    {
+      "id": 4732,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/bg-home7.jpg",
+      "localFile": "4732-bg-home7.jpg",
+      "alt": "",
+      "title": "bg-home7",
+      "mime": "image/jpeg",
+      "date": "2023-08-17"
+    },
+    {
+      "id": 4712,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/Frame-home7.png",
+      "localFile": "4712-frame-home7.png",
+      "alt": "",
+      "title": "Frame-home7",
+      "mime": "image/png",
+      "date": "2023-08-17"
+    },
+    {
+      "id": 4680,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/Hero1-home7.jpg",
+      "localFile": "4680-hero1-home7.jpg",
+      "alt": "",
+      "title": "Hero1-home7",
+      "mime": "image/jpeg",
+      "date": "2023-08-16"
+    },
+    {
+      "id": 4663,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/svg2-home7.svg",
+      "localFile": "4663-svg2-home7.svg",
+      "alt": "",
+      "title": "svg2-home7",
+      "mime": "image/svg+xml",
+      "date": "2023-08-16"
+    },
+    {
+      "id": 4627,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/gallery6.jpg",
+      "localFile": "4627-gallery6.jpg",
+      "alt": "",
+      "title": "gallery6",
+      "mime": "image/jpeg",
+      "date": "2023-08-16"
+    },
+    {
+      "id": 4626,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/gallery5.jpg",
+      "localFile": "4626-gallery5.jpg",
+      "alt": "",
+      "title": "gallery5",
+      "mime": "image/jpeg",
+      "date": "2023-08-16"
+    },
+    {
+      "id": 4625,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/gallery4.jpg",
+      "localFile": "4625-gallery4.jpg",
+      "alt": "",
+      "title": "gallery4",
+      "mime": "image/jpeg",
+      "date": "2023-08-16"
+    },
+    {
+      "id": 4624,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/gallery3.jpg",
+      "localFile": "4624-gallery3.jpg",
+      "alt": "",
+      "title": "gallery3",
+      "mime": "image/jpeg",
+      "date": "2023-08-16"
+    },
+    {
+      "id": 4623,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/gallery2.jpg",
+      "localFile": "4623-gallery2.jpg",
+      "alt": "",
+      "title": "gallery2",
+      "mime": "image/jpeg",
+      "date": "2023-08-16"
+    },
+    {
+      "id": 4622,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/gallery1.jpg",
+      "localFile": "4622-gallery1.jpg",
+      "alt": "",
+      "title": "gallery1",
+      "mime": "image/jpeg",
+      "date": "2023-08-16"
+    },
+    {
+      "id": 4507,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/movie2.jpg",
+      "localFile": "4507-movie2.jpg",
+      "alt": "",
+      "title": "movie2",
+      "mime": "image/jpeg",
+      "date": "2023-08-16"
+    },
+    {
+      "id": 4506,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/movie1.jpg",
+      "localFile": "4506-movie1.jpg",
+      "alt": "",
+      "title": "movie1",
+      "mime": "image/jpeg",
+      "date": "2023-08-16"
+    },
+    {
+      "id": 4493,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/svg2-home6-2.svg",
+      "localFile": "4493-svg2-home6-3.svg",
+      "alt": "",
+      "title": "svg2-home6",
+      "mime": "image/svg+xml",
+      "date": "2023-08-16"
+    },
+    {
+      "id": 4492,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/svg1-home6-1.svg",
+      "localFile": "4492-svg1-home6-2.svg",
+      "alt": "",
+      "title": "svg1-home6",
+      "mime": "image/svg+xml",
+      "date": "2023-08-16"
+    },
+    {
+      "id": 4457,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/author2.jpg",
+      "localFile": "4457-author2-2.jpg",
+      "alt": "",
+      "title": "author2",
+      "mime": "image/jpeg",
+      "date": "2023-08-15"
+    },
+    {
+      "id": 4456,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/author1.jpg",
+      "localFile": "4456-author1.jpg",
+      "alt": "",
+      "title": "author1",
+      "mime": "image/jpeg",
+      "date": "2023-08-15"
+    },
+    {
+      "id": 4400,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/svg3-home6-1.svg",
+      "localFile": "4400-svg3-home6-2.svg",
+      "alt": "",
+      "title": "svg3-home6",
+      "mime": "image/svg+xml",
+      "date": "2023-08-15"
+    },
+    {
+      "id": 4399,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/svg2-home6-1.svg",
+      "localFile": "4399-svg2-home6-2.svg",
+      "alt": "",
+      "title": "svg2-home6",
+      "mime": "image/svg+xml",
+      "date": "2023-08-15"
+    },
+    {
+      "id": 4393,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/fram-hom6.png",
+      "localFile": "4393-fram-hom6.png",
+      "alt": "",
+      "title": "fram-hom6",
+      "mime": "image/png",
+      "date": "2023-08-15"
+    },
+    {
+      "id": 4327,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/bg-layout4.jpg",
+      "localFile": "4327-bg-layout4.jpg",
+      "alt": "",
+      "title": "bg-layout4",
+      "mime": "image/jpeg",
+      "date": "2023-08-12"
+    },
+    {
+      "id": 4293,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/svg-layout2.svg",
+      "localFile": "4293-svg-layout2.svg",
+      "alt": "",
+      "title": "svg-layout2",
+      "mime": "image/svg+xml",
+      "date": "2023-08-12"
+    },
+    {
+      "id": 4244,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/author-image.jpg",
+      "localFile": "4244-author-image.jpg",
+      "alt": "",
+      "title": "author-image",
+      "mime": "image/jpeg",
+      "date": "2023-08-12"
+    },
+    {
+      "id": 4224,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/spers.png",
+      "localFile": "4224-spers.png",
+      "alt": "",
+      "title": "spers",
+      "mime": "image/png",
+      "date": "2023-08-12"
+    },
+    {
+      "id": 4217,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/img-layout2-06.jpg",
+      "localFile": "4217-img-layout2-06.jpg",
+      "alt": "",
+      "title": "img-layout2-06",
+      "mime": "image/jpeg",
+      "date": "2023-08-12"
+    },
+    {
+      "id": 4141,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/svg3-home6.svg",
+      "localFile": "4141-svg3-home6.svg",
+      "alt": "",
+      "title": "svg3-home6",
+      "mime": "image/svg+xml",
+      "date": "2023-08-12"
+    },
+    {
+      "id": 4140,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/svg2-home6.svg",
+      "localFile": "4140-svg2-home6.svg",
+      "alt": "",
+      "title": "svg2-home6",
+      "mime": "image/svg+xml",
+      "date": "2023-08-12"
+    },
+    {
+      "id": 4139,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/svg1-home6.svg",
+      "localFile": "4139-svg1-home6.svg",
+      "alt": "",
+      "title": "svg1-home6",
+      "mime": "image/svg+xml",
+      "date": "2023-08-12"
+    },
+    {
+      "id": 3836,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/heading-img1.jpg",
+      "localFile": "3836-heading-img1.jpg",
+      "alt": "",
+      "title": "heading-img1",
+      "mime": "image/jpeg",
+      "date": "2023-08-11"
+    },
+    {
+      "id": 3798,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/phone1.svg",
+      "localFile": "3798-phone1.svg",
+      "alt": "",
+      "title": "phone1",
+      "mime": "image/svg+xml",
+      "date": "2023-08-11"
+    },
+    {
+      "id": 3687,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/bg-overlay.png",
+      "localFile": "3687-bg-overlay.png",
+      "alt": "",
+      "title": "bg-overlay",
+      "mime": "image/png",
+      "date": "2023-08-10"
+    },
+    {
+      "id": 3686,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/frame-bg-home3.png",
+      "localFile": "3686-frame-bg-home3.png",
+      "alt": "",
+      "title": "frame-bg-home3",
+      "mime": "image/png",
+      "date": "2023-08-10"
+    },
+    {
+      "id": 3685,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/bg1-home3.jpg",
+      "localFile": "3685-bg1-home3.jpg",
+      "alt": "",
+      "title": "bg1-home3",
+      "mime": "image/jpeg",
+      "date": "2023-08-10"
+    },
+    {
+      "id": 3633,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/img-footer3.png",
+      "localFile": "3633-img-footer3.png",
+      "alt": "",
+      "title": "img-footer3",
+      "mime": "image/png",
+      "date": "2023-08-09"
+    },
+    {
+      "id": 3548,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/test-img3.png",
+      "localFile": "3548-test-img3.png",
+      "alt": "",
+      "title": "test-img3",
+      "mime": "image/png",
+      "date": "2023-08-09"
+    },
+    {
+      "id": 3547,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/test-img2.png",
+      "localFile": "3547-test-img2.png",
+      "alt": "",
+      "title": "test-img2",
+      "mime": "image/png",
+      "date": "2023-08-09"
+    },
+    {
+      "id": 3546,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/test-img1.png",
+      "localFile": "3546-test-img1.png",
+      "alt": "",
+      "title": "test-img1",
+      "mime": "image/png",
+      "date": "2023-08-09"
+    },
+    {
+      "id": 3529,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/testbg-img1.png",
+      "localFile": "3529-testbg-img1.png",
+      "alt": "",
+      "title": "testbg-img1",
+      "mime": "image/png",
+      "date": "2023-08-09"
+    },
+    {
+      "id": 3481,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/img-home2-1.jpg",
+      "localFile": "3481-img-home2-2.jpg",
+      "alt": "",
+      "title": "img-home2",
+      "mime": "image/jpeg",
+      "date": "2023-08-09"
+    },
+    {
+      "id": 3438,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/wifi-svg.svg",
+      "localFile": "3438-wifi-svg.svg",
+      "alt": "",
+      "title": "wifi-svg",
+      "mime": "image/svg+xml",
+      "date": "2023-08-09"
+    },
+    {
+      "id": 3437,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/tv-svg.svg",
+      "localFile": "3437-tv-svg.svg",
+      "alt": "",
+      "title": "tv-svg",
+      "mime": "image/svg+xml",
+      "date": "2023-08-09"
+    },
+    {
+      "id": 3392,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/service3-home2.svg",
+      "localFile": "3392-service3-home2.svg",
+      "alt": "",
+      "title": "service3-home2",
+      "mime": "image/svg+xml",
+      "date": "2023-08-08"
+    },
+    {
+      "id": 3391,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/service2-home2.svg",
+      "localFile": "3391-service2-home2.svg",
+      "alt": "",
+      "title": "service2-home2",
+      "mime": "image/svg+xml",
+      "date": "2023-08-08"
+    },
+    {
+      "id": 3390,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/service1-home2.svg",
+      "localFile": "3390-service1-home2.svg",
+      "alt": "",
+      "title": "service1-home2",
+      "mime": "image/svg+xml",
+      "date": "2023-08-08"
+    },
+    {
+      "id": 3350,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/img-banner-box4-e1744787677105.jpg",
+      "localFile": "3350-img-banner-box4.jpg",
+      "alt": "",
+      "title": "img-banner-box4",
+      "mime": "image/jpeg",
+      "date": "2023-08-08"
+    },
+    {
+      "id": 3349,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/img-banner-box3.jpg",
+      "localFile": "3349-img-banner-box3.jpg",
+      "alt": "",
+      "title": "img-banner-box3",
+      "mime": "image/jpeg",
+      "date": "2023-08-08"
+    },
+    {
+      "id": 3348,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/img-banner-box2.jpg",
+      "localFile": "3348-img-banner-box2.jpg",
+      "alt": "",
+      "title": "img-banner-box2",
+      "mime": "image/jpeg",
+      "date": "2023-08-08"
+    },
+    {
+      "id": 3347,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/img-banner-box1.jpg",
+      "localFile": "3347-img-banner-box1.jpg",
+      "alt": "",
+      "title": "img-banner-box1",
+      "mime": "image/jpeg",
+      "date": "2023-08-08"
+    },
+    {
+      "id": 3315,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/svg1-home3.svg",
+      "localFile": "3315-svg1-home3.svg",
+      "alt": "",
+      "title": "svg1-home3",
+      "mime": "image/svg+xml",
+      "date": "2023-08-08"
+    },
+    {
+      "id": 3228,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/bg-post1.jpg",
+      "localFile": "3228-bg-post1.jpg",
+      "alt": "",
+      "title": "bg-post1",
+      "mime": "image/jpeg",
+      "date": "2023-08-07"
+    },
+    {
+      "id": 3132,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/group-svg4.svg",
+      "localFile": "3132-group-svg4.svg",
+      "alt": "",
+      "title": "group-svg4",
+      "mime": "image/svg+xml",
+      "date": "2023-08-07"
+    },
+    {
+      "id": 3131,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/group-svg3.svg",
+      "localFile": "3131-group-svg3.svg",
+      "alt": "",
+      "title": "group-svg3",
+      "mime": "image/svg+xml",
+      "date": "2023-08-07"
+    },
+    {
+      "id": 3130,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/group-svg2.svg",
+      "localFile": "3130-group-svg2.svg",
+      "alt": "",
+      "title": "group-svg2",
+      "mime": "image/svg+xml",
+      "date": "2023-08-07"
+    },
+    {
+      "id": 3129,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/group-svg1.svg",
+      "localFile": "3129-group-svg1.svg",
+      "alt": "",
+      "title": "group-svg1",
+      "mime": "image/svg+xml",
+      "date": "2023-08-07"
+    },
+    {
+      "id": 3049,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/test3.jpg",
+      "localFile": "3049-test3.jpg",
+      "alt": "",
+      "title": "test3",
+      "mime": "image/jpeg",
+      "date": "2023-08-07"
+    },
+    {
+      "id": 3048,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/test2.jpg",
+      "localFile": "3048-test2.jpg",
+      "alt": "",
+      "title": "test2",
+      "mime": "image/jpeg",
+      "date": "2023-08-07"
+    },
+    {
+      "id": 3047,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/test1.jpg",
+      "localFile": "3047-test1.jpg",
+      "alt": "",
+      "title": "test1",
+      "mime": "image/jpeg",
+      "date": "2023-08-07"
+    },
+    {
+      "id": 3021,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/svg3-service.svg",
+      "localFile": "3021-svg3-service.svg",
+      "alt": "",
+      "title": "svg3-service",
+      "mime": "image/svg+xml",
+      "date": "2023-08-05"
+    },
+    {
+      "id": 3019,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/svg2-service.svg",
+      "localFile": "3019-svg2-service.svg",
+      "alt": "",
+      "title": "svg2-service",
+      "mime": "image/svg+xml",
+      "date": "2023-08-05"
+    },
+    {
+      "id": 3017,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/svg1-service.svg",
+      "localFile": "3017-svg1-service.svg",
+      "alt": "",
+      "title": "svg1-service",
+      "mime": "image/svg+xml",
+      "date": "2023-08-05"
+    },
+    {
+      "id": 3016,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/svg1-bg-service.svg",
+      "localFile": "3016-svg1-bg-service.svg",
+      "alt": "",
+      "title": "svg1-bg-service",
+      "mime": "image/svg+xml",
+      "date": "2023-08-05"
+    },
+    {
+      "id": 2975,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/bg-home4-1.jpg",
+      "localFile": "2975-bg-home4-2.jpg",
+      "alt": "",
+      "title": "bg-home4",
+      "mime": "image/jpeg",
+      "date": "2023-08-05"
+    },
+    {
+      "id": 2944,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/team5-home4.jpg",
+      "localFile": "2944-team5-home4.jpg",
+      "alt": "",
+      "title": "team5-home4",
+      "mime": "image/jpeg",
+      "date": "2023-08-04"
+    },
+    {
+      "id": 2943,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/team4-home4.jpg",
+      "localFile": "2943-team4-home4.jpg",
+      "alt": "",
+      "title": "team4-home4",
+      "mime": "image/jpeg",
+      "date": "2023-08-04"
+    },
+    {
+      "id": 2942,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/team3-home4.jpg",
+      "localFile": "2942-team3-home4.jpg",
+      "alt": "",
+      "title": "team3-home4",
+      "mime": "image/jpeg",
+      "date": "2023-08-04"
+    },
+    {
+      "id": 2941,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/team2-home4.jpg",
+      "localFile": "2941-team2-home4.jpg",
+      "alt": "",
+      "title": "team2-home4",
+      "mime": "image/jpeg",
+      "date": "2023-08-04"
+    },
+    {
+      "id": 2940,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/team1-home4.jpg",
+      "localFile": "2940-team1-home4.jpg",
+      "alt": "",
+      "title": "team1-home4",
+      "mime": "image/jpeg",
+      "date": "2023-08-04"
+    },
+    {
+      "id": 2898,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/svg-wifi5.svg",
+      "localFile": "2898-svg-wifi5.svg",
+      "alt": "",
+      "title": "svg-wifi5",
+      "mime": "image/svg+xml",
+      "date": "2023-08-04"
+    },
+    {
+      "id": 2856,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/service-img03.jpg",
+      "localFile": "2856-service-img03.jpg",
+      "alt": "",
+      "title": "service-img03",
+      "mime": "image/jpeg",
+      "date": "2023-08-04"
+    },
+    {
+      "id": 2846,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/service-img02.png",
+      "localFile": "2846-service-img02.png",
+      "alt": "",
+      "title": "service-img02",
+      "mime": "image/png",
+      "date": "2023-08-04"
+    },
+    {
+      "id": 2845,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/service-img01.png",
+      "localFile": "2845-service-img01.png",
+      "alt": "",
+      "title": "service-img01",
+      "mime": "image/png",
+      "date": "2023-08-04"
+    },
+    {
+      "id": 2825,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/svg3-home4-1.svg",
+      "localFile": "2825-svg3-home4-2.svg",
+      "alt": "",
+      "title": "svg3-home4",
+      "mime": "image/svg+xml",
+      "date": "2023-08-04"
+    },
+    {
+      "id": 2821,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/svg2-home4-1.svg",
+      "localFile": "2821-svg2-home4-2.svg",
+      "alt": "",
+      "title": "svg2-home4",
+      "mime": "image/svg+xml",
+      "date": "2023-08-04"
+    },
+    {
+      "id": 2820,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/svg1-home4.svg",
+      "localFile": "2820-svg1-home4.svg",
+      "alt": "",
+      "title": "svg1-home4",
+      "mime": "image/svg+xml",
+      "date": "2023-08-04"
+    },
+    {
+      "id": 2807,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/svg3-home4.svg",
+      "localFile": "2807-svg3-home4.svg",
+      "alt": "",
+      "title": "svg3-home4",
+      "mime": "image/svg+xml",
+      "date": "2023-08-04"
+    },
+    {
+      "id": 2806,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/svg2-home4.svg",
+      "localFile": "2806-svg2-home4.svg",
+      "alt": "",
+      "title": "svg2-home4",
+      "mime": "image/svg+xml",
+      "date": "2023-08-04"
+    },
+    {
+      "id": 2801,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/img-service-home4.jpg",
+      "localFile": "2801-img-service-home4.jpg",
+      "alt": "",
+      "title": "img-service-home4",
+      "mime": "image/jpeg",
+      "date": "2023-08-04"
+    },
+    {
+      "id": 2766,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/image-home4.jpg",
+      "localFile": "2766-image-home4.jpg",
+      "alt": "",
+      "title": "image-home4",
+      "mime": "image/jpeg",
+      "date": "2023-08-04"
+    },
+    {
+      "id": 2659,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/frame-home4.png",
+      "localFile": "2659-frame-home4.png",
+      "alt": "",
+      "title": "frame-home4",
+      "mime": "image/png",
+      "date": "2023-08-03"
+    },
+    {
+      "id": 2655,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/hero-bg-home4.jpg",
+      "localFile": "2655-hero-bg-home4.jpg",
+      "alt": "",
+      "title": "hero-bg-home4",
+      "mime": "image/jpeg",
+      "date": "2023-08-03"
+    },
+    {
+      "id": 2592,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/vector-home2.png",
+      "localFile": "2592-vector-home2.png",
+      "alt": "",
+      "title": "vector-home2",
+      "mime": "image/png",
+      "date": "2023-08-03"
+    },
+    {
+      "id": 2498,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/video-home2.jpg",
+      "localFile": "2498-video-home2.jpg",
+      "alt": "",
+      "title": "video-home2",
+      "mime": "image/jpeg",
+      "date": "2023-08-02"
+    },
+    {
+      "id": 2413,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/frame1-home2.png",
+      "localFile": "2413-frame1-home2.png",
+      "alt": "",
+      "title": "frame1-home2",
+      "mime": "image/png",
+      "date": "2023-08-02"
+    },
+    {
+      "id": 2411,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/frame2-home2.png",
+      "localFile": "2411-frame2-home2.png",
+      "alt": "",
+      "title": "frame2-home2",
+      "mime": "image/png",
+      "date": "2023-08-02"
+    },
+    {
+      "id": 2318,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/Frame3.svg",
+      "localFile": "2318-frame3-2.svg",
+      "alt": "",
+      "title": "Frame3",
+      "mime": "image/svg+xml",
+      "date": "2023-08-01"
+    },
+    {
+      "id": 2317,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/Frame2.svg",
+      "localFile": "2317-frame2-3.svg",
+      "alt": "",
+      "title": "Frame2",
+      "mime": "image/svg+xml",
+      "date": "2023-08-01"
+    },
+    {
+      "id": 2284,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/wifi_router1.png",
+      "localFile": "2284-wifi_router1.png",
+      "alt": "",
+      "title": "wifi_router1",
+      "mime": "image/png",
+      "date": "2023-08-01"
+    },
+    {
+      "id": 2283,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/Frame1.png",
+      "localFile": "2283-frame1-3.png",
+      "alt": "",
+      "title": "Frame1",
+      "mime": "image/png",
+      "date": "2023-08-01"
+    },
+    {
+      "id": 2275,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/img-home2.jpg",
+      "localFile": "2275-img-home2.jpg",
+      "alt": "",
+      "title": "img-home2",
+      "mime": "image/jpeg",
+      "date": "2023-08-01"
+    },
+    {
+      "id": 2223,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/08/Frame-home2.png",
+      "localFile": "2223-frame-home2.png",
+      "alt": "",
+      "title": "Frame-home2",
+      "mime": "image/png",
+      "date": "2023-08-01"
+    },
+    {
+      "id": 2133,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/07/internet01.svg",
+      "localFile": "2133-internet01.svg",
+      "alt": "",
+      "title": "internet01",
+      "mime": "image/svg+xml",
+      "date": "2023-07-27"
+    },
+    {
+      "id": 2125,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/07/Image-home2.png",
+      "localFile": "2125-image-home2.png",
+      "alt": "",
+      "title": "Image-home2",
+      "mime": "image/png",
+      "date": "2023-07-27"
+    },
+    {
+      "id": 2101,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/07/author-home2.jpg",
+      "localFile": "2101-author-home2.jpg",
+      "alt": "",
+      "title": "author-home2",
+      "mime": "image/jpeg",
+      "date": "2023-07-26"
+    },
+    {
+      "id": 2037,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/07/bg-home2-1.jpg",
+      "localFile": "2037-bg-home2-2.jpg",
+      "alt": "",
+      "title": "bg-home2",
+      "mime": "image/jpeg",
+      "date": "2023-07-26"
+    },
+    {
+      "id": 2024,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/07/bg-home2.jpg",
+      "localFile": "2024-bg-home2.jpg",
+      "alt": "",
+      "title": "bg-home2",
+      "mime": "image/jpeg",
+      "date": "2023-07-26"
+    },
+    {
+      "id": 1921,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/07/pngwing1.png",
+      "localFile": "1921-pngwing1.png",
+      "alt": "",
+      "title": "pngwing1",
+      "mime": "image/png",
+      "date": "2023-07-26"
+    },
+    {
+      "id": 1917,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/07/author-home1.jpg",
+      "localFile": "1917-author-home1.jpg",
+      "alt": "",
+      "title": "author-home1",
+      "mime": "image/jpeg",
+      "date": "2023-07-26"
+    },
+    {
+      "id": 1791,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/07/radiohome1.svg",
+      "localFile": "1791-radiohome1.svg",
+      "alt": "",
+      "title": "radiohome1",
+      "mime": "image/svg+xml",
+      "date": "2023-07-25"
+    },
+    {
+      "id": 1760,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/07/movies-img4.jpg",
+      "localFile": "1760-movies-img4.jpg",
+      "alt": "",
+      "title": "movies-img4",
+      "mime": "image/jpeg",
+      "date": "2023-07-24"
+    },
+    {
+      "id": 1759,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/07/movies-img3.jpg",
+      "localFile": "1759-movies-img3.jpg",
+      "alt": "",
+      "title": "movies-img3",
+      "mime": "image/jpeg",
+      "date": "2023-07-24"
+    },
+    {
+      "id": 1758,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/07/movies-img2.jpg",
+      "localFile": "1758-movies-img2.jpg",
+      "alt": "",
+      "title": "movies-img2",
+      "mime": "image/jpeg",
+      "date": "2023-07-24"
+    },
+    {
+      "id": 1757,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/07/movies-img1.jpg",
+      "localFile": "1757-movies-img1.jpg",
+      "alt": "",
+      "title": "movies-img1",
+      "mime": "image/jpeg",
+      "date": "2023-07-24"
+    },
+    {
+      "id": 1721,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/07/Frame01-1.png",
+      "localFile": "1721-frame01-2.png",
+      "alt": "",
+      "title": "Frame01",
+      "mime": "image/png",
+      "date": "2023-07-24"
+    },
+    {
+      "id": 1680,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/07/image-counter4.jpg",
+      "localFile": "1680-image-counter4.jpg",
+      "alt": "",
+      "title": "image-counter4",
+      "mime": "image/jpeg",
+      "date": "2023-07-24"
+    },
+    {
+      "id": 1679,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/07/image-counter3.jpg",
+      "localFile": "1679-image-counter3.jpg",
+      "alt": "",
+      "title": "image-counter3",
+      "mime": "image/jpeg",
+      "date": "2023-07-24"
+    },
+    {
+      "id": 1678,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/07/image-counter2.jpg",
+      "localFile": "1678-image-counter2.jpg",
+      "alt": "",
+      "title": "image-counter2",
+      "mime": "image/jpeg",
+      "date": "2023-07-24"
+    },
+    {
+      "id": 1677,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/07/image-counter1.jpg",
+      "localFile": "1677-image-counter1.jpg",
+      "alt": "",
+      "title": "image-counter1",
+      "mime": "image/jpeg",
+      "date": "2023-07-24"
+    },
+    {
+      "id": 1651,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/07/wi-fi3.svg",
+      "localFile": "1651-wi-fi3.svg",
+      "alt": "",
+      "title": "wi-fi3",
+      "mime": "image/svg+xml",
+      "date": "2023-07-24"
+    },
+    {
+      "id": 1584,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/07/Frame4.png",
+      "localFile": "1584-frame4.png",
+      "alt": "",
+      "title": "Frame4",
+      "mime": "image/png",
+      "date": "2023-07-21"
+    },
+    {
+      "id": 1583,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/07/Frame3.png",
+      "localFile": "1583-frame3.png",
+      "alt": "",
+      "title": "Frame3",
+      "mime": "image/png",
+      "date": "2023-07-21"
+    },
+    {
+      "id": 1582,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/07/Frame2.png",
+      "localFile": "1582-frame2-2.png",
+      "alt": "",
+      "title": "Frame2",
+      "mime": "image/png",
+      "date": "2023-07-21"
+    },
+    {
+      "id": 1581,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/07/Frame1.png",
+      "localFile": "1581-frame1-2.png",
+      "alt": "",
+      "title": "Frame1",
+      "mime": "image/png",
+      "date": "2023-07-21"
+    },
+    {
+      "id": 1580,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/07/Frame-1.png",
+      "localFile": "1580-frame-2.png",
+      "alt": "",
+      "title": "Frame",
+      "mime": "image/png",
+      "date": "2023-07-21"
+    },
+    {
+      "id": 1538,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/07/Frame2.svg",
+      "localFile": "1538-frame2.svg",
+      "alt": "",
+      "title": "Frame2",
+      "mime": "image/svg+xml",
+      "date": "2023-07-21"
+    },
+    {
+      "id": 1537,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/07/Frame1.svg",
+      "localFile": "1537-frame1.svg",
+      "alt": "",
+      "title": "Frame1",
+      "mime": "image/svg+xml",
+      "date": "2023-07-21"
+    },
+    {
+      "id": 1483,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/07/image-space.png",
+      "localFile": "1483-image-space.png",
+      "alt": "",
+      "title": "image-space",
+      "mime": "image/png",
+      "date": "2023-07-20"
+    },
+    {
+      "id": 1426,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/07/wi-fi2.svg",
+      "localFile": "1426-wi-fi2.svg",
+      "alt": "",
+      "title": "wi-fi2",
+      "mime": "image/svg+xml",
+      "date": "2023-07-20"
+    },
+    {
+      "id": 1421,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/07/img-decotion.jpg",
+      "localFile": "1421-img-decotion.jpg",
+      "alt": "",
+      "title": "img-decotion",
+      "mime": "image/jpeg",
+      "date": "2023-07-20"
+    },
+    {
+      "id": 1390,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/07/img-project4.jpg",
+      "localFile": "1390-img-project4.jpg",
+      "alt": "",
+      "title": "img-project4",
+      "mime": "image/jpeg",
+      "date": "2023-07-19"
+    },
+    {
+      "id": 1389,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/07/img-project3.jpg",
+      "localFile": "1389-img-project3.jpg",
+      "alt": "",
+      "title": "img-project3",
+      "mime": "image/jpeg",
+      "date": "2023-07-19"
+    },
+    {
+      "id": 1388,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/07/img-project2.jpg",
+      "localFile": "1388-img-project2.jpg",
+      "alt": "",
+      "title": "img-project2",
+      "mime": "image/jpeg",
+      "date": "2023-07-19"
+    },
+    {
+      "id": 1387,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/07/img-project1.jpg",
+      "localFile": "1387-img-project1.jpg",
+      "alt": "",
+      "title": "img-project1",
+      "mime": "image/jpeg",
+      "date": "2023-07-19"
+    },
+    {
+      "id": 1331,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/07/Page-3.svg",
+      "localFile": "1331-page-3.svg",
+      "alt": "",
+      "title": "Page-3",
+      "mime": "image/svg+xml",
+      "date": "2023-07-19"
+    },
+    {
+      "id": 1330,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/07/Page-2.svg",
+      "localFile": "1330-page-2.svg",
+      "alt": "",
+      "title": "Page-2",
+      "mime": "image/svg+xml",
+      "date": "2023-07-19"
+    },
+    {
+      "id": 1329,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/07/Page-1.svg",
+      "localFile": "1329-page-1.svg",
+      "alt": "",
+      "title": "Page-1",
+      "mime": "image/svg+xml",
+      "date": "2023-07-19"
+    },
+    {
+      "id": 1266,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/07/layout1-home1.png",
+      "localFile": "1266-layout1-home1.png",
+      "alt": "",
+      "title": "layout1-home1",
+      "mime": "image/png",
+      "date": "2023-07-18"
+    },
+    {
+      "id": 1229,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/07/frame01.png",
+      "localFile": "1229-frame01.png",
+      "alt": "",
+      "title": "frame01",
+      "mime": "image/png",
+      "date": "2023-07-18"
+    },
+    {
+      "id": 1195,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/07/Mask-group1.png",
+      "localFile": "1195-mask-group1.png",
+      "alt": "",
+      "title": "Mask-group1",
+      "mime": "image/png",
+      "date": "2023-07-18"
+    },
+    {
+      "id": 1194,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/07/bg-home1.png",
+      "localFile": "1194-bg-home1.png",
+      "alt": "",
+      "title": "bg-home1",
+      "mime": "image/png",
+      "date": "2023-07-18"
+    },
+    {
+      "id": 1173,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/07/bg1.png",
+      "localFile": "1173-bg1.png",
+      "alt": "",
+      "title": "bg1",
+      "mime": "image/png",
+      "date": "2023-07-18"
+    },
+    {
+      "id": 1076,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/07/img-author2.png",
+      "localFile": "1076-img-author2.png",
+      "alt": "",
+      "title": "img-author2",
+      "mime": "image/png",
+      "date": "2023-07-17"
+    },
+    {
+      "id": 1075,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/07/img-author1.png",
+      "localFile": "1075-img-author1.png",
+      "alt": "",
+      "title": "img-author1",
+      "mime": "image/png",
+      "date": "2023-07-17"
+    },
+    {
+      "id": 1014,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/07/router.svg",
+      "localFile": "1014-router.svg",
+      "alt": "",
+      "title": "router",
+      "mime": "image/svg+xml",
+      "date": "2023-07-14"
+    },
+    {
+      "id": 968,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/07/wi-fi.svg",
+      "localFile": "968-wi-fi.svg",
+      "alt": "",
+      "title": "wi-fi",
+      "mime": "image/svg+xml",
+      "date": "2023-07-14"
+    },
+    {
+      "id": 967,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/07/satellite.svg",
+      "localFile": "967-satellite.svg",
+      "alt": "",
+      "title": "satellite",
+      "mime": "image/svg+xml",
+      "date": "2023-07-14"
+    },
+    {
+      "id": 966,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/07/radio.svg",
+      "localFile": "966-radio.svg",
+      "alt": "",
+      "title": "radio",
+      "mime": "image/svg+xml",
+      "date": "2023-07-14"
+    },
+    {
+      "id": 965,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/07/charging.svg",
+      "localFile": "965-charging.svg",
+      "alt": "",
+      "title": "charging",
+      "mime": "image/svg+xml",
+      "date": "2023-07-14"
+    },
+    {
+      "id": 916,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/07/img-banner2.jpg",
+      "localFile": "916-img-banner2.jpg",
+      "alt": "",
+      "title": "img-banner2",
+      "mime": "image/jpeg",
+      "date": "2023-07-14"
+    },
+    {
+      "id": 915,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/07/img-banner1.jpg",
+      "localFile": "915-img-banner1.jpg",
+      "alt": "",
+      "title": "img-banner1",
+      "mime": "image/jpeg",
+      "date": "2023-07-14"
+    },
+    {
+      "id": 874,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/07/page-image2.svg",
+      "localFile": "874-page-image2.svg",
+      "alt": "",
+      "title": "page-image2",
+      "mime": "image/svg+xml",
+      "date": "2023-07-14"
+    },
+    {
+      "id": 873,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/07/Page-image1.svg",
+      "localFile": "873-page-image1.svg",
+      "alt": "",
+      "title": "Page-image1",
+      "mime": "image/svg+xml",
+      "date": "2023-07-14"
+    },
+    {
+      "id": 761,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/07/image.jpg",
+      "localFile": "761-image.jpg",
+      "alt": "",
+      "title": "image",
+      "mime": "image/jpeg",
+      "date": "2023-07-13"
+    },
+    {
+      "id": 754,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/07/talk-cafe.jpg",
+      "localFile": "754-talk-cafe.jpg",
+      "alt": "",
+      "title": "talk-cafe",
+      "mime": "image/jpeg",
+      "date": "2023-07-12"
+    },
+    {
+      "id": 747,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/07/author.jpg",
+      "localFile": "747-author.jpg",
+      "alt": "",
+      "title": "author",
+      "mime": "image/jpeg",
+      "date": "2023-07-12"
+    },
+    {
+      "id": 743,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/07/author2.jpg",
+      "localFile": "743-author2.jpg",
+      "alt": "",
+      "title": "author2",
+      "mime": "image/jpeg",
+      "date": "2023-07-12"
+    },
+    {
+      "id": 725,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/07/image1.jpg",
+      "localFile": "725-image1.jpg",
+      "alt": "",
+      "title": "image1",
+      "mime": "image/jpeg",
+      "date": "2023-07-12"
+    },
+    {
+      "id": 622,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/07/down-icon.svg",
+      "localFile": "622-down-icon.svg",
+      "alt": "",
+      "title": "down-icon",
+      "mime": "image/svg+xml",
+      "date": "2023-07-12"
+    },
+    {
+      "id": 576,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/07/svg3.svg",
+      "localFile": "576-svg3.svg",
+      "alt": "",
+      "title": "svg3",
+      "mime": "image/svg+xml",
+      "date": "2023-07-12"
+    },
+    {
+      "id": 569,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/07/svg2.svg",
+      "localFile": "569-svg2.svg",
+      "alt": "",
+      "title": "svg2",
+      "mime": "image/svg+xml",
+      "date": "2023-07-12"
+    },
+    {
+      "id": 568,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/07/svg1.svg",
+      "localFile": "568-svg1.svg",
+      "alt": "",
+      "title": "svg1",
+      "mime": "image/svg+xml",
+      "date": "2023-07-12"
+    },
+    {
+      "id": 564,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/07/icon-service1.svg",
+      "localFile": "564-icon-service1.svg",
+      "alt": "",
+      "title": "icon-service1",
+      "mime": "image/svg+xml",
+      "date": "2023-07-12"
+    },
+    {
+      "id": 482,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/07/img-service.jpg",
+      "localFile": "482-img-service.jpg",
+      "alt": "",
+      "title": "img-service",
+      "mime": "image/jpeg",
+      "date": "2023-07-11"
+    },
+    {
+      "id": 287,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/07/image-post8.jpg",
+      "localFile": "287-image-post8.jpg",
+      "alt": "",
+      "title": "image-post8",
+      "mime": "image/jpeg",
+      "date": "2023-07-10"
+    },
+    {
+      "id": 286,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/07/image-post7.jpg",
+      "localFile": "286-image-post7.jpg",
+      "alt": "",
+      "title": "image-post7",
+      "mime": "image/jpeg",
+      "date": "2023-07-10"
+    },
+    {
+      "id": 285,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/07/image-post6.jpg",
+      "localFile": "285-image-post6.jpg",
+      "alt": "",
+      "title": "image-post6",
+      "mime": "image/jpeg",
+      "date": "2023-07-10"
+    },
+    {
+      "id": 284,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/07/image-post5.jpg",
+      "localFile": "284-image-post5.jpg",
+      "alt": "",
+      "title": "image-post5",
+      "mime": "image/jpeg",
+      "date": "2023-07-10"
+    },
+    {
+      "id": 283,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/07/image-post4.jpg",
+      "localFile": "283-image-post4.jpg",
+      "alt": "",
+      "title": "image-post4",
+      "mime": "image/jpeg",
+      "date": "2023-07-10"
+    },
+    {
+      "id": 255,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/07/image-sidebar.jpg",
+      "localFile": "255-image-sidebar.jpg",
+      "alt": "",
+      "title": "image-sidebar",
+      "mime": "image/jpeg",
+      "date": "2023-07-08"
+    },
+    {
+      "id": 246,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/07/image-post1.jpg",
+      "localFile": "246-image-post1.jpg",
+      "alt": "",
+      "title": "image-post1",
+      "mime": "image/jpeg",
+      "date": "2023-07-07"
+    },
+    {
+      "id": 232,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/07/Frame.png",
+      "localFile": "232-frame.png",
+      "alt": "",
+      "title": "Frame",
+      "mime": "image/png",
+      "date": "2023-07-07"
+    },
+    {
+      "id": 227,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/07/Group-1.png",
+      "localFile": "227-group-2.png",
+      "alt": "",
+      "title": "Group",
+      "mime": "image/png",
+      "date": "2023-07-07"
+    },
+    {
+      "id": 211,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/07/image-author.png",
+      "localFile": "211-image-author.png",
+      "alt": "",
+      "title": "image-author",
+      "mime": "image/png",
+      "date": "2023-07-07"
+    },
+    {
+      "id": 163,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/07/img-post3.jpg",
+      "localFile": "163-img-post3.jpg",
+      "alt": "",
+      "title": "img-post3",
+      "mime": "image/jpeg",
+      "date": "2023-07-06"
+    },
+    {
+      "id": 162,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/07/img-post2.jpg",
+      "localFile": "162-img-post2.jpg",
+      "alt": "",
+      "title": "img-post2",
+      "mime": "image/jpeg",
+      "date": "2023-07-06"
+    },
+    {
+      "id": 161,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/07/img-post1.jpg",
+      "localFile": "161-img-post1.jpg",
+      "alt": "",
+      "title": "img-post1",
+      "mime": "image/jpeg",
+      "date": "2023-07-06"
+    },
+    {
+      "id": 129,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/07/image-mail.png",
+      "localFile": "129-image-mail.png",
+      "alt": "",
+      "title": "image-mail",
+      "mime": "image/png",
+      "date": "2023-07-06"
+    },
+    {
+      "id": 14,
+      "url": "https://binnet.biz.id/wp-content/uploads/2023/07/icon.png",
+      "localFile": "14-icon.png",
+      "alt": "",
+      "title": "icon",
+      "mime": "image/png",
+      "date": "2023-07-05"
+    },
+    {
+      "id": 8,
+      "url": "https://binnet.biz.id/wp-content/uploads/woocommerce-placeholder.png",
+      "localFile": "8-woocommerce-placeholder.png",
+      "alt": "",
+      "title": "woocommerce-placeholder",
+      "mime": "image/png",
+      "date": "2023-07-05"
+    }
+  ]
+}
