@@ -73,8 +73,8 @@ export const testimonials = [
 export const services = [
   {
     number: '01',
-    title: 'Internet Fiber',
-    description: 'Koneksi fiber optic unlimited untuk rumah dan usaha, tanpa FUP dan tanpa biaya yang disembunyikan.',
+    title: 'Internet',
+    description: 'Jaringan wireless untuk rumah dan usaha, tanpa FUP dan tanpa biaya yang disembunyikan.',
     image: '/media/6060-img_5323.jpg',
   },
   {
