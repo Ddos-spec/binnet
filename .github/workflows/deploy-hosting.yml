@@ -46,25 +46,23 @@ jobs:
           set -euo pipefail
 
           DEPLOY_DIR="$(mktemp -d)"
-          cp -a dist/. "$DEPLOY_DIR/"
+          mkdir -p "$DEPLOY_DIR/site"
+          cp -a dist/. "$DEPLOY_DIR/site/"
 
           cat > "$DEPLOY_DIR/.cpanel.yml" <<'YAML'
           ---
           deployment:
             tasks:
-              - export DEPLOYSOURCE=/home/binnetbi/repos/binnet/
               - export DEPLOYPATH=/home/binnetbi/public_html/
-              - test -f /home/binnetbi/repos/binnet/index.html
-              - test -d /home/binnetbi/public_html
-              - /bin/rsync -av --delete --exclude='.git/' --exclude='.cpanel.yml' --exclude='.well-known/' --exclude='cgi-bin/' --exclude='.htaccess' /home/binnetbi/repos/binnet/ /home/binnetbi/public_html/
+              - test -f site/index.html
+              - test -d "$DEPLOYPATH"
+              - /bin/rsync -av --delete --exclude='.well-known/' --exclude='cgi-bin/' --exclude='.htaccess' --exclude='.user.ini' --exclude='php.ini' site/ "$DEPLOYPATH"
           YAML
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          # Keep the deployment branch history continuous so cPanel can use a
-          # normal fast-forward Update from Remote instead of handling forced or
-          # unrelated histories.
+          # Keep deployment history continuous so cPanel can fast-forward.
           git fetch origin cpanel-deploy
           git checkout -B cpanel-deploy origin/cpanel-deploy
 
@@ -82,5 +80,5 @@ jobs:
 
       - name: Build summary
         run: |
-          echo "Astro build published to branch cpanel-deploy."
+          echo "Astro build published to branch cpanel-deploy under site/."
           echo "cPanel repository: /home/binnetbi/repos/binnet"
