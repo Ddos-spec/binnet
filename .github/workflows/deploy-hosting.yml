@@ -59,14 +59,23 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git checkout --orphan cpanel-deploy
+          # Keep the deployment branch history continuous so cPanel can use a
+          # normal fast-forward Update from Remote instead of handling forced or
+          # unrelated histories.
+          git fetch origin cpanel-deploy
+          git checkout -B cpanel-deploy origin/cpanel-deploy
+
           git rm -rf . >/dev/null 2>&1 || true
           find . -mindepth 1 -maxdepth 1 ! -name '.git' -exec rm -rf {} +
           cp -a "$DEPLOY_DIR/." .
 
           git add -A
-          git commit -m "deploy: Astro build ${GITHUB_SHA::7}"
-          git push --force origin HEAD:cpanel-deploy
+          if git diff --cached --quiet; then
+            echo "No deployment changes to publish."
+          else
+            git commit -m "deploy: Astro build ${GITHUB_SHA::7}"
+            git push origin cpanel-deploy
+          fi
 
       - name: Build summary
         run: |
