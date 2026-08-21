@@ -1,4 +1,4 @@
-name: Deploy BINNET to cPanel via FTPS
+name: Build BINNET production bundle
 
 on:
   push:
@@ -7,14 +7,14 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 concurrency:
-  group: binnet-production-deploy
+  group: binnet-production-build
   cancel-in-progress: true
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     timeout-minutes: 15
 
@@ -58,31 +58,43 @@ jobs:
                   print(f'  - {ref}', file=sys.stderr)
               sys.exit(1)
 
-          if not any((root / '_astro').iterdir()):
+          astro_files = [p for p in (root / '_astro').iterdir() if p.is_file()]
+          if not astro_files:
               print('dist/_astro is empty', file=sys.stderr)
               sys.exit(1)
 
-          print(f'Validated {len(refs)} referenced assets.')
+          print(f'Validated {len(refs)} referenced assets and {len(astro_files)} Astro assets.')
           PY
 
-      - name: Deploy dist directly to public_html
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ftp.binnet.biz.id
-          username: binnetbi
-          password: ${{ secrets.FTP_PASS }}
-          port: 21
-          protocol: ftps
-          local-dir: ./dist/
-          server-dir: public_html/
-          state-name: .ftp-deploy-sync-state-v1.json
-          dangerous-clean-slate: false
-          exclude: |
-            **/.git*
-            **/.git*/**
-            **/node_modules/**
+          printf '%s\n' "$GITHUB_SHA" > dist/deploy-health.txt
 
-      - name: Deployment summary
+      - name: Publish static build to cpanel-deploy branch
+        shell: bash
         run: |
-          echo "BINNET build validated and uploaded directly to cPanel public_html via FTPS."
+          set -euo pipefail
+
+          BUILD_DIR="$(mktemp -d)"
+          cp -a dist/. "$BUILD_DIR/"
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git fetch origin cpanel-deploy
+          git checkout -B cpanel-deploy origin/cpanel-deploy
+
+          git rm -rf . >/dev/null 2>&1 || true
+          find . -mindepth 1 -maxdepth 1 ! -name '.git' -exec rm -rf {} +
+          cp -a "$BUILD_DIR/." .
+
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No production changes to publish."
+          else
+            git commit -m "deploy: static build ${GITHUB_SHA::7}"
+            git push origin cpanel-deploy
+          fi
+
+      - name: Build summary
+        run: |
+          echo "BINNET production bundle published to cpanel-deploy."
           echo "Source commit: $GITHUB_SHA"
