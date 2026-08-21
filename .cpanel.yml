@@ -1,5 +1,5 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/binnetbi/public_html
-    - /bin/cp -r $CPANEL_SOURCE_DIR/. $DEPLOYPATH/
+    - export DEPLOYPATH=/home/binnetbi/public_html/
+    - /bin/rsync -av --delete --exclude='.git/' --exclude='.cpanel.yml' "$CPANEL_SOURCE_DIR/" "$DEPLOYPATH/"
