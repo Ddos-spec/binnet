@@ -1,8 +1,7 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYSOURCE=/home/binnetbi/repos/binnet/
     - export DEPLOYPATH=/home/binnetbi/public_html/
-    - test -f /home/binnetbi/repos/binnet/index.html
-    - test -d /home/binnetbi/public_html
-    - /bin/rsync -av --delete --exclude='.git/' --exclude='.cpanel.yml' --exclude='.well-known/' --exclude='cgi-bin/' --exclude='.htaccess' /home/binnetbi/repos/binnet/ /home/binnetbi/public_html/
+    - test -f site/index.html
+    - test -d "$DEPLOYPATH"
+    - /bin/rsync -av --delete --exclude='.well-known/' --exclude='cgi-bin/' --exclude='.htaccess' --exclude='.user.ini' --exclude='php.ini' site/ "$DEPLOYPATH"
