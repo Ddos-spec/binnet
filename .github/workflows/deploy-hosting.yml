@@ -45,37 +45,31 @@ jobs:
 
       - name: Deploy dist to BINNET hosting
         env:
-          FTP_HOST: ${{ secrets.FTP_HOST || secrets.SSH_HOST }}
-          FTP_USER: ${{ secrets.FTP_USER || 'vercel@binnet.biz.id' }}
+          FTP_HOST: ftp.binnet.biz.id
+          FTP_PORT: '21'
+          FTP_USER: ${{ secrets.FTP_USER || 'binnetbi' }}
           FTP_PASS: ${{ secrets.FTP_PASS }}
         shell: bash
         run: |
           set -euo pipefail
 
-          if [ -z "${FTP_HOST:-}" ]; then
-            echo "Missing GitHub secret: FTP_HOST (or legacy SSH_HOST)"
-            exit 1
-          fi
-          if [ -z "${FTP_USER:-}" ]; then
-            echo "Missing GitHub secret: FTP_USER"
-            exit 1
-          fi
           if [ -z "${FTP_PASS:-}" ]; then
-            echo "Missing GitHub secret: FTP_PASS"
+            echo "Missing GitHub repository secret: FTP_PASS"
             exit 1
           fi
 
-          LFTP_BASE="set cmd:fail-exit yes; set ftp:ssl-allow yes; set ftp:ssl-force no; set ssl:verify-certificate no; set net:timeout 30; set net:max-retries 3; open -u \"$FTP_USER\",\"$FTP_PASS\" ftp://$FTP_HOST;"
+          LFTP_BASE="set cmd:fail-exit yes; set ftp:ssl-allow yes; set ftp:ssl-force no; set ssl:verify-certificate no; set net:timeout 30; set net:max-retries 3; open -p $FTP_PORT -u \"$FTP_USER\",\"$FTP_PASS\" ftp://$FTP_HOST;"
 
-          # Some cPanel FTP users are jailed directly inside public_html, while
-          # main FTP users can see /public_html. Detect the correct target.
+          # The primary cPanel FTP account starts at /home/binnetbi, where
+          # public_html is the production document root. Dedicated FTP users
+          # may instead be jailed directly into public_html.
           if lftp -c "$LFTP_BASE cls -d /public_html >/dev/null; bye" >/dev/null 2>&1; then
             REMOTE_DIR="/public_html/"
           else
             REMOTE_DIR="/"
           fi
 
-          echo "Deploying Astro build to hosting target: $REMOTE_DIR"
+          echo "Deploying Astro build to BINNET hosting target: $REMOTE_DIR"
           lftp -c "$LFTP_BASE mirror --reverse --delete --verbose \
             --exclude .htaccess \
             --exclude-glob '.well-known/**' \
