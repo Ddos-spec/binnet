@@ -1,4 +1,4 @@
-name: Build BINNET for cPanel
+name: Publish BINNET static build
 
 on:
   push:
@@ -10,13 +10,13 @@ permissions:
   contents: write
 
 concurrency:
-  group: binnet-cpanel-build
+  group: binnet-production-build
   cancel-in-progress: true
 
 jobs:
-  build:
+  publish:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
 
     steps:
       - name: Checkout repository
@@ -25,7 +25,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '22'
+          node-version: '22.12.0'
           cache: npm
 
       - name: Install dependencies
@@ -34,51 +34,68 @@ jobs:
       - name: Build Astro site
         run: npm run build
 
-      - name: Validate build output
+      - name: Validate complete static build
+        shell: bash
         run: |
-          test -d dist
+          set -euo pipefail
           test -f dist/index.html
+          test -d dist/_astro
+          test -d dist/media
+
+          python3 <<'PY'
+          from pathlib import Path
+          import re
+          import sys
+
+          root = Path('dist')
+          html = (root / 'index.html').read_text(encoding='utf-8')
+          refs = set(re.findall(r'''(?:href|src)=["'](/(?:_astro|media|fonts)/[^"'#?]+)''', html))
+          missing = [ref for ref in sorted(refs) if not (root / ref.lstrip('/')).is_file()]
+
+          if missing:
+              print('Build references missing local assets:', file=sys.stderr)
+              for ref in missing:
+                  print(f'  - {ref}', file=sys.stderr)
+              sys.exit(1)
+
+          astro_files = list((root / '_astro').glob('*'))
+          if not astro_files:
+              print('dist/_astro is empty', file=sys.stderr)
+              sys.exit(1)
+
+          print(f'Validated {len(refs)} referenced assets and {len(astro_files)} Astro assets.')
+          PY
+
           printf '%s\n' "$GITHUB_SHA" > dist/deploy-health.txt
 
-      - name: Publish static build to cpanel-deploy
+      - name: Publish production files to cpanel-deploy branch
         shell: bash
         run: |
           set -euo pipefail
 
-          DEPLOY_DIR="$(mktemp -d)"
-          mkdir -p "$DEPLOY_DIR/site"
-          cp -a dist/. "$DEPLOY_DIR/site/"
-
-          cat > "$DEPLOY_DIR/.cpanel.yml" <<'YAML'
-          ---
-          deployment:
-            tasks:
-              - export DEPLOYPATH=/home/binnetbi/public_html/
-              - test -f site/index.html
-              - test -d "$DEPLOYPATH"
-              - /bin/rsync -av --delete --exclude='.well-known/' --exclude='cgi-bin/' --exclude='.htaccess' --exclude='.user.ini' --exclude='php.ini' site/ "$DEPLOYPATH"
-          YAML
+          BUILD_DIR="$(mktemp -d)"
+          cp -a dist/. "$BUILD_DIR/"
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          # Keep deployment history continuous so cPanel can fast-forward.
           git fetch origin cpanel-deploy
           git checkout -B cpanel-deploy origin/cpanel-deploy
 
           git rm -rf . >/dev/null 2>&1 || true
           find . -mindepth 1 -maxdepth 1 ! -name '.git' -exec rm -rf {} +
-          cp -a "$DEPLOY_DIR/." .
+          cp -a "$BUILD_DIR/." .
 
           git add -A
           if git diff --cached --quiet; then
-            echo "No deployment changes to publish."
+            echo "No production changes to publish."
           else
-            git commit -m "deploy: Astro build ${GITHUB_SHA::7}"
+            git commit -m "deploy: static build ${GITHUB_SHA::7}"
             git push origin cpanel-deploy
           fi
 
-      - name: Build summary
+      - name: Publish summary
         run: |
-          echo "Astro build published to branch cpanel-deploy under site/."
-          echo "cPanel repository: /home/binnetbi/repos/binnet"
+          echo "BINNET static build validated and published."
+          echo "Production branch: cpanel-deploy"
+          echo "Source commit: $GITHUB_SHA"
