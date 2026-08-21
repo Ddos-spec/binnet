@@ -16,7 +16,7 @@ concurrency:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
 
     steps:
       - name: Checkout repository
@@ -58,7 +58,13 @@ jobs:
             exit 1
           fi
 
-          LFTP_BASE="set cmd:fail-exit yes; set ftp:ssl-allow yes; set ftp:ssl-force no; set ssl:verify-certificate no; set net:timeout 30; set net:max-retries 3; open -p $FTP_PORT -u \"$FTP_USER\",\"$FTP_PASS\" ftp://$FTP_HOST;"
+          # cPanel advertises explicit FTPS on port 21. Force passive FTPS and
+          # conservative transfer settings because shared-hosting FTP servers
+          # can drop long-lived data connections from GitHub-hosted runners.
+          LFTP_BASE="set cmd:fail-exit yes; set ftp:passive-mode true; set ftp:ssl-allow yes; set ftp:ssl-force true; set ftp:ssl-protect-data true; set ssl:verify-certificate no; set net:timeout 60; set net:max-retries 10; set net:reconnect-interval-base 5; set net:reconnect-interval-multiplier 1; open -p $FTP_PORT -u \"$FTP_USER\",\"$FTP_PASS\" ftp://$FTP_HOST;"
+
+          echo "Checking cPanel FTP connection..."
+          lftp -c "$LFTP_BASE pwd; bye"
 
           # The primary cPanel FTP account starts at /home/binnetbi, where
           # public_html is the production document root. Dedicated FTP users
@@ -69,8 +75,11 @@ jobs:
             REMOTE_DIR="/"
           fi
 
+          echo "Testing FTPS data channel to $REMOTE_DIR ..."
+          lftp -c "$LFTP_BASE put -O $REMOTE_DIR dist/deploy-health.txt; bye"
+
           echo "Deploying Astro build to BINNET hosting target: $REMOTE_DIR"
-          lftp -c "$LFTP_BASE mirror --reverse --delete --verbose \
+          lftp -c "$LFTP_BASE mirror --reverse --continue --verbose --parallel=1 --delete \
             --exclude .htaccess \
             --exclude-glob '.well-known/**' \
             --exclude-glob 'cgi-bin/**' \
