@@ -16,7 +16,7 @@ concurrency:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 10
 
     steps:
       - name: Checkout repository
@@ -45,7 +45,8 @@ jobs:
 
       - name: Deploy dist to BINNET hosting
         env:
-          FTP_HOST: ftp.binnet.biz.id
+          FTP_HOSTNAME: ftp.binnet.biz.id
+          FTP_DIRECT_IP: 103.234.210.46
           FTP_PORT: '21'
           FTP_USER: ${{ secrets.FTP_USER || 'binnetbi' }}
           FTP_PASS: ${{ secrets.FTP_PASS }}
@@ -58,24 +59,43 @@ jobs:
             exit 1
           fi
 
-          # cPanel advertises explicit FTPS on port 21. Force passive FTPS and
-          # conservative transfer settings because shared-hosting FTP servers
-          # can drop long-lived data connections from GitHub-hosted runners.
-          LFTP_BASE="set cmd:fail-exit yes; set ftp:passive-mode true; set ftp:ssl-allow yes; set ftp:ssl-force true; set ftp:ssl-protect-data true; set ssl:verify-certificate no; set net:timeout 60; set net:max-retries 10; set net:reconnect-interval-base 5; set net:reconnect-interval-multiplier 1; open -p $FTP_PORT -u \"$FTP_USER\",\"$FTP_PASS\" ftp://$FTP_HOST;"
+          echo "Resolving FTP hostname..."
+          getent ahostsv4 "$FTP_HOSTNAME" || true
 
-          echo "Checking cPanel FTP connection..."
+          tcp_ok() {
+            local host="$1"
+            timeout 8 bash -c "cat < /dev/null > /dev/tcp/${host}/${FTP_PORT}" >/dev/null 2>&1
+          }
+
+          echo "Testing TCP ${FTP_HOSTNAME}:${FTP_PORT}..."
+          if tcp_ok "$FTP_HOSTNAME"; then
+            FTP_HOST="$FTP_HOSTNAME"
+            echo "Hostname endpoint is reachable."
+          else
+            echo "Hostname endpoint is not reachable from GitHub Actions."
+            echo "Testing direct hosting IP ${FTP_DIRECT_IP}:${FTP_PORT}..."
+            if tcp_ok "$FTP_DIRECT_IP"; then
+              FTP_HOST="$FTP_DIRECT_IP"
+              echo "Direct hosting IP is reachable; using IP fallback."
+            else
+              echo "ERROR: Neither ${FTP_HOSTNAME}:${FTP_PORT} nor ${FTP_DIRECT_IP}:${FTP_PORT} is reachable from GitHub Actions."
+              echo "This indicates a hosting firewall / FTP service reachability issue, not an Astro build issue."
+              exit 20
+            fi
+          fi
+
+          LFTP_BASE="set cmd:fail-exit yes; set ftp:passive-mode true; set ftp:ssl-allow yes; set ftp:ssl-force true; set ftp:ssl-protect-data true; set ssl:verify-certificate no; set net:timeout 20; set net:max-retries 2; set net:reconnect-interval-base 3; set net:reconnect-interval-multiplier 1; open -p $FTP_PORT -u \"$FTP_USER\",\"$FTP_PASS\" ftp://$FTP_HOST;"
+
+          echo "Testing explicit FTPS authentication..."
           lftp -c "$LFTP_BASE pwd; bye"
 
-          # The primary cPanel FTP account starts at /home/binnetbi, where
-          # public_html is the production document root. Dedicated FTP users
-          # may instead be jailed directly into public_html.
           if lftp -c "$LFTP_BASE cls -d /public_html >/dev/null; bye" >/dev/null 2>&1; then
             REMOTE_DIR="/public_html/"
           else
             REMOTE_DIR="/"
           fi
 
-          echo "Testing FTPS data channel to $REMOTE_DIR ..."
+          echo "Testing FTPS upload to $REMOTE_DIR..."
           lftp -c "$LFTP_BASE put -O $REMOTE_DIR dist/deploy-health.txt; bye"
 
           echo "Deploying Astro build to BINNET hosting target: $REMOTE_DIR"
